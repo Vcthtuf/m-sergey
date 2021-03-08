@@ -1,63 +1,8 @@
-//  common styles 
-    
-body 
-    max-width: 1200px
-    width: 100%
-    font-size: 16px
-    margin: 0 auto
-    padding: 0
-    background-color: #faf8f5
-    box-sizing: border-box
-
-input, button
-    outline: none
-    border: none
-    box-shadow: 0 2.5px 10px 0 #a7a7a7
-    font-size: 1rem
-    padding: .5rem 3%
-    &::placeholder
-        color: #a7a7a7
-
-li 
-    list-style-type: none
-
-a
-    text-decoration: none
-    color: #000
-    &:hover 
-        color: #ff6a30
-
-h1, h2, h3 
-    text-align: center
-
-.btn
-    display: block
-    margin: 0 auto
-    padding: 0.5em 1em
-    // background-color: #ff6a30
-    color: #fff
-    cursor: pointer
-    background-image: linear-gradient(336deg,#ffbd75,#ff964b),linear-gradient(#fff,#fff)
-    
-
+@import 'blocks/common'
 
 // sections styles
 
-.header
-    background-color: #ccc
-
-    .logo 
-        display: block
-        text-align: center
-        font-size: 2rem
-        min-height: 5rem
-        line-height: 5rem
-        cursor: pointer
-        text-decoration: none
-        color: #000
-
-    span
-        color: #ff6a30
+@import 'blocks/header'
 
 
 .app
@@ -66,53 +11,14 @@ h1, h2, h3
     width: 90%
     margin: 0 auto
 
-.aside 
-    width: 30%
-    margin-top: 5rem
-
-    .menu
-        display: block 
-        padding: 1rem 5%
-        margin: 0 10%
-        cursor: pointer
-        text-decoration: none
-
-        &:hover 
-            color: #ff6a30
-            background-color: #eee
+@import 'blocks/aside'
             
 .main
     width: 70%
 
     .data 
-        .nav_tabs
-            ul 
-                display: flex
-                justify-content: space-between
-                width: 80%
-                margin: 0 auto
-                
-                li 
-                    padding: 1rem 5%
-                    cursor: pointer
-                    &:hover 
-                        color: darkblue
-                        transform: scale(1.15)
 
-.footer 
-    padding: 1rem 5%
-    text-align: center
-    background-color: #ccc
-
-    &_menu 
-        display: flex
-        justify-content: space-evenly
-        margin: 0 auto
-
-        a
-            display: block 
-            padding: 1rem 0
-            
+@import 'blocks/footer'
 
                 
     

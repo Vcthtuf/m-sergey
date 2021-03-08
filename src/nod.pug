@@ -6,25 +6,13 @@ html(lang="ru")
         link(rel="icon" href="icon/favicon.ico" type="image/x-icon")
         meta(http-equiv='X-UA-Compatible' content='IE=edge')
         title Наибольший общий делитель
-        link(rel="stylesheet", href="css/style.min.css")
+        link(rel="stylesheet", href="css/nod.min.css")
     body
         
-        .header
-            a.logo(href="index.html") <span>Математика</span> для всех
+        include includes/_header.pug
             
         .app
-            .aside
-                nav.main_menu 
-                    li 
-                        a.menu(href="index.html") Главная
-                    li 
-                        a.menu(href="#") Наибольший общий делитель
-                    li 
-                        a.menu(href="#") Наименьшее общее кратное
-                    li 
-                        a.menu(href="#") Системы счисления
-                    li 
-                        a.menu(href="#") Факториал
+            include includes/_aside.pug
                 
             .main
                 .data
@@ -55,18 +43,6 @@ html(lang="ru")
                         p.title Задача. Найти НОД чисел 36 и 54.
 
                 .result
-        .footer
-            nav.footer_menu 
-                li 
-                    a.menu(href="index.html") Главная
-                li 
-                    a.menu(href="#") Наибольший общий делитель
-                li 
-                    a.menu(href="#") Наименьшее общее кратное
-                li 
-                    a.menu(href="#") Системы счисления
-                li 
-                    a.menu(href="#") Факториал
-            span Copyright 2020
+        include includes/_footer.pug
                     
         script(src="js/script.js")

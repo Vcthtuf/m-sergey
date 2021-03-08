@@ -1,0 +1,34 @@
+@import 'blocks/common'
+
+// sections styles
+
+@import 'blocks/header'
+
+
+.app
+    display: flex
+    justify-content: space-between
+    width: 90%
+    margin: 0 auto
+
+@import 'blocks/aside'
+            
+.main
+    width: 70%
+
+    .data 
+        .nav_tabs
+            ul 
+                display: flex
+                justify-content: space-between
+                width: 80%
+                margin: 0 auto
+                
+                li 
+                    padding: 1rem 5%
+                    cursor: pointer
+                    &:hover 
+                        color: darkblue
+                        transform: scale(1.15)
+
+@import 'blocks/footer'

@@ -9,22 +9,10 @@ html(lang="ru")
         link(rel="stylesheet", href="css/style.min.css")
     body
         
-        header.header
-            a.logo(href="#") <span>Математика</span> для всех
+        include includes/_header.pug
             
         .app
-            .aside
-                nav.main_menu 
-                    li 
-                        a.menu(href="#") Главная
-                    li 
-                        a.menu(href="nod.html") Наибольший общий делитель
-                    li 
-                        a.menu(href="#") Наименьшее общее кратное
-                    li 
-                        a.menu(href="#") Системы счисления
-                    li 
-                        a.menu(href="#") Факториал
+            include includes/_aside.pug
                 
             .main
                 .data
@@ -44,18 +32,6 @@ html(lang="ru")
                     p Темы по дискретной математике изучается в университетах будущими программистами. Другое название: прикладная математика. Кроме того, когда вам нужна подготовка к олимпиаде по математике, разделы и статьи сайта очень в этом помогут.
                     
                 .result
-        footer.footer
-            nav.footer_menu 
-                li 
-                    a.menu(href="#") Главная
-                li 
-                    a.menu(href="nod.html") Наибольший общий делитель
-                li 
-                    a.menu(href="#") Наименьшее общее кратное
-                li 
-                    a.menu(href="#") Системы счисления
-                li 
-                    a.menu(href="#") Факториал
-            span Copyright 2020
+        include includes/_footer.pug
                     
         script(src="js/script.js")
