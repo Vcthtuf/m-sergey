@@ -31,9 +31,7 @@ window.addEventListener('DOMContentLoaded', function () {
                 }
             }
         }
-
     });
-
 
     function hideTabContent(a) {                        // функция скрытия контента
         for (let i = a; i < tabContent.length; i++) {
@@ -50,6 +48,8 @@ window.addEventListener('DOMContentLoaded', function () {
             tabContent[b].classList.add('show');
         }
     }
+
+    // ---------------------------------------------
 
 
 
