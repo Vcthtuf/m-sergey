@@ -22,15 +22,17 @@ html(lang="ru")
                                 li.tab Теория
                                 li.tab Примеры
                         section.solution 
-                            h2.solution_title Онлайн нахождение наибольшего общего делителя (НОД) чисел
-                            span.solution_instruction Введите ваши числа
+                            h2.solution_title Онлайн расчет наибольшего общего делителя (НОД) чисел
+                            span.solution_instruction Введите ваши числа:
                             .solution_input
                                 input(type="text" placeholder = "Введите число")
                                 input(type="text" placeholder = "Введите число")
-                            button Рассчитать
+                            button.calc.btn Рассчитать
                             .solution_result 
-                                span Наибольший общий делитель чисел равен:
+                                span Наибольший общий делитель (НОД) чисел равен:
                                 input(type="text")
+                            button.solution_btn.btn Решение
+                            .solution_text
                         section.theory 
                             h3 Наибольший общий делитель (НОД)
                             p Начнем с того, что разберемся, что же такое НОД. Возьмем два числа a и b. Наибольший общий делитель — это такое число, на которое делятся без остатка оба числа a и b. Записывается оно следующим образом НОД (a;b).

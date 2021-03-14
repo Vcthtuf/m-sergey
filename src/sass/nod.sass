@@ -30,7 +30,7 @@
                     padding: 1rem 5%
                     cursor: pointer
                     &:hover 
-                        color: darkblue
+                        color: red
                         transform: scale(1.15)
 
         .examples 
@@ -41,11 +41,47 @@
                     text-decoration: underline
 
         .solution
+            text-align: center
+
+            &_title
+                margin-bottom: 5rem
+
+            &_instruction 
+                display: block
+                font-size: 1.5rem
+                margin-bottom: 1rem
+
+            &_input 
+                display: flex
+                justify-content: space-evenly    
+                width: 80%
+                margin: 0 auto 3rem auto
+                
+                input
+                    text-align: center
+
+            button 
+                margin-bottom: 2rem
+
+            &_result 
+                margin-bottom: 2rem
+
+                span
+                    display: block
+                    font-size: 1.5rem
+                    margin-bottom: 1rem
+
+                input 
+                    text-align: center
 
 .show 
     display: block
 
 .hide 
     display: none
+
+.active 
+    font-size: 1.2rem
+    color: blue
 
 @import 'blocks/footer'
