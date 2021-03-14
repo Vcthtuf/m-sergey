@@ -99,7 +99,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
     // ----------------------------------
 
-    // функция вывода решения
+    // Вывод решения
 
 
 
@@ -107,25 +107,24 @@ window.addEventListener('DOMContentLoaded', function () {
         solutionBtn = document.querySelector('.solution_btn');
 
     solutionBtn.addEventListener('click', function () {
-        solutionText.insertAdjacentHTML('afterbegin', '<h3> Решение </h3>');
-        for (let i = 0; i <= inputValue.length; i++) {
+        solutionText.textContent = '';
+        solutionText.insertAdjacentHTML('afterbegin', '<h3 style="text-align: center"> Решение </h3>');
+        solutionText.insertAdjacentHTML('beforeend', `Найти НОД чисел: ${inputValue[0]} и ${inputValue[1]} <br>`);
+        for (let i = 0; i < inputValue.length; i++) {
+            solutionText.insertAdjacentHTML('beforeend', `Раскладываем число ${inputValue[i]} на простые множители:  <br>`);
 
-            solutionText.append(fact(inputValue[i]));
-            solutionText.append('<br>');
+            let simpleNum = [];
+            simpleNum = fact(inputValue[i]);
+            solutionText.insertAdjacentHTML('beforeend', `${inputValue[i]} = ${simpleNum.join('&middot;')} <br>`);
+
         }
+
+        solutionText.insertAdjacentHTML('beforeend', 'Находим общие множители двух чисел:');
+
+
+
+
     });
-
-
-    // solutionText.append(fact(36));
-
-    console.log(fact(54));
-    console.log(inputValue);
-    // console.log(simpleNumbers);
-
-
-
-
-
 
 
 });
