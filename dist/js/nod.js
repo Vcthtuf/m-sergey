@@ -63,6 +63,11 @@ window.addEventListener('DOMContentLoaded', function () {
         calcBtn = document.querySelector('.calc'),
         inputResult = document.querySelector('.solution_result > input');
 
+    let appData = {
+        result: 0,
+        inputValue: []
+    };
+
     let nod = function (a, b) {
         if (!b) {
             return a;
@@ -70,11 +75,24 @@ window.addEventListener('DOMContentLoaded', function () {
         return nod(b, a % b);
     }
 
+    appData.result = nod(inputItems[0].value, inputItems[1].value);
+
     calcBtn.addEventListener('click', function () {
+
         for (let i = 0; i < inputItems.length; i++) {
             inputValue[i] = +inputItems[i].value;
+            appData.inputValue.push(inputValue[i]);
         }
-        inputResult.value = nod(...inputValue);
+        // inputResult.value = nod(...inputValue);
+
+        appData.result = nod(...inputValue);
+        inputResult.value = appData.result;
+
+        for (let i = 0; i < appData.inputValue.length; i++) {
+            appData.simpleFactor = {};
+            appData.simpleFactor[i] = fact(inputValue[i]);
+        }
+        console.log(appData);
     });
 
     // ------------------------------------------------
@@ -97,6 +115,14 @@ window.addEventListener('DOMContentLoaded', function () {
         return simpleNumbers;
     };
 
+    // разложение на простые множители чисел
+
+
+    for (let i = 0; i < appData.inputValue.length; i++) {
+        appData.simpleFactor = {};
+        appData.simpleFactor = fact(inputValue[i]);
+    }
+    console.log(appData);
     // ----------------------------------
 
     // Вывод решения
