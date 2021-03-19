@@ -2,30 +2,23 @@ window.addEventListener('DOMContentLoaded', function () {
 
     'use strict';
 
-    let blockInput = document.querySelector('.solution_input'),
-        blockMenu = document.querySelector('.nav_tabs > ul'),
+    // Tabs
+
+    let blockMenu = document.querySelector('.nav_tabs > ul'),
         tabs = document.querySelectorAll('.tab'),
         tabContent = document.querySelectorAll('section');
 
-    // Очистка inputs при фокусе
+    hideTabContent(1);                              // скрытие вего контента, кроме первого таба
+    tabs[0].classList.add('active');                // показ первого таба
 
-    blockInput.addEventListener('click', function (event) {
-        let target = event.target;
-        target.setAttribute('placeholder', '');
-    });
 
-    // -------------------------
-
-    // Tabs
-
-    blockMenu.addEventListener('click', function (event) {
+    blockMenu.addEventListener('click', function (event) {   // обработка клика выбора табов
         let target = event.target;
         if (target && target.classList.contains('tab')) {
 
             for (let i = 0; i < tabs.length; i++) {
                 if (target == tabs[i]) {
                     console.log(target);
-                    // target.classList.add('active');
                     hideTabContent(0);
                     showTabContent(i);
                     break;
@@ -42,15 +35,11 @@ window.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    hideTabContent(1);
-    tabs[0].classList.add('active');
-
     function showTabContent(b) {                        // функция показа контента
         for (let i = 0; i < tabContent.length; i++) {
             tabContent[b].classList.remove('hide');
             tabContent[b].classList.add('show');
             tabs[b].classList.add('active');
-
         }
     }
 
@@ -58,48 +47,57 @@ window.addEventListener('DOMContentLoaded', function () {
 
     // Расчет НОД 
 
-    let inputValue = [],
+    let inputValue = [],      // массив входных чисел
+        blockInput = document.querySelector('.solution_input'),
         inputItems = document.querySelectorAll('.solution_input > input'),
         calcBtn = document.querySelector('.calc'),
         inputResult = document.querySelector('.solution_result > input');
 
-    let appData = {
-        result: 0,
-        inputValue: []
+    let appData = {    // объект для хранения данных
+        result: 1,
+        inputValue: [],
+        simpleNum: [[], []],
+        commonFactors: [],
+        resultNod: 1
     };
 
-    let nod = function (a, b) {
+    blockInput.addEventListener('click', function (event) {  // скрытие значений input и очистка данных при клике 
+        let target = event.target;
+        target.setAttribute('placeholder', '');
+        target.value = '';
+        appData.result = 1;
+        appData.inputValue = [];
+        appData.simpleNum = [[], []];
+        appData.commonFactors = [];
+        appData.resultNod = 1;
+    });
+
+    let nod = function (a, b) {    // функция быстрого вычисления НОД для вывода ответа
         if (!b) {
             return a;
         }
         return nod(b, a % b);
     }
 
-    appData.result = nod(inputItems[0].value, inputItems[1].value);
-
-    calcBtn.addEventListener('click', function () {
+    calcBtn.addEventListener('click', function () {  // обработка клика по кнопке "Рассчитать", вывода результата и очистка решения
 
         for (let i = 0; i < inputItems.length; i++) {
             inputValue[i] = +inputItems[i].value;
             appData.inputValue.push(inputValue[i]);
         }
-        // inputResult.value = nod(...inputValue);
-
         appData.result = nod(...inputValue);
         inputResult.value = appData.result;
-
-        for (let i = 0; i < appData.inputValue.length; i++) {
-            appData.simpleFactor = {};
-            appData.simpleFactor[i] = fact(inputValue[i]);
-        }
-        console.log(appData);
+        solutionText.textContent = '';
     });
 
     // ------------------------------------------------
 
-    // функция разложения на простые множители
+    // Расчет НОД методом разложения на множители
 
-    function fact(number) {
+    let solutionText = document.querySelector('.solution_text'),
+        solutionBtn = document.querySelector('.solution_btn');
+
+    function fact(number) {     // функция разложения на простые множители
         let b = 2,
             simpleNumbers = [];
         while (number > b) {
@@ -119,20 +117,45 @@ window.addEventListener('DOMContentLoaded', function () {
 
 
     for (let i = 0; i < appData.inputValue.length; i++) {
-        appData.simpleFactor = {};
-        appData.simpleFactor = fact(inputValue[i]);
+        appData.simpleNum[i] = fact(inputValue[i]);
     }
-    console.log(appData);
     // ----------------------------------
 
-    // Вывод решения
+    function commonFactor() {      // нахождение общих множителей
 
+        appData.simpleNum[0].forEach(function (item) {
+            if (appData.simpleNum[1].indexOf(item) != -1) {
+                appData.commonFactors.push(item);
+                appData.simpleNum[1].splice(appData.simpleNum[1].indexOf(item), 1);
+            }
+        });
+    }
 
+    function calcNod(arr) {                         // нахождение НОД для решения методом разложения
+        arr.forEach(function (item) {
+            appData.resultNod *= item;
+        })
+        return appData;
+    }
 
-    let solutionText = document.querySelector('.solution_text'),
-        solutionBtn = document.querySelector('.solution_btn');
+    // Вывод решения методом разложения
+
 
     solutionBtn.addEventListener('click', function () {
+
+        for (let i = 0; i < appData.inputValue.length; i++) {
+            appData.simpleNum[i] = fact(inputValue[i]);
+        }
+
+        commonFactor();
+        calcNod(appData.commonFactors);
+        showSolution();    // вывод решения
+
+    });
+
+    // функция вывода решения методом разложения
+
+    function showSolution() {
         solutionText.textContent = '';
         solutionText.insertAdjacentHTML('afterbegin', '<h3 style="text-align: center"> Решение </h3>');
         solutionText.insertAdjacentHTML('beforeend', `Найти НОД чисел: ${inputValue[0]} и ${inputValue[1]} <br>`);
@@ -142,15 +165,22 @@ window.addEventListener('DOMContentLoaded', function () {
             let simpleNum = [];
             simpleNum = fact(inputValue[i]);
             solutionText.insertAdjacentHTML('beforeend', `${inputValue[i]} = ${simpleNum.join('&middot;')} <br>`);
-
         }
 
-        solutionText.insertAdjacentHTML('beforeend', 'Находим общие множители двух чисел:');
+        if (appData.commonFactors.length > 1) {
 
+            solutionText.insertAdjacentHTML('beforeend', 'Находим общие множители двух чисел. Они равны: ' + appData.commonFactors.join(',') + '.<br>');
+            solutionText.insertAdjacentHTML('beforeend', 'Перемножаем общие делители обоих чисел: ' + appData.commonFactors.join('&middot;') + ' = ' + appData.resultNod + '. <br>');
+            solutionText.insertAdjacentHTML('beforeend', 'Получаем ответ. Наибольший общий делитель чисел равен ' + appData.resultNod + '.');
 
+        } else if (appData.commonFactors.length === 1) {
+            solutionText.insertAdjacentHTML('beforeend', 'Находим общие множители двух чисел. Он один и равен: ' + appData.commonFactors[0] + '.<br>');
 
+            solutionText.insertAdjacentHTML('beforeend', 'Получаем ответ. Наибольший общий делитель чисел НОД = ' + appData.commonFactors[0] + '.');
+        } else if (appData.commonFactors.length === 0) {
+            solutionText.insertAdjacentHTML('beforeend', 'Находим общие множители двух чисел. Он один и равен: 1' + '.<br>');
 
-    });
-
-
+            solutionText.insertAdjacentHTML('beforeend', 'Получаем ответ. Наибольший общий делитель чисел НОД = 1.');
+        }
+    }
 });
