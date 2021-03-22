@@ -146,18 +146,46 @@ window.addEventListener('DOMContentLoaded', function () {
         for (let i = 0; i < appData.inputValue.length; i++) {
             appData.simpleNum[i] = fact(inputValue[i]);
         }
-
+        solutionText.textContent = '';
         commonFactor();
         calcNod(appData.commonFactors);
-        showSolution();    // вывод решения
+        showSolution();    // вывод решения методом разложения
 
     });
+
+    // функция вывода рещения алгоритмом Евклида
+    let k, nodEvklid;
+    function showEvklid(a, b) {
+        solutionText.insertAdjacentHTML('beforeend', `Найти НОД чисел: ${inputValue[0]} и ${inputValue[1]} <br>`);
+        solutionText.insertAdjacentHTML('beforeend', `Делим большее число на меньшее, а далее делитель на остаток от деления <br>`);
+        calcEvklid(a, b);
+        k = null;
+        solutionText.insertAdjacentHTML('beforeend', `Последний ненулевой остаток равен: ${nodEvklid} <br>`);
+        solutionText.insertAdjacentHTML('beforeend', `Следовательно, НОД равен: ${nodEvklid}. <br>`);
+
+    }
+
+    // функция вычисления НОД алгоритмом Евклида
+
+    function calcEvklid(a, b) {
+        if (a < b) { let c = a; a = b; b = c; }
+        if (k != 0) {
+            k = a % b;
+            solutionText.insertAdjacentHTML('beforeend', ` ${a} : ${b} = ${Math.floor(a / b)} остаток ${k} <br>`);
+            if (k === 0) {
+                nodEvklid = b; return nodEvklid;
+            } else {
+                calcEvklid(b, k);
+            }
+        }
+    }
 
     // функция вывода решения методом разложения
 
     function showSolution() {
         solutionText.textContent = '';
-        solutionText.insertAdjacentHTML('afterbegin', '<h3 style="text-align: center"> Решение </h3>');
+        solutionText.insertAdjacentHTML('afterbegin', '<h3 style="text-align: center; margin-bottom: 1rem;"> Решение </h3>');
+        solutionText.insertAdjacentHTML('beforeend', '<p style="text-align: center; font-size: 1.5rem;"> 1 способ. Метод разложения на простые множители </p>');
         solutionText.insertAdjacentHTML('beforeend', `Найти НОД чисел: ${inputValue[0]} и ${inputValue[1]} <br>`);
         for (let i = 0; i < inputValue.length; i++) {
             solutionText.insertAdjacentHTML('beforeend', `Раскладываем число ${inputValue[i]} на простые множители:  <br>`);
@@ -182,5 +210,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
             solutionText.insertAdjacentHTML('beforeend', 'Получаем ответ. Наибольший общий делитель чисел НОД = 1.');
         }
+        solutionText.insertAdjacentHTML('beforeend', '<p style="text-align: center; font-size: 1.5rem;"> 2 способ. Алгоритм Евклида</p>');
+        showEvklid(inputValue[0], inputValue[1]);
     }
 });
