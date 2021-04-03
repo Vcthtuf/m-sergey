@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="icon" href="icon/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>Наименьшее общее кратное</title>
+    <link rel="stylesheet" href="css/nod.min.css"/>
+  </head>
+  <body>
+    <header class="header"><a class="logo" href="#"><span>Математика</span> для всех</a></header>
+    <div class="wrapper">   
+      <div class="app">
+        <aside class="aside">
+          <nav class="main_menu"> 
+            <li> <a class="menu" href="index.html">Главная</a></li>
+            <li> <a class="menu" href="nod.html">Наибольший общий делитель</a></li>
+            <li> <a class="menu" href="nok.html">Наименьшее общее кратное</a></li>
+            <li> <a class="menu" href="#">Системы счисления</a></li>
+            <li> <a class="menu" href="#">Факториал</a></li>
+          </nav>
+        </aside>
+        <div class="main">
+          <div class="data">
+            <div class="nav_tabs"> 
+              <ul> 
+                <li class="tab">Онлайн калькулятор</li>
+                <li class="tab">Теория</li>
+                <li class="tab">Примеры</li>
+              </ul>
+            </div>
+            <section class="solution"> 
+              <h2 class="solution_title">Онлайн расчет наименьшего общего кратного (НОК) чисел</h2><span class="solution_instruction">Введите ваши числа:</span>
+              <div class="solution_input">
+                <input type="number" placeholder="Введите число" required="required"/>
+                <input type="number" placeholder="Введите число" required="required"/>
+              </div>
+              <button class="calc btn">Рассчитать</button>
+              <div class="solution_result"> <span>Наименьшее общее кратное (НОК) чисел равно:</span>
+                <input type="text"/>
+              </div>
+              <button class="solution_btn btn">Решение</button>
+              <div class="solution_text"></div>
+            </section>
+            <section class="theory"> 
+              <h3>Наименьшее общее кратное (НОК)</h3>
+              <p>НОК — это наименьшее положительное число, кратное двум или более числам.</p>
+              <h3>Что такое «Кратное» ?</h3>
+              <p>Мы получаем кратное число, когда мы умножаем его на другое число . <br> Например, умножение на 1, 2, 3, 4, 5 и т. д., Но не на ноль . Так же, как в таблице умножения.</p>
+              <ul class="theory_list"> 
+                <li>кратные 4 являются: 4,8,12,16,20,24,28,32,36,40,44, …</li>
+                <li>кратные 5 : 5,10,15,20,25,30,35,40,45,50, …      </li>
+              </ul>
+              <h3>Что такое «Общее кратное»?   </h3>
+              <p>Раньше мы перечислили первые несколько кратных чисел 4 и 5 : общие кратные найдены в обоих списках.</p>
+              <ul class="theory_list"> 
+                <li>Кратные 4: 4,8,12,16, 20 , 24,28,32,36, 40 , 44, …</li>
+                <li>Кратные 5: 5,10,15, 20 , 25,30,35, 40 , 45,50, …</li>
+              </ul>
+              <h3>Что такое «Наименьшее общее кратное»?</h3>
+              <p>Это просто наименьшее из общих кратных.<br>В нашем предыдущем примере наименьшее из общих кратных составляет 20. Поэтому наименьшее общее кратное 4 и 5 равно 20 .</p>
+            </section>
+            <section class="examples"> 
+              <h3>Нахождение наименьшего общего кратного (1 способ)</h3>
+              <p>В этом методе нужно перечислить кратные для каждого числа, пока мы не получим первое совпадение.</p>
+              <p class="title">Задача. Найти НОК чисел 4 и 10.</p>
+              <p>Кратные 4:  числа 4, 8, 12, 16, 20, …</p>
+              <p>и кратные 10:  числа 10, 20, …</p>
+              <p>Eсть совпадение на 20. Таким образом, наименьшее общее кратное 4 и 10 составляет 20.</p>
+              <p>Ответ: НОК (4,10) = 20.</p>
+              <p>Еще один пример:</p>
+              <p>Найти наименьшее общее кратное 6 и 15:</p>
+              <p>Кратные 6:  6, 12, 18, 24, 30, …</p>
+              <p>и кратные 15:  15, 30, …</p>
+              <p>Совпадение на 30.</p>
+              <p>Таким образом, наименьшее общее кратное 6 и 15 составляет 30.</p>
+              <p>Записываем ответ: НОК (6,15) = 30.</p>
+              <h3>2 способ находения НОК</h3>
+              <p>Для этого нужно найти наибольший общий делитель НОД) двух чисел. Если вы не знаете как это делается, то перейдите по ссылке <a href="nod.html">Нахождение НОД чисел</a></p>
+              <p>Далее, нужно умножить два числа и результат поделить на НОД.</p>
+              <p>Или по формуле: НОК(a,b) = a &middot; b / НОД</p>
+              <p>Найти наименьшее общее кратное 8 и 18:</p>
+              <p>Произведение чисел: 8 &middot; 18 = 144;</p>
+              <p>Наибольший общий делитель этих чисел НОД(8,18) = 2;</p>
+              <p>НОК равен: НОК(8,18) = 144 / 2 = 72.</p>
+              <p>Таким образом, наименьшее общее кратное 8 и 18 составляет 72.</p>
+              <p>Записываем ответ: НОК (8,18) = 72.</p>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <nav class="footer_menu"> 
+        <li> <a class="menu" href="#">Главная</a></li>
+        <li> <a class="menu" href="nod.html">Наибольший общий делитель</a></li>
+        <li> <a class="menu" href="#">Наименьшее общее кратное</a></li>
+        <li> <a class="menu" href="#">Системы счисления</a></li>
+        <li> <a class="menu" href="#">Факториал</a></li>
+      </nav><span>Copyright 2020</span>
+    </footer>
+    <script src="js/nok.js"></script>
+  </body>
+</html>

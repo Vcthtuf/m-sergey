@@ -18,7 +18,6 @@ window.addEventListener('DOMContentLoaded', function () {
 
             for (let i = 0; i < tabs.length; i++) {
                 if (target == tabs[i]) {
-                    console.log(target);
                     hideTabContent(0);
                     showTabContent(i);
                     break;
