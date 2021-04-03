@@ -50,7 +50,9 @@ window.addEventListener('DOMContentLoaded', function () {
         blockInput = document.querySelector('.solution_input'),
         inputItems = document.querySelectorAll('.solution_input > input'),
         calcBtn = document.querySelector('.calc'),
-        inputResult = document.querySelector('.solution_result > input');
+        inputResult = document.querySelector('.solution_result > input'),
+        nok = 1,
+        nod = 1;
 
     let appData = {    // объект для хранения данных
         // nok: 1,
@@ -64,22 +66,21 @@ window.addEventListener('DOMContentLoaded', function () {
         target.value = '';
         appData.resultNok = 1;
         appData.inputValue = [];
-        appData.nok = 1;
+        nod = 1;
         multiply_1 = [];
         multiply_2 = [];
-        // nok = 1;
+        nok = 1;
     });
 
-    let nod = function (a, b) {                     // функция нахождения НОД
+    function calcNod(a, b) {                     // функция нахождения НОД
         if (!b) {
             return a;
         }
-        return nod(b, a % b);
+        return nod = calcNod(b, a % b);
     }
 
-    function nok(a, b) {                            // функция быстрого вычисления НОK для вывода ответа
-
-        return nok = (a * b) / nod(a, b);
+    function calcNok(a, b) {                            // функция быстрого вычисления НОK для вывода ответа
+        return nok = (a * b) / calcNod(a, b);
     }
 
     calcBtn.addEventListener('click', function () {  // обработка клика по кнопке "Рассчитать", вывода результата и очистка решения
@@ -88,7 +89,8 @@ window.addEventListener('DOMContentLoaded', function () {
             inputValue[i] = +inputItems[i].value;
             appData.inputValue.push(inputValue[i]);
         }
-        appData.resultNok = nok(...inputValue);
+        calcNod(...inputValue);
+        appData.resultNok = calcNok(...inputValue);
         inputResult.value = appData.resultNok;
         solutionText.textContent = '';
     });
@@ -153,8 +155,8 @@ window.addEventListener('DOMContentLoaded', function () {
         solutionText.insertAdjacentHTML('beforeend', `Найти НОK чисел: ${inputValue[0]} и ${inputValue[1]}. <br><br>`);
         solutionText.insertAdjacentHTML('beforeend', `Умножаем два числа:  ${inputValue[0]} &middot; ${inputValue[1]} = ${a * b}.
         <br>`);
-        solutionText.insertAdjacentHTML('beforeend', `Наибольший общий делитель чисел ${inputValue[0]} и ${inputValue[1]} равен ${nod(a, b)}. <br>`);
-        solutionText.insertAdjacentHTML('beforeend', `Наименьшее общее кратное равно: ( ${inputValue[0]} &middot;  ${inputValue[1]}) / ${nod(a, b)} = ${(a * b) / nod(a, b)}. <br>`);
+        solutionText.insertAdjacentHTML('beforeend', `Наибольший общий делитель чисел ${inputValue[0]} и ${inputValue[1]} равен ${nod}. <br>`);
+        solutionText.insertAdjacentHTML('beforeend', `Наименьшее общее кратное равно: ${inputValue[0] * inputValue[1]} / ${nod} = ${nok}. <br>`);
         solutionText.insertAdjacentHTML('beforeend', `Ответ: НОК(${inputValue[0]}, ${inputValue[1]}) = ${nok}. <br>`);
     }
 
