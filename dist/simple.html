@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="icon" href="icon/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>Разложение на простые множители</title>
+    <link rel="stylesheet" href="css/nod.min.css"/>
+  </head>
+  <body>
+    <header class="header"><a class="logo" href="#"><span>Математика</span> для всех</a></header>
+    <div class="wrapper">   
+      <div class="app">
+        <aside class="aside">
+          <nav class="main_menu"> 
+            <li> <a class="menu" href="index.html">Главная</a></li>
+            <li> <a class="menu" href="nod.html">Наибольший общий делитель</a></li>
+            <li> <a class="menu" href="nok.html">Наименьшее общее кратное</a></li>
+            <li> <a class="menu" href="simple.html">Разложение на простые множители</a></li>
+            <li> <a class="menu" href="#">Системы счисления</a></li>
+            <li> <a class="menu" href="#">Факториал</a></li>
+          </nav>
+        </aside>
+        <div class="main">
+          <div class="data">
+            <div class="nav_tabs"> 
+              <ul> 
+                <li class="tab">Онлайн калькулятор</li>
+                <li class="tab">Теория</li>
+                <li class="tab">Примеры</li>
+              </ul>
+            </div>
+            <section class="solution"> 
+              <h2 class="solution_title">Онлайн разложение на простые множители</h2><span class="solution_instruction">Введите ваши число:</span>
+              <div class="solution_input">
+                <input type="number" placeholder="Введите число" required="required"/>
+              </div>
+              <button class="calc btn">Разложить</button>
+              <div class="solution_result"> <span>Простые множители числа:</span>
+                <input type="text"/>
+              </div>
+              <button class="solution_btn btn">Решение</button>
+              <div class="solution_text"></div>
+            </section>
+            <section class="theory"> 
+              <h2>Простые и составные числа</h2>
+              <h3>Простые числа</h3>
+              <blockquote>Натуральное число называется простым, если оно делится без остатка только на себя и на единицу.</blockquote>
+              <p>Пример простого числа — это число 2. Оно делится без остатка только на себя (т.е. 2) и на единицу. Проверим: 2 : 2 = 1 (остаток 0) и 2 : 1 = 2 (остаток 0).</p>
+              <p>Также простыми числами являются следующие числа: 3, 5, 7, 11, 13, 17, 19, 23 , 29, 31 и т. д.</p>
+              <p>Простых чисел бесконечное множество. Один из способов получения таблицы простых чисел является метод, который носит название решето Эратосфена.</p>
+              <h3>Составные числа</h3>
+              <blockquote>Числа, которые не являются простыми и имеют другие делители (кроме себя и единицы), называют составными.</blockquote>
+              <p>Пример составного числа — это число 4. Оно делится без остатка на само себя и на единицу, т.е. 4 : 4 = 1 (остаток 0), 4 : 1 = 4 (остаток 0), но кроме того еще и делится на 2 (4 : 2 = 2). Поэтому такое число называют составным</p>
+              <p>Примеры составных чисел: 4, 6, 8, 9, 10, 12, 14, 15, 16, 18, 20, 21 и т. д. Все эти числа делятся не только на себя и единицу, но также и на другие числа. Например, число 14 делится на 1, 2, 7, 14 — это составное число. Число 21 делится на 1, 3, 7 и 21 — тоже составное число.</p>
+              <p>Отдельно в математике рассматривается число 1.</p>
+              <blockquote>Единица не является ни простым ни составным числом.</blockquote>
+            </section>
+            <section class="examples"> 
+              <h2>Разложение на простые множители</h2>
+              <p>Любое составное число можно разложить на простые множители.  Существует несколько способов разложения. в этой статье научимся одному из способов разложения, который является одним из самых простых.</p>
+              <h3>Алгоритм разложения на простые множители</h3>
+              <blockquote>Определяем, является ли число простым. <br> Если оно простое, то делим его на простые числа, начиная с двух (2, 3, 5, 7, 11 и т. д.). <br> Повторяем предыдущее действие, пока частное от деления не будет простым числом.</blockquote>
+              <h3>Пример разложения на простые множители</h3>
+              <p class="title">Разложим на простые множители число 54 :  </p>
+              <blockquote>54 не является простым. <br> 54 делится на <span class="red">2</span>, поэтому записываем: 54 : 2 = 27. <br> 27 не делится на 2. Пробуем следующее простое число — это число 3. <br> 27 делится на <span class="red">3</span>, получаем   27 : 3 = 9.  <br> 9 не делится на 2, поэтому пробуем деление на 3. <br> 9 делится на <span class="red">3</span>. Записываем 9 : 3 = 3. <br> <span class="red">3</span> — это простое число. Разложение окончено.</blockquote>
+              <p class="title">Ответ:   54 = 2 · 3 · 3  · 3.</p>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <nav class="footer_menu"> 
+        <li> <a class="menu" href="#">Главная</a></li>
+        <li> <a class="menu" href="nod.html">Наибольший общий делитель</a></li>
+        <li> <a class="menu" href="#">Наименьшее общее кратное</a></li>
+        <li> <a class="menu" href="#">Системы счисления</a></li>
+        <li> <a class="menu" href="#">Факториал</a></li>
+      </nav><span>Copyright 2020</span>
+    </footer>
+    <script src="js/simple.js"></script>
+  </body>
+</html>

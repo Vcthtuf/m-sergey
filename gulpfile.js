@@ -37,7 +37,7 @@ gulp.task('styles', function () {
 
 gulp.task('watch', function () {
     gulp.watch("src/sass/**/*.+(scss|sass)", gulp.parallel('styles'));
-    gulp.watch("src/*.pug", gulp.parallel('pug'));
+    gulp.watch("src/**/*.pug", gulp.parallel('pug'));
 })
 
 gulp.task('default', gulp.parallel('watch', 'server', 'pug', 'styles'));
