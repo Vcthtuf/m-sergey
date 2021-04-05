@@ -1,6 +1,4 @@
-window.addEventListener('DOMContentLoaded', function () {
-
-    'use strict';
+$(document).ready(function () {
 
     // Tabs
 
@@ -44,120 +42,124 @@ window.addEventListener('DOMContentLoaded', function () {
 
     // ---------------------------------------------
 
-    // Расчет НОК 
+    // Разложение на простые множители
 
-    let inputValue = [],      // массив входных чисел
+    let inputValue = document.querySelector('.solution_input > input'),      // входное число
         blockInput = document.querySelector('.solution_input'),
-        inputItems = document.querySelectorAll('.solution_input > input'),
         calcBtn = document.querySelector('.calc'),
         inputResult = document.querySelector('.solution_result > input'),
-        nok = 1,
-        nod = 1;
+        solutionBtn = document.querySelector('.solution_btn'),
+        solutionText = document.querySelector('.solution_text'),
+        simpleNumbers = [];
 
-    let appData = {    // объект для хранения данных
-        // nok: 1,
-        inputValue: [],
-        resultNok: 1
-    };
+
 
     blockInput.addEventListener('click', function (event) {  // скрытие значений input и очистка данных при клике 
         let target = event.target;
         target.setAttribute('placeholder', '');
         target.value = '';
-        appData.resultNok = 1;
-        appData.inputValue = [];
-        nod = 1;
-        multiply_1 = [];
-        multiply_2 = [];
-        nok = 1;
+        dividedYes = [];
+        dividedNo = [];
     });
 
-    function calcNod(a, b) {                     // функция нахождения НОД
-        if (!b) {
-            return a;
-        }
-        return nod = calcNod(b, a % b);
-    }
-
-    function calcNok(a, b) {                            // функция быстрого вычисления НОK для вывода ответа
-        return nok = (a * b) / calcNod(a, b);
-    }
-
-    calcBtn.addEventListener('click', function () {  // обработка клика по кнопке "Рассчитать", вывода результата и очистка решения
-
-        for (let i = 0; i < inputItems.length; i++) {
-            inputValue[i] = +inputItems[i].value;
-            appData.inputValue.push(inputValue[i]);
-        }
-        calcNod(...inputValue);
-        appData.resultNok = calcNok(...inputValue);
-        inputResult.value = appData.resultNok;
+    calcBtn.addEventListener('click', function () {  // обработка клика по кнопке "Разложить", вывода результата и очистка решения
+        getSimpleFactors(inputValue.value);
+        inputResult.value = `${inputValue.value} = ${simpleNumbers.join(' * ')}`;
         solutionText.textContent = '';
     });
 
     // ------------------------------------------------
+    let dividedYes = [], dividedNo = [];
+    function getSimpleFactors(n) {  // функция вычисления проcтых множителей числа
+        simpleNumbers = [];
 
-    // Расчет НОК первым способом
 
-    let solutionText = document.querySelector('.solution_text'),
-        solutionBtn = document.querySelector('.solution_btn');
+        function isPrime(n) {             // функция проверки на простое число
+
+            for (let i = 2; i <= Math.sqrt(n); i++) {
+                if (n % i === 0) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+
+        function checkDivided(n, i) {         // функция проверки на делимость
+
+            if (n % i === 0) {
+                dividedYes.push(i);
+                return true;
+            } else {
+                dividedNo.push(i);
+                return false
+            }
+        }
+        // let i = 2;
+
+        function simpleNum(n, i) {            // функция определения простых множителей и записи их в массив
+            if (checkDivided(n, i) && isPrime(i) && n >= i) {
+                simpleNumbers.push(i);
+                n /= i;
+                simpleNum(n, i);
+            } else if (n > i) {
+                simpleNum(n, ++i);
+            }
+        }
+        simpleNum(n, 2);
+    }
+
+    // ----------------------------------------------------- 
 
     // Вывод решения
 
     solutionBtn.addEventListener('click', function () {
 
-        for (let i = 0; i < appData.inputValue.length; i++) {
-            appData.inputValue[i] = (inputValue[i]);
-        }
-        NOK(appData.inputValue[0], appData.inputValue[1]);
-        solutionText.textContent = '';
-        showFirstMethod(appData.inputValue[0], appData.inputValue[1]);
-        showSecondMethod(appData.inputValue[0], appData.inputValue[1]);    // вывод решения вторым способом
+        for (let i = 0; i < inputValue.value; i++) {
 
+            solutionText.textContent = '';
+            showSolution(inputValue.value);         // вывод решения
+        }
+
+        console.log(dividedYes);
+        console.log(dividedNo);
+
+        solutionText.textContent = '';
+        showSolution(inputValue.value);
     });
 
-    // функция нахождения НОК первым способом
-    let multiply_1 = [], multiply_2 = [];
-    function NOK(a, b) {
-        let i = 0, j = 0, nok_1;
-        multiply_1[0] = a;
-        multiply_2[0] = b;
-        while (multiply_1[i] != multiply_2[j]) {
-            if (multiply_1[i] > multiply_2[j]) {
-                multiply_2.push(b * (j + 2));
-                j++;
-                // console.log(multiply_2);
-            } else {
-                multiply_1.push(a * (i + 2));
-                i++;
+    // функция разложения на простые множители с промежуточными результатами
 
-            }
-        };
-    };
+    // let multiply_1 = [], multiply_2 = [];
+    // function NOK(a, b) {
+    //     let i = 0, j = 0, nok_1;
+    //     multiply_1[0] = a;
+    //     multiply_2[0] = b;
+    //     while (multiply_1[i] != multiply_2[j]) {
+    //         if (multiply_1[i] > multiply_2[j]) {
+    //             multiply_2.push(b * (j + 2));
+    //             j++;
+    //             // console.log(multiply_2);
+    //         } else {
+    //             multiply_1.push(a * (i + 2));
+    //             i++;
 
-    // функция показа решения первым способом
+    //         }
+    //     };
+    // };
 
-    function showFirstMethod(a, b) {
-        solutionText.insertAdjacentHTML('beforeend', `<h3 style="margin-bottom: 1rem;">Первый способ решения</h3>`);
-        solutionText.insertAdjacentHTML('beforeend', `Найти наименьшее общее кратное чисел: ${appData.inputValue[0]} и ${appData.inputValue[1]}. <br><br>`);
-        solutionText.insertAdjacentHTML('beforeend', `Кратные первого числа: ${multiply_1}... <br>`);
-        solutionText.insertAdjacentHTML('beforeend', `Кратные второго числа: ${multiply_2}... <br>`);
-        solutionText.insertAdjacentHTML('beforeend', `Находим первое совпадение среди кратных обоих чисел. Оно равно ${nok}. <br>`);
-        solutionText.insertAdjacentHTML('beforeend', `Наименьшее общее кратное равно ${nok}. <br>`);
-        solutionText.insertAdjacentHTML('beforeend', `Ответ: НОК(${inputValue[0]}, ${inputValue[1]}) = ${nok}. <br>`);
+    // функция показа решения
 
-    }
+    function showSolution(n) {
+        solutionText.insertAdjacentHTML('beforeend', `<h3 style="margin-bottom: 1rem;">Разложение на простые множители</h3>`);
+        solutionText.insertAdjacentHTML('beforeend', `Разложить на простые множители число ${n}. <br><br>`);
+        // solutionText.insertAdjacentHTML('beforeend', `Кратные первого числа: ${multiply_1}... <br>`);
+        // solutionText.insertAdjacentHTML('beforeend', `Кратные второго числа: ${multiply_2}... <br>`);
+        // solutionText.insertAdjacentHTML('beforeend', `Находим первое совпадение среди кратных обоих чисел. Оно равно ${nok}. <br>`);
+        // solutionText.insertAdjacentHTML('beforeend', `Наименьшее общее кратное равно ${nok}. <br>`);
+        // solutionText.insertAdjacentHTML('beforeend', `Ответ: НОК(${inputValue[0]}, ${inputValue[1]}) = ${nok}. <br>`);
 
-    // функция показа решения вторым способом
-
-    function showSecondMethod(a, b) {
-        solutionText.insertAdjacentHTML('beforeend', `<h3 style="margin-bottom: 1rem;">Второй способ решения</h3>`);
-        solutionText.insertAdjacentHTML('beforeend', `Найти НОK чисел: ${inputValue[0]} и ${inputValue[1]}. <br><br>`);
-        solutionText.insertAdjacentHTML('beforeend', `Умножаем два числа:  ${inputValue[0]} &middot; ${inputValue[1]} = ${a * b}.
-        <br>`);
-        solutionText.insertAdjacentHTML('beforeend', `Наибольший общий делитель чисел ${inputValue[0]} и ${inputValue[1]} равен ${nod}. <br>`);
-        solutionText.insertAdjacentHTML('beforeend', `Наименьшее общее кратное равно: ${inputValue[0] * inputValue[1]} / ${nod} = ${nok}. <br>`);
-        solutionText.insertAdjacentHTML('beforeend', `Ответ: НОК(${inputValue[0]}, ${inputValue[1]}) = ${nok}. <br>`);
     }
 
 });

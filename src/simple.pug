@@ -26,10 +26,9 @@ html(lang="ru")
                             span.solution_instruction Введите ваши число:
                             .solution_input
                                 input(type="number" placeholder = "Введите число" required)
-                                //- input(type="number" placeholder = "Введите число" required)
                             button.calc.btn Разложить
                             .solution_result 
-                                span Простые множители числа:
+                                span Разложение на простые множители:
                                 input(type="text")
                             button.solution_btn.btn Решение
                             .solution_text
@@ -59,5 +58,5 @@ html(lang="ru")
                             
                     
         include includes/_footer.pug
-                    
+        script(src="js/jquery.js")           
         script(src="js/simple.js")
