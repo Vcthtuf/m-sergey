@@ -27,7 +27,9 @@ html(lang="ru")
                             .solution_input
                                 input(type="number" placeholder = "Введите число" required)
                                 input(type="number" placeholder = "Введите число" required)
-                            button.calc.btn Рассчитать
+                            .calculate 
+                                button.calc.btn Рассчитать
+                                .message_error Введите значения в поля выше
                             .solution_result 
                                 span Наибольший общий делитель (НОД) чисел равен:
                                 input(type="text")

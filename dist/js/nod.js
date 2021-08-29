@@ -52,6 +52,8 @@ window.addEventListener('DOMContentLoaded', function () {
         calcBtn = document.querySelector('.calc'),
         inputResult = document.querySelector('.solution_result > input');
 
+    let msgError = document.querySelector('.message_error'); // сообщение об ошибке ввода данных
+
     let appData = {    // объект для хранения данных
         result: 1,
         inputValue: [],
@@ -82,6 +84,17 @@ window.addEventListener('DOMContentLoaded', function () {
 
         for (let i = 0; i < inputItems.length; i++) {
             inputValue[i] = +inputItems[i].value;
+            if (!inputValue[i]) {
+                messageError();
+                break;
+            } else {
+                msgError.classList.remove('message_error_active');
+                for (let i = 0; i < inputItems.length; i++) {
+                    inputItems[i].classList.remove('input_error');
+
+                }
+
+            }
             appData.inputValue.push(inputValue[i]);
         }
         appData.result = nod(...inputValue);
@@ -90,6 +103,8 @@ window.addEventListener('DOMContentLoaded', function () {
     });
 
     // ------------------------------------------------
+
+
 
     // Расчет НОД методом разложения на множители
 
@@ -187,7 +202,7 @@ window.addEventListener('DOMContentLoaded', function () {
         solutionText.insertAdjacentHTML('beforeend', '<p style="text-align: center; font-size: 1.5rem;"> 1 способ. Метод разложения на простые множители </p>');
         solutionText.insertAdjacentHTML('beforeend', `Найти НОД чисел: ${inputValue[0]} и ${inputValue[1]} <br>`);
         for (let i = 0; i < inputValue.length; i++) {
-            solutionText.insertAdjacentHTML('beforeend', `Раскладываем число ${inputValue[i]} на простые множители:  <br>`);
+            solutionText.insertAdjacentHTML('beforeend', `Раскладываем число ${inputValue[i]} на <a class='simple' href='simple.html'>простые множители</a>:  <br>`);
 
             let simpleNum = [];
             simpleNum = fact(inputValue[i]);
@@ -212,4 +227,24 @@ window.addEventListener('DOMContentLoaded', function () {
         solutionText.insertAdjacentHTML('beforeend', '<p style="text-align: center; font-size: 1.5rem;"> 2 способ. Алгоритм Евклида</p>');
         showEvklid(inputValue[0], inputValue[1]);
     }
+
+    // --------------------------------------------------
+
+    // Функция вывода сообщения об ошибке (не введены значения или одно из значений)
+
+    function messageError() {
+
+        console.log(appData.inputValue);
+        console.log('Ошибка ввода данных');
+
+        msgError.classList.add('message_error_active');
+        for (let i = 0; i < inputItems.length; i++) {
+            inputItems[i].classList.add('input_error');
+
+        }
+
+
+    }
+
+    // -------------------------------------------------
 });
