@@ -71,6 +71,8 @@ window.addEventListener('DOMContentLoaded', function () {
         appData.simpleNum = [[], []];
         appData.commonFactors = [];
         appData.resultNod = 1;
+        deleteMessageError();
+
     });
 
     let nod = function (a, b) {    // функция быстрого вычисления НОД для вывода ответа
@@ -234,17 +236,26 @@ window.addEventListener('DOMContentLoaded', function () {
 
     function messageError() {
 
-        console.log(appData.inputValue);
-        console.log('Ошибка ввода данных');
-
         msgError.classList.add('message_error_active');
         for (let i = 0; i < inputItems.length; i++) {
             inputItems[i].classList.add('input_error');
 
         }
+    }
 
+    // -------------------------------------------------
+
+    // Функция отмены вывода сообщения об ошибке
+
+    function deleteMessageError() {
+        msgError.classList.remove('message_error_active');
+        for (let i = 0; i < inputItems.length; i++) {
+            inputItems[i].classList.remove('input_error');
+
+        }
 
     }
 
     // -------------------------------------------------
+
 });
