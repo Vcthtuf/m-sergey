@@ -26,7 +26,9 @@ html(lang="ru")
                             span.solution_instruction Введите ваши число:
                             .solution_input
                                 input(type="number" placeholder = "Введите число" required)
-                            button.calc.btn Разложить
+                            .calculate 
+                                button.calc.btn Разложить
+                                .message_error Введите значения в поле выше
                             .solution_result 
                                 span Разложение на простые множители:
                                 input(type="text")

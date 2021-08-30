@@ -52,7 +52,7 @@ $(document).ready(function () {
         solutionText = document.querySelector('.solution_text'),
         simpleNumbers = [];
 
-
+    let msgError = document.querySelector('.message_error'); // сообщение об ошибке ввода данных
 
     blockInput.addEventListener('click', function (event) {  // скрытие значений input и очистка данных при клике 
         let target = event.target;
@@ -60,12 +60,24 @@ $(document).ready(function () {
         target.value = '';
         dividedYes = [];
         dividedNo = [];
+        deleteMessageError();
+
     });
 
     calcBtn.addEventListener('click', function () {  // обработка клика по кнопке "Разложить", вывода результата и очистка решения
-        getSimpleFactors(inputValue.value);
-        inputResult.value = `${inputValue.value} = ${simpleNumbers.join(' * ')}`;
-        solutionText.textContent = '';
+
+        if (+inputValue.value === 0) {
+
+            messageError();
+        } else {
+            msgError.classList.remove('message_error_active');
+            inputValue.classList.remove('input_error');
+            getSimpleFactors(inputValue.value);
+            inputResult.value = `${inputValue.value} = ${simpleNumbers.join(' * ')}`;
+            solutionText.textContent = '';
+
+        }
+
     });
 
     // ------------------------------------------------
@@ -161,5 +173,31 @@ $(document).ready(function () {
         // solutionText.insertAdjacentHTML('beforeend', `Ответ: НОК(${inputValue[0]}, ${inputValue[1]}) = ${nok}. <br>`);
 
     }
+
+    // Функция вывода сообщения об ошибке (не введены значения или одно из значений)
+
+    function messageError() {
+
+        msgError.classList.add('message_error_active');
+
+        inputValue.classList.add('input_error');
+        inputResult.value = '';
+
+    }
+
+    // -------------------------------------------------
+
+    // Функция отмены вывода сообщения об ошибке
+
+    function deleteMessageError() {
+        msgError.classList.remove('message_error_active');
+
+        inputValue.classList.remove('input_error');
+
+
+
+    }
+
+    // -------------------------------------------------
 
 });

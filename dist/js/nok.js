@@ -54,8 +54,9 @@ window.addEventListener('DOMContentLoaded', function () {
         nok = 1,
         nod = 1;
 
+    let msgError = document.querySelector('.message_error'); // сообщение об ошибке ввода данных
+
     let appData = {    // объект для хранения данных
-        // nok: 1,
         inputValue: [],
         resultNok: 1
     };
@@ -70,6 +71,7 @@ window.addEventListener('DOMContentLoaded', function () {
         multiply_1 = [];
         multiply_2 = [];
         nok = 1;
+        deleteMessageError();
     });
 
     function calcNod(a, b) {                     // функция нахождения НОД
@@ -87,6 +89,17 @@ window.addEventListener('DOMContentLoaded', function () {
 
         for (let i = 0; i < inputItems.length; i++) {
             inputValue[i] = +inputItems[i].value;
+            if (!inputValue[i]) {
+                messageError();
+                break;
+            } else {
+                msgError.classList.remove('message_error_active');
+                for (let i = 0; i < inputItems.length; i++) {
+                    inputItems[i].classList.remove('input_error');
+
+                }
+
+            }
             appData.inputValue.push(inputValue[i]);
         }
         calcNod(...inputValue);
@@ -155,9 +168,37 @@ window.addEventListener('DOMContentLoaded', function () {
         solutionText.insertAdjacentHTML('beforeend', `Найти НОK чисел: ${inputValue[0]} и ${inputValue[1]}. <br><br>`);
         solutionText.insertAdjacentHTML('beforeend', `Умножаем два числа:  ${inputValue[0]} &middot; ${inputValue[1]} = ${a * b}.
         <br>`);
-        solutionText.insertAdjacentHTML('beforeend', `Наибольший общий делитель чисел ${inputValue[0]} и ${inputValue[1]} равен ${nod}. <br>`);
+        solutionText.insertAdjacentHTML('beforeend', `<a class='nod' href="nod.html">Наибольший общий делитель</a> чисел ${inputValue[0]} и ${inputValue[1]} равен ${nod}. <br>`);
         solutionText.insertAdjacentHTML('beforeend', `Наименьшее общее кратное равно: ${inputValue[0] * inputValue[1]} / ${nod} = ${nok}. <br>`);
         solutionText.insertAdjacentHTML('beforeend', `Ответ: НОК(${inputValue[0]}, ${inputValue[1]}) = ${nok}. <br>`);
     }
+
+    // --------------------------------------------------
+
+    // Функция вывода сообщения об ошибке (не введены значения или одно из значений)
+
+    function messageError() {
+
+        msgError.classList.add('message_error_active');
+        for (let i = 0; i < inputItems.length; i++) {
+            inputItems[i].classList.add('input_error');
+
+        }
+    }
+
+    // -------------------------------------------------
+
+    // Функция отмены вывода сообщения об ошибке
+
+    function deleteMessageError() {
+        msgError.classList.remove('message_error_active');
+        for (let i = 0; i < inputItems.length; i++) {
+            inputItems[i].classList.remove('input_error');
+
+        }
+
+    }
+
+    // -------------------------------------------------
 
 });
