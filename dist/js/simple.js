@@ -69,7 +69,12 @@ $(document).ready(function () {
         if (+inputValue.value === 0) {
 
             messageError();
-        } else {
+        } else if (isPrime(+inputValue.value)) {
+            inputResult.value = `${inputValue.value} - простое число`;
+            solutionText.textContent = '';
+
+        }
+        else {
             msgError.classList.remove('message_error_active');
             inputValue.classList.remove('input_error');
             getSimpleFactors(inputValue.value);
@@ -80,22 +85,25 @@ $(document).ready(function () {
 
     });
 
+
+    function isPrime(n) {             // функция проверки на простое число
+
+        for (let i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i === 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+
     // ------------------------------------------------
     let dividedYes = [], dividedNo = [];
     function getSimpleFactors(n) {  // функция вычисления проcтых множителей числа
         simpleNumbers = [];
 
-
-        function isPrime(n) {             // функция проверки на простое число
-
-            for (let i = 2; i <= Math.sqrt(n); i++) {
-                if (n % i === 0) {
-                    return false;
-                }
-            }
-
-            return true;
-        }
+        isPrime(n);
 
 
         function checkDivided(n, i) {         // функция проверки на делимость
@@ -108,7 +116,6 @@ $(document).ready(function () {
                 return false
             }
         }
-        // let i = 2;
 
         function simpleNum(n, i) {            // функция определения простых множителей и записи их в массив
             if (checkDivided(n, i) && isPrime(i) && n >= i) {
@@ -127,18 +134,28 @@ $(document).ready(function () {
     // Вывод решения
 
     solutionBtn.addEventListener('click', function () {
+        // console.log(+inputValue.value);
 
-        for (let i = 0; i < inputValue.value; i++) {
+        // console.log(isPrime(23));
+
+        if (isPrime(+inputValue.value)) {
+            showSolutionSimple(+inputValue.value);
+
+        } else {
+
+            for (let i = 0; i < inputValue.value; i++) {
+
+                solutionText.textContent = '';
+                showSolution(inputValue.value);         // вывод решения
+            }
+
+            console.log(dividedYes);
+            console.log(dividedNo);
 
             solutionText.textContent = '';
-            showSolution(inputValue.value);         // вывод решения
+            showSolution(inputValue.value);
+
         }
-
-        console.log(dividedYes);
-        console.log(dividedNo);
-
-        solutionText.textContent = '';
-        showSolution(inputValue.value);
     });
 
     // функция разложения на простые множители с промежуточными результатами
@@ -161,11 +178,25 @@ $(document).ready(function () {
     //     };
     // };
 
-    // функция показа решения
+    // функция показа решения, если число составное
 
     function showSolution(n) {
+        console.log('Решение для составного числа');
         solutionText.insertAdjacentHTML('beforeend', `<h3 style="margin-bottom: 1rem;">Разложение на простые множители</h3>`);
         solutionText.insertAdjacentHTML('beforeend', `Разложить на простые множители число ${n}. <br><br>`);
+        console.log(dividedYes);
+        console.log(dividedYes.length);
+        for (let i = 0; i < dividedYes.length; i++) {
+
+            solutionText.insertAdjacentHTML('beforeend', `Число ${n} делится на ${dividedYes[i]}.  <br> ${n} : ${dividedYes[i]} = ${n / dividedYes[i]} <br>`);
+
+            n = n / dividedYes[i];
+
+        }
+
+        solutionText.insertAdjacentHTML('beforeend', `<br> Разложение: ${inputValue.value} = ${simpleNumbers.join(' * ')}`);
+
+
         // solutionText.insertAdjacentHTML('beforeend', `Кратные первого числа: ${multiply_1}... <br>`);
         // solutionText.insertAdjacentHTML('beforeend', `Кратные второго числа: ${multiply_2}... <br>`);
         // solutionText.insertAdjacentHTML('beforeend', `Находим первое совпадение среди кратных обоих чисел. Оно равно ${nok}. <br>`);
@@ -173,6 +204,18 @@ $(document).ready(function () {
         // solutionText.insertAdjacentHTML('beforeend', `Ответ: НОК(${inputValue[0]}, ${inputValue[1]}) = ${nok}. <br>`);
 
     }
+
+    // ----------------------
+
+    // Функция показа решения, если число простое
+
+    function showSolutionSimple(n) {
+        solutionText.insertAdjacentHTML('beforeend', `<h3 style="margin-bottom: 1rem;">Разложение на простые множители</h3>`);
+        solutionText.insertAdjacentHTML('beforeend', `Число ${n} является простым, поэтому его нельзя разложить на множители. <br><br>`);
+
+    }
+
+    // ---------------------- 
 
     // Функция вывода сообщения об ошибке (не введены значения или одно из значений)
 
