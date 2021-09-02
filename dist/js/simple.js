@@ -111,10 +111,11 @@ $(document).ready(function () {
             if (n % i === 0) {
                 dividedYes.push(i);
                 return true;
-            } else {
+            } else if (isPrime(i)) {
+
                 dividedNo.push(i);
                 return false
-            }
+            } else return false
         }
 
         function simpleNum(n, i) {            // функция определения простых множителей и записи их в массив
@@ -181,20 +182,27 @@ $(document).ready(function () {
     // функция показа решения, если число составное
 
     function showSolution(n) {
-        console.log('Решение для составного числа');
+        // console.log('Решение для составного числа');
         solutionText.insertAdjacentHTML('beforeend', `<h3 style="margin-bottom: 1rem;">Разложение на простые множители</h3>`);
         solutionText.insertAdjacentHTML('beforeend', `Разложить на простые множители число ${n}. <br><br>`);
-        console.log(dividedYes);
-        console.log(dividedYes.length);
+        // console.log(dividedYes);
+        // console.log(dividedYes.length);
         for (let i = 0; i < dividedYes.length; i++) {
 
-            solutionText.insertAdjacentHTML('beforeend', `Число ${n} делится на ${dividedYes[i]}.  <br> ${n} : ${dividedYes[i]} = ${n / dividedYes[i]} <br>`);
+            for (let j = 0; j < dividedNo.length; j++) {
+                if (dividedNo[j] < dividedYes[i]) {
+                    solutionText.insertAdjacentHTML('beforeend', `Число ${n}  не делится на ${dividedNo[j]}. Пробуем разделить на следующее простое число ${dividedNo[j + 1]}. <br>`);
+                }
+            }
+
+            solutionText.insertAdjacentHTML('beforeend', `Число ${n} делится на <span style="color: red; font-size: 1.2rem; font-weight: 700">${dividedYes[i]}</span>.  <br> ${n} : ${dividedYes[i]} = ${n / dividedYes[i]}. <br>`);
 
             n = n / dividedYes[i];
 
         }
 
-        solutionText.insertAdjacentHTML('beforeend', `<br> Разложение: ${inputValue.value} = ${simpleNumbers.join(' * ')}`);
+        solutionText.insertAdjacentHTML('beforeend', `<br>Получили число 1, поэтому разложение закончено`);
+        solutionText.insertAdjacentHTML('beforeend', `<br><br> Разложение: ${inputValue.value} = ${simpleNumbers.join(' &middot; ')}`);
 
 
         // solutionText.insertAdjacentHTML('beforeend', `Кратные первого числа: ${multiply_1}... <br>`);
