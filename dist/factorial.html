@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="icon" href="icon/favicon.ico" type="image/x-icon"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <title>Разложение на простые множители</title>
+    <title>Факториал</title>
     <link rel="stylesheet" href="css/nod.min.css"/>
   </head>
   <body>
@@ -32,22 +32,22 @@
               </ul>
             </div>
             <section class="solution"> 
-              <h2 class="solution_title">Онлайн разложение на простые множители</h2><span class="solution_instruction">Введите ваши число:</span>
+              <h2 class="solution_title">Онлайн вычисление факториала</h2><span class="solution_instruction">Введите ваше число:</span>
               <div class="solution_input">
                 <input type="number" placeholder="Введите число" required="required"/>
               </div>
               <div class="calculate"> 
-                <button class="calc btn">Разложить</button>
+                <button class="calc btn">Рассчитать</button>
                 <div class="message_error">Введите значения в поле выше</div>
               </div>
-              <div class="solution_result"> <span>Разложение на простые множители:</span>
+              <div class="solution_result"> <span>Факториал:</span>
                 <input type="text"/>
               </div>
               <button class="solution_btn btn">Решение</button>
               <div class="solution_text"></div>
             </section>
             <section class="theory"> 
-              <h2>Простые и составные числа</h2>
+              <h2>Факториал</h2>
               <h3>Простые числа</h3>
               <blockquote>Натуральное число называется простым, если оно делится без остатка только на себя и на единицу.</blockquote>
               <p>Пример простого числа — это число 2. Оно делится без остатка только на себя (т.е. 2) и на единицу. Проверим: 2 : 2 = 1 (остаток 0) и 2 : 1 = 2 (остаток 0).</p>
@@ -61,7 +61,7 @@
               <blockquote>Единица не является ни простым ни составным числом.</blockquote>
             </section>
             <section class="examples"> 
-              <h2>Разложение на простые множители</h2>
+              <h2>Вычисление факториала</h2>
               <p>Любое составное число можно разложить на простые множители.  Существует несколько способов разложения. в этой статье научимся одному из способов разложения, который является одним из самых простых.</p>
               <h3>Алгоритм разложения на простые множители</h3>
               <blockquote>Определяем, является ли число простым. <br> Если оно составное, то делим его на простые числа, начиная с двух (2, 3, 5, 7, 11 и т. д.). <br> Повторяем предыдущее действие, пока частное от деления не будет простым числом.</blockquote>
@@ -85,6 +85,6 @@
       </nav><span>Copyright 2020</span>
     </footer>
     <script src="js/jquery.js">          </script>
-    <script src="js/simple.js"></script>
+    <script src="js/factorial.js"></script>
   </body>
 </html>
