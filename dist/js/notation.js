@@ -53,7 +53,7 @@ window.addEventListener('DOMContentLoaded', function () {
         notationInput = document.querySelector('#not_input'),
         notationOutput = document.querySelector('#not_output'),
         calcBtn = document.querySelector('.calc'),
-        inputResult = document.querySelector('.solution_result > input');
+        inputResult = document.querySelector('.solution_result .result');
 
     let msgError = document.querySelector('.message_error'); // сообщение об ошибке ввода данных
 
@@ -93,7 +93,8 @@ window.addEventListener('DOMContentLoaded', function () {
         console.log('Система счисления входного числа: ' + +notationInput.value);
         console.log('Система счисления результата: ' + +notationOutput.value);
 
-        let input = +inputNumber.value,
+        let input = inputNumber.value,
+            notationIn = +notationInput.value,
             notationOut = +notationOutput.value;
 
         for (let i = 0; i < inputValue.length; i++) {
@@ -111,8 +112,8 @@ window.addEventListener('DOMContentLoaded', function () {
             }
             appData.inputValue.push(inputValue[i]);
         }
-        appData.result = convertNotation(input, notationOut);
-        inputResult.value = appData.result;
+        appData.result = convertNotation(input, notationOut, notationIn);
+        inputResult.insertAdjacentHTML('beforeend', `${input} <sub>${notationIn}</sub> = ${appData.result} <sub>${notationOut}</sub>`);
         solutionText.textContent = '';
     });
 
@@ -125,14 +126,14 @@ window.addEventListener('DOMContentLoaded', function () {
     let solutionText = document.querySelector('.solution_text'),
         solutionBtn = document.querySelector('.solution_btn');
 
-    function convertNotation(num, notationOut) {     // функция перевода в другую систему счисления
+    function convertNotation(num, notationOut, notationIn) {     // функция перевода в другую систему счисления
 
-        // let numberToTen = num.toString(10);
+        let numberToTen = parseInt(num, notationIn);
         // console.log(num);
-        // console.log(numberToTen);
+        console.log(numberToTen);
         // console.log(notationOut);
 
-        return num.toString(notationOut);
+        return numberToTen.toString(notationOut);
     };
 
     // разложение на простые множители чисел
