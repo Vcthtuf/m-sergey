@@ -87,15 +87,22 @@ window.addEventListener('DOMContentLoaded', function () {
         return nod(b, a % b);
     }
 
-    calcBtn.addEventListener('click', function () {  // обработка клика по кнопке "Рассчитать", вывода результата и очистка решения
 
-        console.log('Входное число: ' + +inputNumber.value);
-        console.log('Система счисления входного числа: ' + +notationInput.value);
-        console.log('Система счисления результата: ' + +notationOutput.value);
+
+
+    calcBtn.addEventListener('click', function () {  // обработка клика по кнопке "Перевести", вывода результата и очистка решения
 
         let input = inputNumber.value,
             notationIn = +notationInput.value,
             notationOut = +notationOutput.value;
+
+        inputResult.textContent = '';
+
+        // console.log('Входное число: ' + +inputNumber.value);
+        // console.log('Система счисления входного числа: ' + +notationInput.value);
+        // console.log('Система счисления результата: ' + +notationOutput.value);
+
+
 
         for (let i = 0; i < inputValue.length; i++) {
             inputValue[i] = +inputItems[i].value;
@@ -130,114 +137,77 @@ window.addEventListener('DOMContentLoaded', function () {
 
         let numberToTen = parseInt(num, notationIn);
         // console.log(num);
-        console.log(numberToTen);
+        // console.log(numberToTen);
         // console.log(notationOut);
 
         return numberToTen.toString(notationOut);
     };
 
-    // разложение на простые множители чисел
-
-
-    for (let i = 0; i < appData.inputValue.length; i++) {
-        appData.simpleNum[i] = fact(inputValue[i]);
-    }
-    // ----------------------------------
-
-    function commonFactor() {      // нахождение общих множителей
-
-        appData.simpleNum[0].forEach(function (item) {
-            if (appData.simpleNum[1].indexOf(item) != -1) {
-                appData.commonFactors.push(item);
-                appData.simpleNum[1].splice(appData.simpleNum[1].indexOf(item), 1);
-            }
-        });
-    }
-
-    function calcNod(arr) {                         // нахождение НОД для решения методом разложения
-        arr.forEach(function (item) {
-            appData.resultNod *= item;
-        })
-        return appData;
-    }
-
-    // Вывод решения методом разложения
+    // Вывод решения
 
 
     solutionBtn.addEventListener('click', function () {
 
-        for (let i = 0; i < appData.inputValue.length; i++) {
-            appData.simpleNum[i] = fact(inputValue[i]);
+        let input = +inputNumber.value,
+            notationIn = +notationInput.value,
+            notationOut = +notationOutput.value;
+
+        solutionText.insertAdjacentHTML('beforeend', `Перевести число ${input}<sub>${notationIn}</sub> в ${notationOut}-ю систему счисления. <br>`);
+
+        if (notationIn == 10 && notationOut != 10) {
+            calculateFromTen(input, notationIn, notationOut);
+        } else if (notationOut == 10 && notationIn != 10) {
+            calculateToTen(inputNumber.value, notationIn, notationOut);
         }
-        solutionText.textContent = '';
-        commonFactor();
-        calcNod(appData.commonFactors);
-        showSolution();    // вывод решения методом разложения
+
+
+
+
+
+
 
     });
 
-    // функция вывода рещения алгоритмом Евклида
-    let k, nodEvklid;
-    function showEvklid(a, b) {
-        solutionText.insertAdjacentHTML('beforeend', `Найти НОД чисел: ${inputValue[0]} и ${inputValue[1]} <br>`);
-        solutionText.insertAdjacentHTML('beforeend', `Делим большее число на меньшее, а далее делитель на остаток от деления <br>`);
-        calcEvklid(a, b);
-        k = null;
-        solutionText.insertAdjacentHTML('beforeend', `Последний ненулевой остаток равен: ${nodEvklid} <br>`);
-        solutionText.insertAdjacentHTML('beforeend', `Следовательно, НОД равен: ${nodEvklid}. <br>`);
-
-    }
-
-    // функция вычисления НОД алгоритмом Евклида
-
-    function calcEvklid(a, b) {
-        if (a < b) { let c = a; a = b; b = c; }
-        if (k != 0) {
-            k = a % b;
-            solutionText.insertAdjacentHTML('beforeend', ` ${a} : ${b} = ${Math.floor(a / b)} остаток ${k} <br>`);
-            if (k === 0) {
-                nodEvklid = b; return nodEvklid;
-            } else {
-                calcEvklid(b, k);
-            }
-        }
-    }
-
-    // функция вывода решения методом разложения
-
-    function showSolution() {
-        solutionText.textContent = '';
-        solutionText.insertAdjacentHTML('afterbegin', '<h3 style="text-align: center; margin-bottom: 1rem;"> Решение </h3>');
-        solutionText.insertAdjacentHTML('beforeend', '<p style="text-align: center; font-size: 1.5rem;"> 1 способ. Метод разложения на простые множители </p>');
-        solutionText.insertAdjacentHTML('beforeend', `Найти НОД чисел: ${inputValue[0]} и ${inputValue[1]} <br>`);
-        for (let i = 0; i < inputValue.length; i++) {
-            solutionText.insertAdjacentHTML('beforeend', `Раскладываем число ${inputValue[i]} на <a class='simple' href='simple.html'>простые множители</a>:  <br>`);
-
-            let simpleNum = [];
-            simpleNum = fact(inputValue[i]);
-            solutionText.insertAdjacentHTML('beforeend', `${inputValue[i]} = ${simpleNum.join('&middot;')} <br>`);
-        }
-
-        if (appData.commonFactors.length > 1) {
-
-            solutionText.insertAdjacentHTML('beforeend', 'Находим общие множители двух чисел. Они равны: ' + appData.commonFactors.join(',') + '.<br>');
-            solutionText.insertAdjacentHTML('beforeend', 'Перемножаем общие делители обоих чисел: ' + appData.commonFactors.join('&middot;') + ' = ' + appData.resultNod + '. <br>');
-            solutionText.insertAdjacentHTML('beforeend', 'Получаем ответ. Наибольший общий делитель чисел равен ' + appData.resultNod + '.');
-
-        } else if (appData.commonFactors.length === 1) {
-            solutionText.insertAdjacentHTML('beforeend', 'Находим общие множители двух чисел. Он один и равен: ' + appData.commonFactors[0] + '.<br>');
-
-            solutionText.insertAdjacentHTML('beforeend', 'Получаем ответ. Наибольший общий делитель чисел НОД = ' + appData.commonFactors[0] + '.');
-        } else if (appData.commonFactors.length === 0) {
-            solutionText.insertAdjacentHTML('beforeend', 'Находим общие множители двух чисел. Он один и равен: 1' + '.<br>');
-
-            solutionText.insertAdjacentHTML('beforeend', 'Получаем ответ. Наибольший общий делитель чисел НОД = 1.');
-        }
-        solutionText.insertAdjacentHTML('beforeend', '<p style="text-align: center; font-size: 1.5rem;"> 2 способ. Алгоритм Евклида</p>');
-        showEvklid(inputValue[0], inputValue[1]);
-    }
-
     // --------------------------------------------------
+
+    // функция перевода из десятичной системы
+
+    function calculateFromTen(input, notationIn, notationOut) {
+
+        solutionText.insertAdjacentHTML('beforeend', `Последовательно делим число ${input} на ${notationOut}.<br>`);
+
+        while (input > 0) {
+            solutionText.insertAdjacentHTML('beforeend', `${input} : ${notationOut} = ${Math.floor(input / notationOut)}, остаток <span style="font-size:1.3rem; color: red; font-weight: bold">${input % notationOut} <br>`);
+
+            input = Math.floor(input / notationOut);
+
+        }
+
+        solutionText.insertAdjacentHTML('beforeend', `${inputNumber.value}<sub>${notationIn}</sub> = ${appData.result}<sub>${notationOut}.`);
+
+    }
+
+    // функция перевода в десятичную систему
+
+    function calculateToTen(inputNumber, notationIn, notationOut) {
+        console.log(inputNumber);
+        console.log(typeof (inputNumber));
+        let input = toString(inputNumber);
+
+        let arr = inputNumber.split('');
+        console.log(arr);
+
+        solutionText.insertAdjacentHTML('beforeend', `${inputNumber}<sub>${notationIn}</sub> = `);
+
+        for (let i = 0; i < arr.length - 1; i++) {
+            solutionText.insertAdjacentHTML('beforeend', `${arr[i]} &middot; ${notationIn}<sup>${arr.length - 1 - i}</sup> + `);
+
+        }
+        solutionText.insertAdjacentHTML('beforeend', `${arr[arr.length - 1]} &middot; ${notationIn}<sup>0</sup> =  ${appData.result}<sub>${notationOut}. <br>`);
+
+        solutionText.insertAdjacentHTML('beforeend', `${inputNumber}<sub>${notationIn}</sub> = ${appData.result}<sub>${notationOut}.`);
+
+    }
 
     // Функция вывода сообщения об ошибке (не введены значения или одно из значений)
 
@@ -266,3 +236,4 @@ window.addEventListener('DOMContentLoaded', function () {
     // -------------------------------------------------
 
 });
+
