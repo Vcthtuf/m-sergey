@@ -139,8 +139,9 @@ window.addEventListener('DOMContentLoaded', function () {
         // console.log(num);
         // console.log(numberToTen);
         // console.log(notationOut);
+        let output = numberToTen.toString(notationOut);
 
-        return numberToTen.toString(notationOut);
+        return output;
     };
 
     // Вывод решения
@@ -152,13 +153,34 @@ window.addEventListener('DOMContentLoaded', function () {
             notationIn = +notationInput.value,
             notationOut = +notationOutput.value;
 
-        solutionText.insertAdjacentHTML('beforeend', `Перевести число ${input}<sub>${notationIn}</sub> в ${notationOut}-ю систему счисления. <br>`);
+        solutionText.insertAdjacentHTML('beforeend', `Перевести число ${inputNumber.value}<sub>${notationIn}</sub> в ${notationOut}-ю систему счисления. <br>`);
 
         if (notationIn == 10 && notationOut != 10) {
             calculateFromTen(input, notationIn, notationOut);
         } else if (notationOut == 10 && notationIn != 10) {
             calculateToTen(inputNumber.value, notationIn, notationOut);
+        } else if (notationOut != 10 && notationIn != 10) {
+            solutionText.insertAdjacentHTML('beforeend', `Сначала переводим число ${inputNumber.value}<sub>${notationInput.value}</sub> в десятичную систему счисления.<br>`);
+
+            calculateToTen(inputNumber.value, notationIn, 10);
+            solutionText.insertAdjacentHTML('beforeend', `Затем переводим число ${convertNotation(inputNumber.value, 10, notationIn)}<sub>10</sub> в ${notationOutput.value} систему счисления.<br>`);
+            let input = convertNotation(inputNumber.value, 10, notationIn);
+
+            // calculateFromTen(input, 10, notationOut);
+
+            solutionText.insertAdjacentHTML('beforeend', `Последовательно делим число ${input} на ${notationOut}.<br>`);
+
+            while (input > 0) {
+                solutionText.insertAdjacentHTML('beforeend', `${input} : ${notationOut} = ${Math.floor(input / notationOut)}, остаток <span style="font-size:1.3rem; color: red; font-weight: bold">${input % notationOut} <br>`);
+
+                input = Math.floor(input / notationOut);
+
+            }
+
+            solutionText.insertAdjacentHTML('beforeend', `${inputNumber.value}<sub>${notationInput.value}</sub> = ${appData.result}<sub>${notationOut}.`);
+
         }
+
 
 
 
@@ -197,15 +219,16 @@ window.addEventListener('DOMContentLoaded', function () {
         let arr = inputNumber.split('');
         console.log(arr);
 
+
         solutionText.insertAdjacentHTML('beforeend', `${inputNumber}<sub>${notationIn}</sub> = `);
 
         for (let i = 0; i < arr.length - 1; i++) {
             solutionText.insertAdjacentHTML('beforeend', `${arr[i]} &middot; ${notationIn}<sup>${arr.length - 1 - i}</sup> + `);
 
         }
-        solutionText.insertAdjacentHTML('beforeend', `${arr[arr.length - 1]} &middot; ${notationIn}<sup>0</sup> =  ${appData.result}<sub>${notationOut}. <br>`);
+        solutionText.insertAdjacentHTML('beforeend', `${arr[arr.length - 1]} &middot; ${notationIn}<sup>0</sup> =  ${convertNotation(inputNumber, 10, notationIn)}<sub>${notationOut}. <br>`);
 
-        solutionText.insertAdjacentHTML('beforeend', `${inputNumber}<sub>${notationIn}</sub> = ${appData.result}<sub>${notationOut}.`);
+        solutionText.insertAdjacentHTML('beforeend', `${inputNumber}<sub>${notationIn}</sub> = ${convertNotation(inputNumber, 10, notationIn)}<sub>${notationOut}.<br>`);
 
     }
 
