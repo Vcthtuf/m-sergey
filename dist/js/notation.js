@@ -120,7 +120,7 @@ window.addEventListener('DOMContentLoaded', function () {
             appData.inputValue.push(inputValue[i]);
         }
         appData.result = convertNotation(input, notationOut, notationIn);
-        inputResult.insertAdjacentHTML('beforeend', `${input} <sub>${notationIn}</sub> = ${appData.result} <sub>${notationOut}</sub>`);
+        inputResult.insertAdjacentHTML('beforeend', `${input} <sub>${notationIn}</sub> = ${appData.result.toUpperCase()} <sub>${notationOut}</sub>`);
         solutionText.textContent = '';
     });
 
@@ -163,7 +163,7 @@ window.addEventListener('DOMContentLoaded', function () {
             solutionText.insertAdjacentHTML('beforeend', `Сначала переводим число ${inputNumber.value}<sub>${notationInput.value}</sub> в десятичную систему счисления.<br>`);
 
             calculateToTen(inputNumber.value, notationIn, 10);
-            solutionText.insertAdjacentHTML('beforeend', `Затем переводим число ${convertNotation(inputNumber.value, 10, notationIn)}<sub>10</sub> в ${notationOutput.value} систему счисления.<br>`);
+            solutionText.insertAdjacentHTML('beforeend', `Затем переводим число ${convertNotation(inputNumber.value, 10, notationIn)}<sub>10</sub> в ${notationOutput.value}-ю систему счисления.<br>`);
             let input = convertNotation(inputNumber.value, 10, notationIn);
 
             // calculateFromTen(input, 10, notationOut);
@@ -177,7 +177,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
             }
 
-            solutionText.insertAdjacentHTML('beforeend', `${inputNumber.value}<sub>${notationInput.value}</sub> = ${appData.result}<sub>${notationOut}.`);
+            solutionText.insertAdjacentHTML('beforeend', `${inputNumber.value}<sub>${notationInput.value}</sub> = ${appData.result.toUpperCase()}<sub>${notationOut}.`);
 
         }
 
@@ -199,13 +199,18 @@ window.addEventListener('DOMContentLoaded', function () {
         solutionText.insertAdjacentHTML('beforeend', `Последовательно делим число ${input} на ${notationOut}.<br>`);
 
         while (input > 0) {
-            solutionText.insertAdjacentHTML('beforeend', `${input} : ${notationOut} = ${Math.floor(input / notationOut)}, остаток <span style="font-size:1.3rem; color: red; font-weight: bold">${input % notationOut} <br>`);
+            solutionText.insertAdjacentHTML('beforeend', `${input} : ${notationOut} = ${Math.floor(input / notationOut)}, остаток <span style="font-size:1.3rem; color: red; font-weight: bold">${input % notationOut}</span>`);
+
+            if (input % notationOut > 15) {
+                solutionText.insertAdjacentHTML('beforeend', `, <span style="font-size:1.3rem; color: red; font-weight: bold">${input % notationOut} = H </span>`);
+            }
+            solutionText.insertAdjacentHTML('beforeend', `<br>`);
 
             input = Math.floor(input / notationOut);
 
         }
 
-        solutionText.insertAdjacentHTML('beforeend', `${inputNumber.value}<sub>${notationIn}</sub> = ${appData.result}<sub>${notationOut}.`);
+        solutionText.insertAdjacentHTML('beforeend', `<span style="font-weight: bold"> ${inputNumber.value}<sub>${notationIn}</sub> = ${appData.result.toUpperCase()}<sub>${notationOut}</sub></span>`);
 
     }
 
