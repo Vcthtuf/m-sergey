@@ -171,7 +171,9 @@ window.addEventListener('DOMContentLoaded', function () {
             solutionText.insertAdjacentHTML('beforeend', `Последовательно делим число ${input} на ${notationOut}.<br>`);
 
             while (input > 0) {
-                solutionText.insertAdjacentHTML('beforeend', `${input} : ${notationOut} = ${Math.floor(input / notationOut)}, остаток  <span style="font-size:1.3rem; color: red; font-weight: bold">${input % notationOut} <br>`);
+                solutionText.insertAdjacentHTML('beforeend', `${input} : ${notationOut} = ${Math.floor(input / notationOut)}, остаток  <span style="font-size:1.3rem; color: red; font-weight: bold">${input % notationOut}. ${out16_36(input % notationOut, notationOut)}</span>`);
+
+                solutionText.insertAdjacentHTML('beforeend', `<br>`);
 
                 input = Math.floor(input / notationOut);
 
@@ -194,9 +196,6 @@ window.addEventListener('DOMContentLoaded', function () {
         while (input > 0) {
             solutionText.insertAdjacentHTML('beforeend', `${input} : ${notationOut} = ${Math.floor(input / notationOut)}, остаток  <span style="font-size:1.3rem; color: red; font-weight: bold">${input % notationOut}.  ${out16_36(input % notationOut, notationOut)}</span>`);
 
-            if (input % notationOut > 15) {
-                solutionText.insertAdjacentHTML('beforeend', `, <span style="font-size:1.3rem; color: red; font-weight: bold">${input % notationOut} = H </span>`);
-            }
             solutionText.insertAdjacentHTML('beforeend', `<br>`);
 
             input = Math.floor(input / notationOut);
@@ -239,7 +238,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
     function out16_36(inp, sys) {
         let outp;
-        if (sys > 10 && sys <= 36) {
+        if (inp >= 10 && inp <= 36) {
             console.log(inp);
             console.log(sys);
             outp = `${inp} = ${convertNotation(inp, sys, 10).toUpperCase()}`;
