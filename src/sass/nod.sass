@@ -24,15 +24,22 @@
             ul 
                 display: flex
                 justify-content: space-between
-                width: 80%
+                align-items: center
+                padding: 0
+                width: 100%
                 margin: 0 auto
                 
-                li 
-                    padding: 1rem 5%
+                li
+                    width: 33.33333%
+                    border-right: 1px solid #fff
+                    text-align: center
+                    padding: 1rem 0
+                    font-size: 1.3rem
                     cursor: pointer
+                    background-color: #c0c0c0
                     &:hover 
-                        color: red
-                        transform: scale(1.15)
+                        background-color: #FFE4E1
+                        
         .examples 
 
             p 
@@ -53,11 +60,13 @@
 
             &_input 
                 display: flex
-                justify-content: space-evenly    
+                justify-content: space-evenly   
+                align-items: center 
                 width: 80%
                 margin: 0 auto 3rem auto
 
                 input
+                    font-size: 1.5rem
                     text-align: center
                     width: 40%
                     input::-webkit-outer-spin-button,
@@ -66,9 +75,11 @@
 
                 input.notation
                     width: 30%
-                    margin: 0 2%
                     padding: 0.5rem 0
                     text-align: center
+
+                span 
+                    margin: 0 2%
 
             .input_error
                 border-style: solid
@@ -88,6 +99,8 @@
                     margin-bottom: 1rem
 
                 input 
+                    font-size: 1.5rem
+                    font-weight: bold
                     text-align: center
                     width: 35%
 
@@ -118,7 +131,6 @@
                 &_active
                     display: block
 
-
 .show 
     display: block
 
@@ -126,7 +138,7 @@
     display: none
 
 .active 
-    font-size: 1.2rem
+    background-color: #FFE4E1
     color: blue
 
 @import 'blocks/footer'

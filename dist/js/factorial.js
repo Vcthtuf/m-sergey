@@ -48,7 +48,7 @@ $(document).ready(function () {
         blockInput = document.querySelector('.solution_input'),
         calcBtn = document.querySelector('.calc'),
         inputResult = document.querySelector('.solution_result > input'),
-        solutionBtn = document.querySelector('.solution_btn'),
+        // solutionBtn = document.querySelector('.solution_btn'),
         solutionText = document.querySelector('.solution_text'),
         simpleNumbers = [];
 
@@ -128,30 +128,30 @@ $(document).ready(function () {
 
     // Вывод решения
 
-    solutionBtn.addEventListener('click', function () {
-        // console.log(+inputValue.value);
+    // solutionBtn.addEventListener('click', function () {
+    //     // console.log(+inputValue.value);
 
-        // console.log(isPrime(23));
+    //     // console.log(isPrime(23));
 
-        if (isPrime(+inputValue.value)) {
-            showSolutionSimple(+inputValue.value);
+    //     if (isPrime(+inputValue.value)) {
+    //         showSolutionSimple(+inputValue.value);
 
-        } else {
+    //     } else {
 
-            for (let i = 0; i < inputValue.value; i++) {
+    //         for (let i = 0; i < inputValue.value; i++) {
 
-                solutionText.textContent = '';
-                showSolution(inputValue.value);         // вывод решения
-            }
+    //             solutionText.textContent = '';
+    //             showSolution(inputValue.value);         // вывод решения
+    //         }
 
-            console.log(dividedYes);
-            console.log(dividedNo);
+    //         console.log(dividedYes);
+    //         console.log(dividedNo);
 
-            solutionText.textContent = '';
-            showSolution(inputValue.value);
+    //         solutionText.textContent = '';
+    //         showSolution(inputValue.value);
 
-        }
-    });
+    //     }
+    // });
 
     // функция разложения на простые множители с промежуточными результатами
 
