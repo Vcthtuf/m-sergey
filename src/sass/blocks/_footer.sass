@@ -1,15 +1,36 @@
 .footer 
     padding: 1rem 5%
     text-align: center
-    background-color: #EDE4E4
+    background-color: #cacfd2
     flex-grow: 0
 
+    @media screen and (max-width: 480px)
+        flex-direction: column
+        font-size: .75rem
+    
     &_menu 
         display: flex
         justify-content: space-evenly
-        margin: 0 auto
+        margin: 0 auto 1rem 0
 
-        a
-            display: block 
-            padding: 1rem 0
-            
+        @media screen and (max-width: 480px)
+            justify-content: center
+            flex-direction: column
+
+        @media screen and (max-width: 991px)
+            flex-wrap: wrap
+
+        li
+            display: block
+            padding: .5rem 0
+
+            a
+                display: block 
+                padding: .5rem 2%
+
+                @media screen and (max-width: 991px)
+                    padding: .5rem 2%
+
+                @media screen and (max-width: 480px)
+                    padding: 0
+                    
