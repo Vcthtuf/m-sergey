@@ -13,13 +13,17 @@
     margin: 0 auto
 
     @media screen and (max-width: 768px)
-        // justify-content: center
+        justify-content: center
+        width: 100%
 
 @import 'blocks/aside'
             
 .main
     width: 80%
     padding: 3.3rem 5% 1rem
+
+    @media screen and (max-width: 768px)
+        width: 100%
 
     .data 
         .nav_tabs
@@ -150,7 +154,8 @@
                     text-decoration: underline
 
         .calculate
-            position: relative
+            // position: relative
+            z-index: -1
             .message_error
                 display: none
                 position: absolute
