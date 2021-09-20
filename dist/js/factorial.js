@@ -1,4 +1,6 @@
-$(document).ready(function () {
+window.addEventListener('DOMContentLoaded', function () {
+
+    'use strict';
 
     // Tabs
 
@@ -79,7 +81,7 @@ $(document).ready(function () {
             inputValue.classList.remove('input_error');
             factorial(inputValue.value);
             inputResult.value = `${inputValue.value}! = ${factorial(inputValue.value)}`;
-            solutionText.textContent = '';
+            // solutionText.textContent = '';
 
         }
 
