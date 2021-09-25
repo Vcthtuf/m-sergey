@@ -26,6 +26,8 @@
         width: 100%
 
     .data 
+        border: 2px solid #cacfd2
+        border-radius: 5px
         .nav_tabs
             ul 
                 display: flex
@@ -34,11 +36,12 @@
                 padding: 0
                 width: 100%
                 margin: 0 auto
-                border: 2px solid #CACFD2
+
+                @media screen and (max-width: 480px)
+                    flex-direction: column
                 
                 li
                     width: 33.33333%
-                    border-right: 1px solid #fff
                     text-align: center
                     padding: 1rem 0
                     font-size: 1rem
@@ -46,7 +49,15 @@
                     background-color: #CACFD2
                     &:hover 
                         background-color: #FFE4E1
-                        
+
+                    &.tab_active
+                        background-color: #faf8f5
+                        color: #204c6b
+                        font-weight: bold
+
+                    @media screen and (max-width: 480px)
+                        width: 100%
+                      
         .examples 
 
             p 
@@ -57,11 +68,12 @@
             padding: 0 5%
 
         .solution            
-            // padding-bottom: 2rem
             text-align: center
 
             &_title
                 margin-bottom: 2rem
+                margin-top: 0
+                padding-top: 2rem
 
             &_instruction 
                 display: block
@@ -111,7 +123,6 @@
                 input::-webkit-inner-spin-button 
                     -webkit-appearance: none
                     -moz-appearance: textfield
-
                    
                 &:hover
                     -moz-appearance: number-input
@@ -131,7 +142,6 @@
                 border-width: 1px
                 border-color: #f00
                 
-
             button 
                 margin-bottom: 1rem
 
@@ -163,7 +173,6 @@
                     text-decoration: underline
 
         .calculate
-            // position: relative
             z-index: -1
             .message_error
                 display: none
@@ -182,9 +191,5 @@
 
 .hide 
     display: none
-
-.active 
-    background-color: #FFE4E1
-    color: blue
 
 @import 'blocks/footer'

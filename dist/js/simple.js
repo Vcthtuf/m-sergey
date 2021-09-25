@@ -25,8 +25,7 @@ window.addEventListener('DOMContentLoaded', function () {
         tabContent = document.querySelectorAll('section');
 
     hideTabContent(1);                              // скрытие вего контента, кроме первого таба
-    tabs[0].classList.add('active');                // показ первого таба
-
+    tabs[0].classList.add('tab_active');                // показ первого таба
 
     blockMenu.addEventListener('click', function (event) {   // обработка клика выбора табов
         let target = event.target;
@@ -46,7 +45,7 @@ window.addEventListener('DOMContentLoaded', function () {
         for (let i = a; i < tabContent.length; i++) {
             tabContent[i].classList.remove('show');
             tabContent[i].classList.add('hide');
-            tabs[i].classList.remove('active');
+            tabs[i].classList.remove('tab_active');
         }
     }
 
@@ -54,7 +53,7 @@ window.addEventListener('DOMContentLoaded', function () {
         for (let i = 0; i < tabContent.length; i++) {
             tabContent[b].classList.remove('hide');
             tabContent[b].classList.add('show');
-            tabs[b].classList.add('active');
+            tabs[b].classList.add('tab_active');
         }
     }
 
@@ -98,11 +97,8 @@ window.addEventListener('DOMContentLoaded', function () {
             getSimpleFactors(inputValue.value);
             inputResult.value = `${inputValue.value} = ${simpleNumbers.join(' * ')}`;
             solutionText.textContent = '';
-
         }
-
     });
-
 
     function isPrime(n) {             // функция проверки на простое число
 
@@ -111,10 +107,8 @@ window.addEventListener('DOMContentLoaded', function () {
                 return false;
             }
         }
-
         return true;
     }
-
 
     // ------------------------------------------------
     let dividedYes = [], dividedNo = [];
@@ -122,7 +116,6 @@ window.addEventListener('DOMContentLoaded', function () {
         simpleNumbers = [];
 
         isPrime(n);
-
 
         function checkDivided(n, i) {         // функция проверки на делимость
 
@@ -153,9 +146,6 @@ window.addEventListener('DOMContentLoaded', function () {
     // Вывод решения
 
     solutionBtn.addEventListener('click', function () {
-        // console.log(+inputValue.value);
-
-        // console.log(isPrime(23));
 
         if (isPrime(+inputValue.value)) {
             showSolutionSimple(+inputValue.value);
@@ -163,48 +153,21 @@ window.addEventListener('DOMContentLoaded', function () {
         } else {
 
             for (let i = 0; i < inputValue.value; i++) {
-
                 solutionText.textContent = '';
                 showSolution(inputValue.value);         // вывод решения
             }
 
-            console.log(dividedYes);
-            console.log(dividedNo);
-
             solutionText.textContent = '';
             showSolution(inputValue.value);
-
         }
     });
-
-    // функция разложения на простые множители с промежуточными результатами
-
-    // let multiply_1 = [], multiply_2 = [];
-    // function NOK(a, b) {
-    //     let i = 0, j = 0, nok_1;
-    //     multiply_1[0] = a;
-    //     multiply_2[0] = b;
-    //     while (multiply_1[i] != multiply_2[j]) {
-    //         if (multiply_1[i] > multiply_2[j]) {
-    //             multiply_2.push(b * (j + 2));
-    //             j++;
-    //             // console.log(multiply_2);
-    //         } else {
-    //             multiply_1.push(a * (i + 2));
-    //             i++;
-
-    //         }
-    //     };
-    // };
 
     // функция показа решения, если число составное
 
     function showSolution(n) {
-        // console.log('Решение для составного числа');
         solutionText.insertAdjacentHTML('beforeend', `<h3 style="margin-bottom: 1rem;">Разложение на простые множители</h3>`);
         solutionText.insertAdjacentHTML('beforeend', `Разложить на простые множители число ${n}. <br><br>`);
-        // console.log(dividedYes);
-        // console.log(dividedYes.length);
+
         for (let i = 0; i < dividedYes.length; i++) {
 
             for (let j = 0; j < dividedNo.length; j++) {
@@ -214,21 +177,11 @@ window.addEventListener('DOMContentLoaded', function () {
             }
 
             solutionText.insertAdjacentHTML('beforeend', `Число ${n} делится на <span style="color: red; font-size: 1.2rem; font-weight: 700">${dividedYes[i]}</span>.  <br> ${n} : ${dividedYes[i]} = ${n / dividedYes[i]}. <br>`);
-
             n = n / dividedYes[i];
-
         }
 
         solutionText.insertAdjacentHTML('beforeend', `<br>Получили число 1, поэтому разложение закончено`);
         solutionText.insertAdjacentHTML('beforeend', `<br><br> Разложение: ${inputValue.value} = ${simpleNumbers.join(' &middot; ')}`);
-
-
-        // solutionText.insertAdjacentHTML('beforeend', `Кратные первого числа: ${multiply_1}... <br>`);
-        // solutionText.insertAdjacentHTML('beforeend', `Кратные второго числа: ${multiply_2}... <br>`);
-        // solutionText.insertAdjacentHTML('beforeend', `Находим первое совпадение среди кратных обоих чисел. Оно равно ${nok}. <br>`);
-        // solutionText.insertAdjacentHTML('beforeend', `Наименьшее общее кратное равно ${nok}. <br>`);
-        // solutionText.insertAdjacentHTML('beforeend', `Ответ: НОК(${inputValue[0]}, ${inputValue[1]}) = ${nok}. <br>`);
-
     }
 
     // ----------------------
@@ -238,7 +191,6 @@ window.addEventListener('DOMContentLoaded', function () {
     function showSolutionSimple(n) {
         solutionText.insertAdjacentHTML('beforeend', `<h3 style="margin-bottom: 1rem;">Разложение на простые множители</h3>`);
         solutionText.insertAdjacentHTML('beforeend', `Число ${n} является простым, поэтому его нельзя разложить на множители. <br><br>`);
-
     }
 
     // ---------------------- 
@@ -248,10 +200,8 @@ window.addEventListener('DOMContentLoaded', function () {
     function messageError() {
 
         msgError.classList.add('message_error_active');
-
         inputValue.classList.add('input_error');
         inputResult.value = '';
-
     }
 
     // -------------------------------------------------
@@ -262,9 +212,6 @@ window.addEventListener('DOMContentLoaded', function () {
         msgError.classList.remove('message_error_active');
 
         inputValue.classList.remove('input_error');
-
-
-
     }
 
     // -------------------------------------------------

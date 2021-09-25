@@ -25,8 +25,7 @@ window.addEventListener('DOMContentLoaded', function () {
         tabContent = document.querySelectorAll('section');
 
     hideTabContent(1);                              // скрытие вего контента, кроме первого таба
-    tabs[0].classList.add('active');                // показ первого таба
-
+    tabs[0].classList.add('tab_active');                // показ первого таба
 
     blockMenu.addEventListener('click', function (event) {   // обработка клика выбора табов
         let target = event.target;
@@ -46,7 +45,7 @@ window.addEventListener('DOMContentLoaded', function () {
         for (let i = a; i < tabContent.length; i++) {
             tabContent[i].classList.remove('show');
             tabContent[i].classList.add('hide');
-            tabs[i].classList.remove('active');
+            tabs[i].classList.remove('tab_active');
         }
     }
 
@@ -54,7 +53,7 @@ window.addEventListener('DOMContentLoaded', function () {
         for (let i = 0; i < tabContent.length; i++) {
             tabContent[b].classList.remove('hide');
             tabContent[b].classList.add('show');
-            tabs[b].classList.add('active');
+            tabs[b].classList.add('tab_active');
         }
     }
 
@@ -67,7 +66,6 @@ window.addEventListener('DOMContentLoaded', function () {
         inputItems = document.querySelectorAll('.solution_input > input'),
         calcBtn = document.querySelector('.calc'),
         inputResult = document.querySelector('.solution_result > input');
-
     let msgError = document.querySelector('.message_error'); // сообщение об ошибке ввода данных
 
     let appData = {    // объект для хранения данных
@@ -88,7 +86,6 @@ window.addEventListener('DOMContentLoaded', function () {
         appData.commonFactors = [];
         appData.resultNod = 1;
         deleteMessageError();
-
     });
 
     let nod = function (a, b) {    // функция быстрого вычисления НОД для вывода ответа
@@ -109,9 +106,7 @@ window.addEventListener('DOMContentLoaded', function () {
                 msgError.classList.remove('message_error_active');
                 for (let i = 0; i < inputItems.length; i++) {
                     inputItems[i].classList.remove('input_error');
-
                 }
-
             }
             appData.inputValue.push(inputValue[i]);
         }
@@ -121,8 +116,6 @@ window.addEventListener('DOMContentLoaded', function () {
     });
 
     // ------------------------------------------------
-
-
 
     // Расчет НОД методом разложения на множители
 
@@ -146,7 +139,6 @@ window.addEventListener('DOMContentLoaded', function () {
     };
 
     // разложение на простые множители чисел
-
 
     for (let i = 0; i < appData.inputValue.length; i++) {
         appData.simpleNum[i] = fact(inputValue[i]);
@@ -172,7 +164,6 @@ window.addEventListener('DOMContentLoaded', function () {
 
     // Вывод решения методом разложения
 
-
     solutionBtn.addEventListener('click', function () {
 
         for (let i = 0; i < appData.inputValue.length; i++) {
@@ -182,7 +173,6 @@ window.addEventListener('DOMContentLoaded', function () {
         commonFactor();
         calcNod(appData.commonFactors);
         showSolution();    // вывод решения методом разложения
-
     });
 
     // функция вывода рещения алгоритмом Евклида
@@ -194,7 +184,6 @@ window.addEventListener('DOMContentLoaded', function () {
         k = null;
         solutionText.insertAdjacentHTML('beforeend', `Последний ненулевой остаток равен: ${nodEvklid} <br>`);
         solutionText.insertAdjacentHTML('beforeend', `Следовательно, НОД равен: ${nodEvklid}. <br>`);
-
     }
 
     // функция вычисления НОД алгоритмом Евклида
@@ -255,7 +244,6 @@ window.addEventListener('DOMContentLoaded', function () {
         msgError.classList.add('message_error_active');
         for (let i = 0; i < inputItems.length; i++) {
             inputItems[i].classList.add('input_error');
-
         }
     }
 
@@ -267,9 +255,7 @@ window.addEventListener('DOMContentLoaded', function () {
         msgError.classList.remove('message_error_active');
         for (let i = 0; i < inputItems.length; i++) {
             inputItems[i].classList.remove('input_error');
-
         }
-
     }
 
     // -------------------------------------------------

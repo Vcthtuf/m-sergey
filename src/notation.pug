@@ -8,13 +8,11 @@ html(lang="ru")
         meta(name="description", content="Подробное решение онлайн. Бесплатно. Перевод чисел в различные системы счисления. Вставь свои данные и мгновенно получи решение")
         title Системы счисления
         link(rel="stylesheet", href="css/nod.min.css")
-    body
-        
+    body       
         include includes/_header.pug
         .wrapper    
             .app
-                include includes/_aside.pug
-                    
+                include includes/_aside.pug                 
                 .main
                     .data
                         .nav_tabs 
@@ -48,9 +46,6 @@ html(lang="ru")
                             h3 Перевод в другую систему счисления
                            
                         section.examples 
-                           h3 Перевод в другую систему счисления
-                            
-                    
-        include includes/_footer.pug
-                    
+                           h3 Перевод в другую систему счисления                                          
+        include includes/_footer.pug                 
         script(src="js/notation.js")

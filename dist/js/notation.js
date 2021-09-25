@@ -25,7 +25,7 @@ window.addEventListener('DOMContentLoaded', function () {
         tabContent = document.querySelectorAll('section');
 
     hideTabContent(1);                              // скрытие вего контента, кроме первого таба
-    tabs[0].classList.add('active');                // показ первого таба
+    tabs[0].classList.add('tab_active');                // показ первого таба
 
 
     blockMenu.addEventListener('click', function (event) {   // обработка клика выбора табов
@@ -46,7 +46,7 @@ window.addEventListener('DOMContentLoaded', function () {
         for (let i = a; i < tabContent.length; i++) {
             tabContent[i].classList.remove('show');
             tabContent[i].classList.add('hide');
-            tabs[i].classList.remove('active');
+            tabs[i].classList.remove('tab_active');
         }
     }
 
@@ -54,7 +54,7 @@ window.addEventListener('DOMContentLoaded', function () {
         for (let i = 0; i < tabContent.length; i++) {
             tabContent[b].classList.remove('hide');
             tabContent[b].classList.add('show');
-            tabs[b].classList.add('active');
+            tabs[b].classList.add('tab_active');
         }
     }
 
@@ -72,8 +72,6 @@ window.addEventListener('DOMContentLoaded', function () {
         inputResult = document.querySelector('.solution_result .result');
 
     let msgError = document.querySelector('.message_error'); // сообщение об ошибке ввода данных
-
-
 
     let appData = {    // объект для хранения данных
         result: 1,
@@ -93,7 +91,6 @@ window.addEventListener('DOMContentLoaded', function () {
         appData.commonFactors = [];
         appData.resultNod = 1;
         deleteMessageError();
-
     });
 
     let nod = function (a, b) {    // функция быстрого вычисления НОД для вывода ответа
@@ -103,9 +100,6 @@ window.addEventListener('DOMContentLoaded', function () {
         return nod(b, a % b);
     }
 
-
-
-
     calcBtn.addEventListener('click', function () {  // обработка клика по кнопке "Перевести", вывода результата и очистка решения
 
         let input = inputNumber.value,
@@ -113,12 +107,6 @@ window.addEventListener('DOMContentLoaded', function () {
             notationOut = +notationOutput.value;
 
         inputResult.textContent = '';
-
-        // console.log('Входное число: ' + +inputNumber.value);
-        // console.log('Система счисления входного числа: ' + +notationInput.value);
-        // console.log('Система счисления результата: ' + +notationOutput.value);
-
-
 
         for (let i = 0; i < inputValue.length; i++) {
             inputValue[i] = +inputItems[i].value;
@@ -129,9 +117,7 @@ window.addEventListener('DOMContentLoaded', function () {
                 msgError.classList.remove('message_error_active');
                 for (let i = 0; i < inputItems.length; i++) {
                     inputItems[i].classList.remove('input_error');
-
                 }
-
             }
             appData.inputValue.push(inputValue[i]);
         }
@@ -142,8 +128,6 @@ window.addEventListener('DOMContentLoaded', function () {
 
     // ------------------------------------------------
 
-
-
     // Перевод в другую систему счисления
 
     let solutionText = document.querySelector('.solution_text'),
@@ -152,16 +136,11 @@ window.addEventListener('DOMContentLoaded', function () {
     function convertNotation(num, notationOut, notationIn) {     // функция перевода в другую систему счисления
 
         let numberToTen = parseInt(num, notationIn);
-        // console.log(num);
-        // console.log(numberToTen);
-        // console.log(notationOut);
         let output = numberToTen.toString(notationOut);
-
         return output;
     };
 
     // Вывод решения
-
 
     solutionBtn.addEventListener('click', function () {
 
@@ -181,9 +160,6 @@ window.addEventListener('DOMContentLoaded', function () {
             calculateToTen(inputNumber.value, notationIn, 10);
             solutionText.insertAdjacentHTML('beforeend', `Затем переводим число ${convertNotation(inputNumber.value, 10, notationIn)}<sub>10</sub> в ${notationOutput.value}-ю систему счисления.<br>`);
             let input = convertNotation(inputNumber.value, 10, notationIn);
-
-            // calculateFromTen(input, 10, notationOut);
-
             solutionText.insertAdjacentHTML('beforeend', `Последовательно делим число ${input} на ${notationOut}.<br>`);
 
             while (input > 0) {
@@ -192,13 +168,10 @@ window.addEventListener('DOMContentLoaded', function () {
                 solutionText.insertAdjacentHTML('beforeend', `<br>`);
 
                 input = Math.floor(input / notationOut);
-
             }
 
             solutionText.insertAdjacentHTML('beforeend', `${inputNumber.value}<sub>${notationInput.value}</sub> = ${appData.result.toUpperCase()}<sub>${notationOut}.`);
-
         }
-
     });
 
     // --------------------------------------------------
@@ -211,15 +184,11 @@ window.addEventListener('DOMContentLoaded', function () {
 
         while (input > 0) {
             solutionText.insertAdjacentHTML('beforeend', `${input} : ${notationOut} = ${Math.floor(input / notationOut)}, остаток  <span style="font-size:1.3rem; color: red; font-weight: bold">${input % notationOut}.  ${out16_36(input % notationOut, notationOut)}</span>`);
-
             solutionText.insertAdjacentHTML('beforeend', `<br>`);
-
             input = Math.floor(input / notationOut);
-
         }
 
         solutionText.insertAdjacentHTML('beforeend', `<span style="font-weight: bold"> ${inputNumber.value}<sub>${notationIn}</sub> = ${appData.result.toUpperCase()}<sub>${notationOut}</sub></span>`);
-
     }
 
     // функция перевода в десятичную систему
@@ -228,17 +197,13 @@ window.addEventListener('DOMContentLoaded', function () {
         console.log(inputNumber);
         console.log(typeof (inputNumber));
         let input = toString(inputNumber);
-
         let arr = inputNumber.split('');
         console.log(arr);
-
-
         solutionText.insertAdjacentHTML('beforeend', `${inputNumber.toUpperCase()}<sub>${notationIn}</sub> = `);
 
         for (let i = 0; i < arr.length - 1; i++) {
             let a = convertNotation(arr[i], notationOut, notationIn);
             solutionText.insertAdjacentHTML('beforeend', `${a} &middot; ${notationIn}<sup>${arr.length - 1 - i}</sup> + `);
-
         }
 
         let a = convertNotation(arr[arr.length - 1], notationOut, notationIn);
@@ -249,7 +214,6 @@ window.addEventListener('DOMContentLoaded', function () {
         solutionText.insertAdjacentHTML('beforeend', `${a} &middot; ${notationIn}<sup>0</sup> =  ${convertNotation(inputNumber, 10, notationIn)}<sub>${notationOut}. <br>`);
 
         solutionText.insertAdjacentHTML('beforeend', `${inputNumber.toUpperCase()}<sub>${notationIn}</sub> = ${convertNotation(inputNumber, 10, notationIn)}<sub>${notationOut}.<br>`);
-
     }
 
     function out16_36(inp, sys) {
@@ -273,7 +237,6 @@ window.addEventListener('DOMContentLoaded', function () {
         msgError.classList.add('message_error_active');
         for (let i = 0; i < inputItems.length; i++) {
             inputItems[i].classList.add('input_error');
-
         }
     }
 
@@ -285,9 +248,7 @@ window.addEventListener('DOMContentLoaded', function () {
         msgError.classList.remove('message_error_active');
         for (let i = 0; i < inputValue.length; i++) {
             inputItems[i].classList.remove('input_error');
-
         }
-
     }
 
     // -------------------------------------------------

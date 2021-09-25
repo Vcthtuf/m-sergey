@@ -25,7 +25,7 @@ window.addEventListener('DOMContentLoaded', function () {
         tabContent = document.querySelectorAll('section');
 
     hideTabContent(1);                              // скрытие вего контента, кроме первого таба
-    tabs[0].classList.add('active');                // показ первого таба
+    tabs[0].classList.add('tab_active');                // показ первого таба
 
 
     blockMenu.addEventListener('click', function (event) {   // обработка клика выбора табов
@@ -46,7 +46,7 @@ window.addEventListener('DOMContentLoaded', function () {
         for (let i = a; i < tabContent.length; i++) {
             tabContent[i].classList.remove('show');
             tabContent[i].classList.add('hide');
-            tabs[i].classList.remove('active');
+            tabs[i].classList.remove('tab_active');
         }
     }
 
@@ -54,7 +54,7 @@ window.addEventListener('DOMContentLoaded', function () {
         for (let i = 0; i < tabContent.length; i++) {
             tabContent[b].classList.remove('hide');
             tabContent[b].classList.add('show');
-            tabs[b].classList.add('active');
+            tabs[b].classList.add('tab_active');
         }
     }
 
