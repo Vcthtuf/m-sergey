@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="icon" href="icon/favicon.ico" type="image/x-icon"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="description" content="Подробное нахождение наибольшего общего делителя НОД онлайн. Бесплатно. Вставь свои данные и мгновенно получи решение"/>
-    <title>Наибольший общий делитель</title>
+    <meta name="description" content="Подробные решения комплексных чисел. Бесплатно. Вставь свои данные и мгновенно получи решение"/>
+    <title>Комплексные числа. Сложение, вычитание, умножение, деление. Онлайн. Бесплатно.</title>
     <link rel="stylesheet" href="css/nod.min.css"/>
+    <link rel="stylesheet" href="css/complex.min.css"/>
   </head>
   <body>      
     <header class="header"><a class="logo_svg" href="index.html"><svg width="123" height="69" viewBox="0 0 246 138" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -44,16 +45,24 @@
               </ul>
             </div>
             <section class="solution"> 
-              <h2 class="solution_title">Онлайн расчет наибольшего общего делителя (НОД) чисел</h2><span class="solution_instruction">Введите ваши числа:</span>
+              <h2 class="solution_title">Онлайн расчет комплексных чисел</h2><span class="solution_instruction">Введите ваши числа:</span>
               <div class="solution_input">
-                <input type="text" placeholder="Введите число" required="required"/>
-                <input type="text" placeholder="Введите число" required="required"/>
+                <input type="text" placeholder="2" required="required"/><span>+</span>
+                <input type="text" placeholder="3" required="required"/><span>i</span>
+                <select name="action"> 
+                  <option value="+">+</option>
+                  <option value="-">-</option>
+                  <option value="*">*</option>
+                  <option value=":">/  </option>
+                </select>
+                <input type="text" placeholder="4" required="required"/><span>+</span>
+                <input type="text" placeholder="5" required="required"/><span>i</span>
               </div>
               <div class="calculate"> 
                 <button class="calc btn">Рассчитать</button>
                 <div class="message_error">Введите значения в поля выше</div>
               </div>
-              <div class="solution_result"> <span>Наибольший общий делитель (НОД) чисел равен:</span>
+              <div class="solution_result"> 
                 <input type="text"/>
               </div>
               <button class="solution_btn btn">Решение</button>
@@ -114,6 +123,6 @@
       </nav><span>Copyright 2020</span>
     </footer>
     <script src="js/media.js"></script>
-    <script src="js/nod.js"></script>
+    <script src="js/complex.js"></script>
   </body>
 </html>

@@ -6,7 +6,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
     let menuItems = document.querySelectorAll('.menu');
 
-    linkActive(5);                              // делаем активной шестую ссылку
+    linkActive(6);                              // делаем активной седьмую ссылку
 
     function linkActive(b) {                        // функция делает активной одну ссылку
         for (let i = 0; i < menuItems.length; i++) {
