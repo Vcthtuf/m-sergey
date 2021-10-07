@@ -47,7 +47,7 @@ window.addEventListener('DOMContentLoaded', function () {
             tabContent[i].classList.add('hide');
             tabs[i].classList.remove('tab_active');
         }
-    }
+    };
 
     function showTabContent(b) {                        // функция показа контента
         for (let i = 0; i < tabContent.length; i++) {
@@ -55,187 +55,178 @@ window.addEventListener('DOMContentLoaded', function () {
             tabContent[b].classList.add('show');
             tabs[b].classList.add('tab_active');
         }
-    }
+    };
 
     // ---------------------------------------------
 
-    // Расчет НОД 
+    // Расчет комплексных чисел 
 
     let inputValue = [],      // массив входных чисел
         blockInput = document.querySelector('.solution_input'),
-        inputItems = document.querySelectorAll('.solution_input > input'),
+        inputItemsReal = document.querySelectorAll('.real'),  // массив действительных частей
+        inputItemsIm = document.querySelectorAll('.im'), // массив мнимых частей
         calcBtn = document.querySelector('.calc'),
-        inputResult = document.querySelector('.solution_result > input');
-    let msgError = document.querySelector('.message_error'); // сообщение об ошибке ввода данных
+        outputResult = document.querySelector('.solution_result > input'),
+        solutionBtn = document.querySelector('.solution_btn'),
+        solutionText = document.querySelector('.solution_text'),
+        msgError = document.querySelector('.message_error'); // сообщение об ошибке ввода данных
 
-    let appData = {    // объект для хранения данных
-        result: 1,
-        inputValue: [],
-        simpleNum: [[], []],
-        commonFactors: [],
-        resultNod: 1
-    };
+    let inputSign = '+',
+        outputValueReal = 0,
+        outputValueIm = 0,
+        a, b, c, d, signIm;
 
     blockInput.addEventListener('click', function (event) {  // скрытие значений input и очистка данных при клике 
         let target = event.target;
         target.setAttribute('placeholder', '');
         target.value = '';
-        appData.result = 1;
-        appData.inputValue = [];
-        appData.simpleNum = [[], []];
-        appData.commonFactors = [];
-        appData.resultNod = 1;
-        deleteMessageError();
+        outputValueReal = 0;
+        outputValueIm = 0;
+        // deleteMessageError();
     });
 
-    let nod = function (a, b) {    // функция быстрого вычисления НОД для вывода ответа
-        if (!b) {
-            return a;
-        }
-        return nod(b, a % b);
-    }
 
+
+    sign();
     calcBtn.addEventListener('click', function () {  // обработка клика по кнопке "Рассчитать", вывода результата и очистка решения
+        a = +inputItemsReal[0].value;
+        b = +inputItemsIm[0].value;
+        c = +inputItemsReal[1].value;
+        d = +inputItemsIm[1].value;
 
-        for (let i = 0; i < inputItems.length; i++) {
-            inputValue[i] = +inputItems[i].value;
-            if (!inputValue[i]) {
-                messageError();
+
+        switch (inputSign) {
+            case "+":
+                outputValueReal = a + c;
+                outputValueIm = b + d;
                 break;
-            } else {
-                msgError.classList.remove('message_error_active');
-                for (let i = 0; i < inputItems.length; i++) {
-                    inputItems[i].classList.remove('input_error');
-                }
-            }
-            appData.inputValue.push(inputValue[i]);
+            case "-":
+                outputValueReal = a - c;
+                outputValueIm = b - d;
+                break;
+            case "*":
+                outputValueReal = a * c - b * d;
+                outputValueIm = a * d + b * c;
+                break;
+            case "/":
+                outputValueReal = (a * c + b * d) / (c * c + d * d);
+                outputValueIm = (b * c - a * d) / (c * c + d * d);
+                break;
+            default:
+                break;
         }
-        appData.result = nod(...inputValue);
-        inputResult.value = appData.result;
-        solutionText.textContent = '';
+
+        console.log(inputSign);
+        console.log("Результат действительного числа " + outputValueReal);
+        console.log("Результат мнимого числа " + outputValueIm);
+        signIm = "+";
+        if (outputValueIm < 0) { signIm = "-"; outputValueIm = -outputValueIm; }
+
+        outputResult.value = ` ${outputValueReal} ${signIm} ${outputValueIm}i`;
+
+        return a, b, c, d;
     });
+
+    // -----------------------------------------------
+
+    // функция выбора знака действия с комплексными числами
+
+    function sign() {
+        document.querySelector('select').addEventListener(
+            'change',
+            function () {
+                inputSign = this.options[this.selectedIndex].text;
+                return inputSign;
+            }
+        )
+    }
 
     // ------------------------------------------------
 
-    // Расчет НОД методом разложения на множители
-
-    let solutionText = document.querySelector('.solution_text'),
-        solutionBtn = document.querySelector('.solution_btn');
-
-    function fact(number) {     // функция разложения на простые множители
-        let b = 2,
-            simpleNumbers = [];
-        while (number > b) {
-            while (number % b == 0) {
-                number /= b;
-                simpleNumbers.push(+b);
-            }
-            b++;
-            if (number == b) {
-                simpleNumbers.push(+b);
-            }
-        }
-        return simpleNumbers;
-    };
-
-    // разложение на простые множители чисел
-
-    for (let i = 0; i < appData.inputValue.length; i++) {
-        appData.simpleNum[i] = fact(inputValue[i]);
-    }
-    // ----------------------------------
-
-    function commonFactor() {      // нахождение общих множителей
-
-        appData.simpleNum[0].forEach(function (item) {
-            if (appData.simpleNum[1].indexOf(item) != -1) {
-                appData.commonFactors.push(item);
-                appData.simpleNum[1].splice(appData.simpleNum[1].indexOf(item), 1);
-            }
-        });
-    }
-
-    function calcNod(arr) {                         // нахождение НОД для решения методом разложения
-        arr.forEach(function (item) {
-            appData.resultNod *= item;
-        })
-        return appData;
-    }
-
-    // Вывод решения методом разложения
+    // Вывод решения
 
     solutionBtn.addEventListener('click', function () {
-
-        for (let i = 0; i < appData.inputValue.length; i++) {
-            appData.simpleNum[i] = fact(inputValue[i]);
+        solutionText.textContent = '';   // очистка предыдущего решения
+        solutionText.insertAdjacentHTML('afterbegin', '<h3 style="text-align: center; margin-bottom: 1rem;"> Решение </h3>');
+        let signText_1, signText_2;
+        switch (inputSign) {
+            case "+":
+                signText_1 = "Число";
+                signText_2 = "сложить с числом";
+                break;
+            case "-":
+                signText_1 = "Из числа";
+                signText_2 = "вычесть число";
+                break;
+            case "*":
+                signText_1 = "Число";
+                signText_2 = "умножить на число";
+                break;
+            case "/":
+                signText_1 = "Число";
+                signText_2 = "разделить на число";
+                break;
+            default:
+                break;
         }
-        solutionText.textContent = '';
-        commonFactor();
-        calcNod(appData.commonFactors);
-        showSolution();    // вывод решения методом разложения
+        let signA = "+",
+            signB = "+",
+            signC = "+",
+            signD = "+";
+
+        // if (a < 0) { a = -a; signA = "-" };
+        if (b < 0) { b = -b; signB = "-" };
+        // if (c < 0) { c = -c; signC = "-" };
+        if (d < 0) { d = -d; signD = "-" };
+
+        solutionText.insertAdjacentHTML('beforeend', `${signText_1} (${a} ${signB} ${b}i) ${signText_2} (${c} ${signD} ${d}i) <br>`);
+        solutionText.insertAdjacentHTML('beforeend', `(${a} ${signB} ${b}i) ${inputSign} (${c} ${signD} ${d}i) = `);
+
+        switch (inputSign) {
+            case "+":
+                textAdd();
+                break;
+            case "-":
+                textSubtraction();
+                break;
+            case "*":
+                textMultiply();
+                break;
+            case "/":
+                textDivide();
+                break;
+            default:
+                break;
+        }
+
     });
 
-    // функция вывода рещения алгоритмом Евклида
-    let k, nodEvklid;
-    function showEvklid(a, b) {
-        solutionText.insertAdjacentHTML('beforeend', `Найти НОД чисел: ${inputValue[0]} и ${inputValue[1]} <br>`);
-        solutionText.insertAdjacentHTML('beforeend', `Делим большее число на меньшее, а далее делитель на остаток от деления <br>`);
-        calcEvklid(a, b);
-        k = null;
-        solutionText.insertAdjacentHTML('beforeend', `Последний ненулевой остаток равен: ${nodEvklid} <br>`);
-        solutionText.insertAdjacentHTML('beforeend', `Следовательно, НОД равен: ${nodEvklid}. <br>`);
-    }
-
-    // функция вычисления НОД алгоритмом Евклида
-
-    function calcEvklid(a, b) {
-        if (a < b) { let c = a; a = b; b = c; }
-        if (k != 0) {
-            k = a % b;
-            solutionText.insertAdjacentHTML('beforeend', ` ${a} : ${b} = ${Math.floor(a / b)} остаток ${k} <br>`);
-            if (k === 0) {
-                nodEvklid = b; return nodEvklid;
-            } else {
-                calcEvklid(b, k);
-            }
-        }
-    }
-
-    // функция вывода решения методом разложения
-
-    function showSolution() {
-        solutionText.textContent = '';
-        solutionText.insertAdjacentHTML('afterbegin', '<h3 style="text-align: center; margin-bottom: 1rem;"> Решение </h3>');
-        solutionText.insertAdjacentHTML('beforeend', '<p style="text-align: center; font-size: 1.5rem;"> 1 способ. Метод разложения на простые множители </p>');
-        solutionText.insertAdjacentHTML('beforeend', `Найти НОД чисел: ${inputValue[0]} и ${inputValue[1]} <br>`);
-        for (let i = 0; i < inputValue.length; i++) {
-            solutionText.insertAdjacentHTML('beforeend', `Раскладываем число ${inputValue[i]} на <a class='simple' href='simple.html'>простые множители</a>:  <br>`);
-
-            let simpleNum = [];
-            simpleNum = fact(inputValue[i]);
-            solutionText.insertAdjacentHTML('beforeend', `${inputValue[i]} = ${simpleNum.join('&middot;')} <br>`);
-        }
-
-        if (appData.commonFactors.length > 1) {
-
-            solutionText.insertAdjacentHTML('beforeend', 'Находим общие множители двух чисел. Они равны: ' + appData.commonFactors.join(',') + '.<br>');
-            solutionText.insertAdjacentHTML('beforeend', 'Перемножаем общие делители обоих чисел: ' + appData.commonFactors.join('&middot;') + ' = ' + appData.resultNod + '. <br>');
-            solutionText.insertAdjacentHTML('beforeend', 'Получаем ответ. Наибольший общий делитель чисел равен ' + appData.resultNod + '.');
-
-        } else if (appData.commonFactors.length === 1) {
-            solutionText.insertAdjacentHTML('beforeend', 'Находим общие множители двух чисел. Он один и равен: ' + appData.commonFactors[0] + '.<br>');
-
-            solutionText.insertAdjacentHTML('beforeend', 'Получаем ответ. Наибольший общий делитель чисел НОД = ' + appData.commonFactors[0] + '.');
-        } else if (appData.commonFactors.length === 0) {
-            solutionText.insertAdjacentHTML('beforeend', 'Находим общие множители двух чисел. Он один и равен: 1' + '.<br>');
-
-            solutionText.insertAdjacentHTML('beforeend', 'Получаем ответ. Наибольший общий делитель чисел НОД = 1.');
-        }
-        solutionText.insertAdjacentHTML('beforeend', '<p style="text-align: center; font-size: 1.5rem;"> 2 способ. Алгоритм Евклида</p>');
-        showEvklid(inputValue[0], inputValue[1]);
-    }
-
     // --------------------------------------------------
+
+    // функция вывода решения при сложении
+
+    function textAdd() {
+        let signA = "",
+            signB = "",
+            signC = "+",
+            signD = "+";
+
+        // if (a < 0) { a = -a; signA = "-" };
+        // if (b < 0) { b = -b; signB = "-" };
+        if (c < 0) { c = -c; signC = "-" };
+        if (d < 0) { d = -d; signD = "-" };
+
+        solutionText.insertAdjacentHTML('beforeend', `(${a} ${signC} ${c}) + (${b} ${signD} ${d})i = ${outputValueReal} + ${outputValueIm}i <br><br>`);
+        solutionText.insertAdjacentHTML('beforeend', `Ответ: ${outputValueReal} ${signIm} ${outputValueIm}i`);
+    }
+
+    // функция вывода решения при вычитании
+
+
+    function textSubtraction() {
+        solutionText.insertAdjacentHTML('beforeend', `${a} ${signIm} ${b}i ${inputSign} ${c} ${signIm} ${d}i = ${a} + ${c} + (${b} + ${d})i = ${a + c} + ${b + d}i <br><br>`);
+        solutionText.insertAdjacentHTML('beforeend', `Ответ: (${a} ${signIm} ${b}i) ${inputSign} (${c} ${signIm} ${d}i) = ${a + c} + ${b + d}i`);
+    }
 
     // Функция вывода сообщения об ошибке (не введены значения или одно из значений)
 
@@ -251,12 +242,12 @@ window.addEventListener('DOMContentLoaded', function () {
 
     // Функция отмены вывода сообщения об ошибке
 
-    function deleteMessageError() {
-        msgError.classList.remove('message_error_active');
-        for (let i = 0; i < inputItems.length; i++) {
-            inputItems[i].classList.remove('input_error');
-        }
-    }
+    // function deleteMessageError() {
+    //     msgError.classList.remove('message_error_active');
+    //     for (let i = 0; i < inputItems.length; i++) {
+    //         inputItems[i].classList.remove('input_error');
+    //     }
+    // }
 
     // -------------------------------------------------
 

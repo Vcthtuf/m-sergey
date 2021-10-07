@@ -25,18 +25,18 @@ html(lang="ru")
                             h2.solution_title Онлайн расчет комплексных чисел
                             span.solution_instruction Введите ваши числа:
                             .solution_input
-                                input(type="text" placeholder = "2" required)
+                                input.real(type="text" placeholder = "2" required)
                                 span +
-                                input(type="text" placeholder = "3" required)
+                                input.im(type="text" placeholder = "3" required)
                                 span i
                                 select(name="action") 
                                     option(value="+") +
                                     option(value="-") -
                                     option(value="*") *
                                     option(value=":") /  
-                                input(type="text" placeholder = "4" required)
+                                input.real(type="text" placeholder = "4" required)
                                 span +
-                                input(type="text" placeholder = "5" required)
+                                input.im(type="text" placeholder = "5" required)
                                 span i
                             .calculate 
                                 button.calc.btn Рассчитать
