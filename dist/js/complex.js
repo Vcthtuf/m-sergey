@@ -106,7 +106,7 @@ window.addEventListener('DOMContentLoaded', function () {
                 outputValueReal = a * c - b * d;
                 outputValueIm = a * d + b * c;
                 break;
-            case "/":
+            case ":":
                 outputValueReal = (a * c + b * d) / (c * c + d * d);
                 outputValueIm = (b * c - a * d) / (c * c + d * d);
                 break;
@@ -161,7 +161,7 @@ window.addEventListener('DOMContentLoaded', function () {
                 signText_1 = "Число";
                 signText_2 = "умножить на число";
                 break;
-            case "/":
+            case ":":
                 signText_1 = "Число";
                 signText_2 = "разделить на число";
                 break;
@@ -174,6 +174,7 @@ window.addEventListener('DOMContentLoaded', function () {
         if (b < 0) { b_common = -b; signB_common = "-" };
         if (d < 0) { d_common = -d; signD_common = "-" };
         if (inputSign == "*") { inputSign = "&middot;" };
+        if (inputSign == ":") { inputSign = "/" };
 
         solutionText.insertAdjacentHTML('beforeend', `${signText_1} (${a} ${signB_common} ${b_common}i) ${signText_2} (${c} ${signD_common} ${d_common}i) <br>`);
         solutionText.insertAdjacentHTML('beforeend', `(${a} ${signB_common} ${b_common}i) ${inputSign} (${c} ${signD_common} ${d_common}i) = `);
@@ -236,6 +237,29 @@ window.addEventListener('DOMContentLoaded', function () {
         if (d < 0) { d = `(${d})` };
 
         solutionText.insertAdjacentHTML('beforeend', `${a} &middot; ${c} + ${b}i &middot; ${c} + ${a} &middot;  ${d}i - ${b} &middot; ${d} = ${outputValueReal} ${signIm} ${outputValueIm}i <br><br>`);
+        solutionText.insertAdjacentHTML('beforeend', `Ответ: ${outputValueReal} ${signIm} ${outputValueIm}i`);
+    }
+
+    // функция вывода решения при делении
+
+    function textDivide() {
+
+        let b_common = b, signB_common = "+", d_common = d, signD_common = "+", signD_commonNeg = "-";
+
+        if (a < 0) { a = `(${a})`; };
+        if (b < 0) { b = `(${b})`; };
+
+        if (c < 0) { c = `(${c})`; };
+        if (d < 0) { d = `(${d})`; };
+
+        if (b < 0) { b_common = -b; signB_common = "-"; };
+        if (d < 0) { d_common = -d; signD_common = "-"; signD_commonNeg = "+"; };
+        // if (inputSign == "*") { inputSign = "&middot;" };
+        // if (inputSign == ":") { inputSign = "/" };
+        console.log(typeof (c));
+
+        solutionText.insertAdjacentHTML('beforeend', `(${a} ${signB_common} ${b_common}i)&middot;(${c} ${signD_commonNeg} ${d_common}i) / (${c} ${signD_common} ${d_common}i)&middot;(${c} ${signD_commonNeg} ${d_common}i) = <br>`);
+
         solutionText.insertAdjacentHTML('beforeend', `Ответ: ${outputValueReal} ${signIm} ${outputValueIm}i`);
     }
 
