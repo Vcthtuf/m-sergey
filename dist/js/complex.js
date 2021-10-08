@@ -85,15 +85,13 @@ window.addEventListener('DOMContentLoaded', function () {
         // deleteMessageError();
     });
 
-
-
     sign();
     calcBtn.addEventListener('click', function () {  // обработка клика по кнопке "Рассчитать", вывода результата и очистка решения
+        solutionText.textContent = '';   // очистка предыдущего решения
         a = +inputItemsReal[0].value;
         b = +inputItemsIm[0].value;
         c = +inputItemsReal[1].value;
         d = +inputItemsIm[1].value;
-
 
         switch (inputSign) {
             case "+":
@@ -146,7 +144,7 @@ window.addEventListener('DOMContentLoaded', function () {
     // Вывод решения
 
     solutionBtn.addEventListener('click', function () {
-        solutionText.textContent = '';   // очистка предыдущего решения
+
         solutionText.insertAdjacentHTML('afterbegin', '<h3 style="text-align: center; margin-bottom: 1rem;"> Решение </h3>');
         let signText_1, signText_2;
         switch (inputSign) {
@@ -169,18 +167,13 @@ window.addEventListener('DOMContentLoaded', function () {
             default:
                 break;
         }
-        let signA = "+",
-            signB = "+",
-            signC = "+",
-            signD = "+";
+        let b_common = b, signB_common = "+", d_common = d, signD_common = "+";
 
-        // if (a < 0) { a = -a; signA = "-" };
-        if (b < 0) { b = -b; signB = "-" };
-        // if (c < 0) { c = -c; signC = "-" };
-        if (d < 0) { d = -d; signD = "-" };
+        if (b < 0) { b_common = -b; signB_common = "-" };
+        if (d < 0) { d_common = -d; signD_common = "-" };
 
-        solutionText.insertAdjacentHTML('beforeend', `${signText_1} (${a} ${signB} ${b}i) ${signText_2} (${c} ${signD} ${d}i) <br>`);
-        solutionText.insertAdjacentHTML('beforeend', `(${a} ${signB} ${b}i) ${inputSign} (${c} ${signD} ${d}i) = `);
+        solutionText.insertAdjacentHTML('beforeend', `${signText_1} (${a} ${signB_common} ${b_common}i) ${signText_2} (${c} ${signD_common} ${d_common}i) <br>`);
+        solutionText.insertAdjacentHTML('beforeend', `(${a} ${signB_common} ${b_common}i) ${inputSign} (${c} ${signD_common} ${d_common}i) = `);
 
         switch (inputSign) {
             case "+":
@@ -206,26 +199,29 @@ window.addEventListener('DOMContentLoaded', function () {
     // функция вывода решения при сложении
 
     function textAdd() {
-        let signA = "",
-            signB = "",
-            signC = "+",
+        let signC = "+",
             signD = "+";
 
-        // if (a < 0) { a = -a; signA = "-" };
-        // if (b < 0) { b = -b; signB = "-" };
         if (c < 0) { c = -c; signC = "-" };
         if (d < 0) { d = -d; signD = "-" };
 
-        solutionText.insertAdjacentHTML('beforeend', `(${a} ${signC} ${c}) + (${b} ${signD} ${d})i = ${outputValueReal} + ${outputValueIm}i <br><br>`);
+        solutionText.insertAdjacentHTML('beforeend', `(${a} ${signC} ${c}) + (${b} ${signD} ${d})i = ${outputValueReal} ${signIm} ${outputValueIm}i <br><br>`);
         solutionText.insertAdjacentHTML('beforeend', `Ответ: ${outputValueReal} ${signIm} ${outputValueIm}i`);
     }
 
     // функция вывода решения при вычитании
 
-
     function textSubtraction() {
-        solutionText.insertAdjacentHTML('beforeend', `${a} ${signIm} ${b}i ${inputSign} ${c} ${signIm} ${d}i = ${a} + ${c} + (${b} + ${d})i = ${a + c} + ${b + d}i <br><br>`);
-        solutionText.insertAdjacentHTML('beforeend', `Ответ: (${a} ${signIm} ${b}i) ${inputSign} (${c} ${signIm} ${d}i) = ${a + c} + ${b + d}i`);
+
+        let signC = "-",
+            signD = "-";
+
+        if (c < 0) { c = -c; signC = "+" };
+        if (d < 0) { d = -d; signD = "+" };
+
+        solutionText.insertAdjacentHTML('beforeend', `(${a} ${signC} ${c}) + (${b} ${signD} ${d})i = ${outputValueReal} ${signIm} ${outputValueIm}i <br><br>`);
+        // solutionText.insertAdjacentHTML('beforeend', `${a} ${signIm} ${b}i ${inputSign} ${c} ${signIm} ${d}i = ${a} + ${c} + (${b} + ${d})i = ${a + c} + ${b + d}i <br><br>`);
+        solutionText.insertAdjacentHTML('beforeend', `Ответ: ${outputValueReal} ${signIm} ${outputValueIm}i`);
     }
 
     // Функция вывода сообщения об ошибке (не введены значения или одно из значений)

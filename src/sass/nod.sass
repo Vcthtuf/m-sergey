@@ -25,6 +25,12 @@
     @media screen and (max-width: 768px)
         width: 100%
 
+    a
+        color: #00f
+        font-style: italic
+        &:hover
+            color: #f00
+
     .data 
         border: 2px solid #cacfd2
         border-radius: 5px
@@ -62,7 +68,23 @@
 
             p 
                 span
-                    text-decoration: underline
+                    font-style: italic
+            .bold
+                font-weight: bold
+            
+
+        .theory
+            figure
+                width: 60%
+                margin: 0 auto
+
+                img
+                    width: 100%
+                    height: auto
+                    display: block
+                    margin: 0 auto
+                figcaption
+                    text-align: center
 
         .examples, .theory
             padding: 0 5%
