@@ -133,7 +133,8 @@ window.addEventListener('DOMContentLoaded', function () {
         document.querySelector('select').addEventListener(
             'change',
             function () {
-                inputSign = this.options[this.selectedIndex].text;
+                inputSign = this.options[this.selectedIndex].value;
+                console.log('Знак действия ' + typeof (inputSign));
                 return inputSign;
             }
         )
@@ -167,10 +168,12 @@ window.addEventListener('DOMContentLoaded', function () {
             default:
                 break;
         }
+
         let b_common = b, signB_common = "+", d_common = d, signD_common = "+";
 
         if (b < 0) { b_common = -b; signB_common = "-" };
         if (d < 0) { d_common = -d; signD_common = "-" };
+        if (inputSign == "*") { inputSign = "&middot;" };
 
         solutionText.insertAdjacentHTML('beforeend', `${signText_1} (${a} ${signB_common} ${b_common}i) ${signText_2} (${c} ${signD_common} ${d_common}i) <br>`);
         solutionText.insertAdjacentHTML('beforeend', `(${a} ${signB_common} ${b_common}i) ${inputSign} (${c} ${signD_common} ${d_common}i) = `);
@@ -182,7 +185,7 @@ window.addEventListener('DOMContentLoaded', function () {
             case "-":
                 textSubtraction();
                 break;
-            case "*":
+            case "&middot;":
                 textMultiply();
                 break;
             case "/":
@@ -191,7 +194,6 @@ window.addEventListener('DOMContentLoaded', function () {
             default:
                 break;
         }
-
     });
 
     // --------------------------------------------------
@@ -220,7 +222,20 @@ window.addEventListener('DOMContentLoaded', function () {
         if (d < 0) { d = -d; signD = "+" };
 
         solutionText.insertAdjacentHTML('beforeend', `(${a} ${signC} ${c}) + (${b} ${signD} ${d})i = ${outputValueReal} ${signIm} ${outputValueIm}i <br><br>`);
-        // solutionText.insertAdjacentHTML('beforeend', `${a} ${signIm} ${b}i ${inputSign} ${c} ${signIm} ${d}i = ${a} + ${c} + (${b} + ${d})i = ${a + c} + ${b + d}i <br><br>`);
+        solutionText.insertAdjacentHTML('beforeend', `Ответ: ${outputValueReal} ${signIm} ${outputValueIm}i`);
+    }
+
+    // функция вывода решения при умножении
+
+    function textMultiply() {
+
+        if (a < 0) { a = `(${a})` };
+        if (b < 0) { b = `(${b})` };
+
+        if (c < 0) { c = `(${c})` };
+        if (d < 0) { d = `(${d})` };
+
+        solutionText.insertAdjacentHTML('beforeend', `${a} &middot; ${c} + ${b}i &middot; ${c} + ${a} &middot;  ${d}i - ${b} &middot; ${d} = ${outputValueReal} ${signIm} ${outputValueIm}i <br><br>`);
         solutionText.insertAdjacentHTML('beforeend', `Ответ: ${outputValueReal} ${signIm} ${outputValueIm}i`);
     }
 
