@@ -29,11 +29,14 @@ html(lang="ru")
                                 span +
                                 input.im(type="text" placeholder = "3" required)
                                 span i
-                                select(name="action") 
-                                    option(value="+") +
-                                    option(value="-") -
-                                    option(value="*") &middot;
-                                    option(value=":") /  
+                                .select
+                                    input.select__input( type="hidden" name="")
+                                    .select__head +
+                                    ul.select__list(style="display: none")
+                                        li.select__item +
+                                        li.select__item -
+                                        li.select__item *
+                                        li.select__item /
                                 input.real(type="text" placeholder = "4" required)
                                 span +
                                 input.im(type="text" placeholder = "5" required)
@@ -42,7 +45,6 @@ html(lang="ru")
                                 button.calc.btn Рассчитать
                                 .message_error Введите значения в поля выше
                             .solution_result 
-                                //- span Сумма комплексных чисел равна:
                                 input(type="text")
                             button.solution_btn.btn Решение
                             .solution_text 
@@ -89,5 +91,6 @@ html(lang="ru")
                             p Третий этап нахождения НОД
                             p Перемножаем одинаковые делители. 2   &middot;   3   &middot;   3   =   18.
                             p Полученное число и является наибольшим общим делителем чисел 36 и 54. Поэтому записываем: <br><b> Ответ: НОД(36, 54) = 18.</b>                    
-        include includes/_footer.pug                    
+        include includes/_footer.pug 
+        script(src="js/jquery-3.4.1.min.js")                   
         script(src="js/complex.js")

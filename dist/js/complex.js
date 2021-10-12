@@ -71,7 +71,7 @@ window.addEventListener('DOMContentLoaded', function () {
         solutionText = document.querySelector('.solution_text'),
         msgError = document.querySelector('.message_error'); // сообщение об ошибке ввода данных
 
-    let inputSign = '+',
+    let inputSign,
         outputValueReal = 0,
         outputValueIm = 0,
         a, b, c, d, signIm;
@@ -85,13 +85,17 @@ window.addEventListener('DOMContentLoaded', function () {
         // deleteMessageError();
     });
 
-    sign();
+
     calcBtn.addEventListener('click', function () {  // обработка клика по кнопке "Рассчитать", вывода результата и очистка решения
         solutionText.textContent = '';   // очистка предыдущего решения
         a = +inputItemsReal[0].value;
         b = +inputItemsIm[0].value;
         c = +inputItemsReal[1].value;
         d = +inputItemsIm[1].value;
+
+        sign();
+
+        console.log(inputSign);
 
         switch (inputSign) {
             case "+":
@@ -122,7 +126,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
         outputResult.value = ` ${outputValueReal} ${signIm} ${outputValueIm}i`;
 
-        return a, b, c, d;
+        return a, b, c, d, inputSign;
     });
 
     // -----------------------------------------------
@@ -130,14 +134,30 @@ window.addEventListener('DOMContentLoaded', function () {
     // функция выбора знака действия с комплексными числами
 
     function sign() {
-        document.querySelector('select').addEventListener(
-            'change',
-            function () {
-                inputSign = this.options[this.selectedIndex].value;
-                console.log('Знак действия ' + typeof (inputSign));
-                return inputSign;
-            }
-        )
+        let selectHead = document.querySelector('.select__head');
+        inputSign = selectHead.textContent;
+        console.log(inputSign);
+
+        switch (inputSign) {
+            case "+":
+                outputValueReal = a + c;
+                outputValueIm = b + d;
+                break;
+            case "-":
+                outputValueReal = a - c;
+                outputValueIm = b - d;
+                break;
+            case "*":
+                outputValueReal = a * c - b * d;
+                outputValueIm = a * d + b * c;
+                break;
+            case "/":
+                outputValueReal = Math.floor(((a * c + b * d) / (c * c + d * d)) * 1000) / 1000;
+                outputValueIm = Math.floor(((b * c - a * d) / (c * c + d * d)) * 1000) / 1000;
+                break;
+            default:
+                break;
+        }
     }
 
     // ------------------------------------------------
@@ -145,6 +165,8 @@ window.addEventListener('DOMContentLoaded', function () {
     // Вывод решения
 
     solutionBtn.addEventListener('click', function () {
+
+        solutionText.textContent = '';   // очистка предыдущего решения
 
         solutionText.insertAdjacentHTML('afterbegin', '<h3 style="text-align: center; margin-bottom: 1rem;"> Решение </h3>');
         let signText_1, signText_2;
@@ -161,7 +183,7 @@ window.addEventListener('DOMContentLoaded', function () {
                 signText_1 = "Число";
                 signText_2 = "умножить на число";
                 break;
-            case ":":
+            case "/":
                 signText_1 = "Число";
                 signText_2 = "разделить на число";
                 break;
@@ -174,7 +196,7 @@ window.addEventListener('DOMContentLoaded', function () {
         if (b < 0) { b_common = -b; signB_common = "-" };
         if (d < 0) { d_common = -d; signD_common = "-" };
         if (inputSign == "*") { inputSign = "&middot;" };
-        if (inputSign == ":") { inputSign = "/" };
+        if (inputSign == "/") { inputSign = "/" };
 
         solutionText.insertAdjacentHTML('beforeend', `${signText_1} (${a} ${signB_common} ${b_common}i) ${signText_2} (${c} ${signD_common} ${d_common}i) <br>`);
         solutionText.insertAdjacentHTML('beforeend', `(${a} ${signB_common} ${b_common}i) ${inputSign} (${c} ${signD_common} ${d_common}i) = `);
@@ -246,6 +268,12 @@ window.addEventListener('DOMContentLoaded', function () {
 
         let b_common = b, signB_common = "+", d_common = d, signD_common = "+", signD_commonNeg = "-";
 
+        if (a < 0) { a = `(${a})` };
+        if (b < 0) { b = `(${b})` };
+
+        if (c < 0) { c = `(${c})` };
+        if (d < 0) { d = `(${d})` };
+
         if (a < 0) { a = `(${a})`; };
         if (b < 0) { b = `(${b})`; };
 
@@ -259,6 +287,8 @@ window.addEventListener('DOMContentLoaded', function () {
         console.log(typeof (c));
 
         solutionText.insertAdjacentHTML('beforeend', `(${a} ${signB_common} ${b_common}i)&middot;(${c} ${signD_commonNeg} ${d_common}i) / (${c} ${signD_common} ${d_common}i)&middot;(${c} ${signD_commonNeg} ${d_common}i) = <br>`);
+        solutionText.insertAdjacentHTML('beforeend', `(${a} &middot; ${c} + ${b}i &middot; ${c} + ${a} &middot;  ${d}i - ${b} &middot; ${d}) = <br>`);
+
 
         solutionText.insertAdjacentHTML('beforeend', `Ответ: ${outputValueReal} ${signIm} ${outputValueIm}i`);
     }
@@ -286,4 +316,33 @@ window.addEventListener('DOMContentLoaded', function () {
 
     // -------------------------------------------------
 
+    // Выпадающий список
+
+    jQuery(($) => {
+        $('.select').on('click', '.select__head', function () {
+            if ($(this).hasClass('open')) {
+                $(this).removeClass('open');
+                $(this).next().fadeOut();
+            } else {
+                $('.select__head').removeClass('open');
+                $('.select__list').fadeOut();
+                $(this).addClass('open');
+                $(this).next().fadeIn();
+            }
+        });
+
+        $('.select').on('click', '.select__item', function () {
+            $('.select__head').removeClass('open');
+            $(this).parent().fadeOut();
+            $(this).parent().prev().text($(this).text());
+            $(this).parent().prev().prev().val($(this).text());
+        });
+
+        $(document).click(function (e) {
+            if (!$(e.target).closest('.select').length) {
+                $('.select__head').removeClass('open');
+                $('.select__list').fadeOut();
+            }
+        });
+    });
 });

@@ -49,12 +49,16 @@
               <div class="solution_input">
                 <input class="real" type="text" placeholder="2" required="required"/><span>+</span>
                 <input class="im" type="text" placeholder="3" required="required"/><span>i</span>
-                <select name="action"> 
-                  <option value="+">+</option>
-                  <option value="-">-</option>
-                  <option value="*">&middot;</option>
-                  <option value=":">/  </option>
-                </select>
+                <div class="select">
+                  <input class="select__input" type="hidden" name=""/>
+                  <div class="select__head">+</div>
+                  <ul class="select__list" style="display: none">
+                    <li class="select__item">+</li>
+                    <li class="select__item">-</li>
+                    <li class="select__item">*</li>
+                    <li class="select__item">/</li>
+                  </ul>
+                </div>
                 <input class="real" type="text" placeholder="4" required="required"/><span>+</span>
                 <input class="im" type="text" placeholder="5" required="required"/><span>i</span>
               </div>
@@ -124,6 +128,7 @@
       </nav><span>Copyright 2020</span>
     </footer>
     <script src="js/media.js"></script>
+    <script src="js/jquery-3.4.1.min.js">                  </script>
     <script src="js/complex.js"></script>
   </body>
 </html>
