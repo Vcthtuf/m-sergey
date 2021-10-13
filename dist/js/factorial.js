@@ -75,19 +75,16 @@ window.addEventListener('DOMContentLoaded', function () {
         let target = event.target;
         target.setAttribute('placeholder', '');
         target.value = '';
-        dividedYes = [];
-        dividedNo = [];
+        // dividedYes = [];
+        // dividedNo = [];
         deleteMessageError();
     });
 
     calcBtn.addEventListener('click', function () {  // обработка клика по кнопке "Разложить", вывода результата и очистка решения
 
-        if (+inputValue.value === 0) {
-
-            messageError();
-        } else if (+inputValue.value < 0) {
-            inputResult.value = `${inputValue.value} - Введите положительное число`;
-            solutionText.textContent = '';
+        if (+inputValue.value < 0) {
+            inputResult.value = `Введите положительное число`;
+            solutionText.textContent = 'Факториалы отрицательных чисел не определены';
         }
         else {
             msgError.classList.remove('message_error_active');
@@ -97,74 +94,12 @@ window.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    function factorial(n) {             // функция проверки на простое число
-
-        return n ? n * factorial(n - 1) : 1;
+    function factorial(n) {             // функция вычисления факториала
+        if (n == 0) { n = 1; return n }
+        else { return n ? n * factorial(n - 1) : 1; }
     }
 
     // ------------------------------------------------
-    let dividedYes = [], dividedNo = [];
-    function getSimpleFactors(n) {  // функция вычисления проcтых множителей числа
-        simpleNumbers = [];
-        isPrime(n);
-
-        function checkDivided(n, i) {         // функция проверки на делимость
-            if (n % i === 0) {
-                dividedYes.push(i);
-                return true;
-            } else if (isPrime(i)) {
-
-                dividedNo.push(i);
-                return false
-            } else return false
-        }
-
-        function simpleNum(n, i) {            // функция определения простых множителей и записи их в массив
-            if (checkDivided(n, i) && isPrime(i) && n >= i) {
-                simpleNumbers.push(i);
-                n /= i;
-                simpleNum(n, i);
-            } else if (n > i) {
-                simpleNum(n, ++i);
-            }
-        }
-        simpleNum(n, 2);
-    }
-
-    // функция показа решения, если число составное
-
-    function showSolution(n) {
-        // console.log('Решение для составного числа');
-        solutionText.insertAdjacentHTML('beforeend', `<h3 style="margin-bottom: 1rem;">Разложение на простые множители</h3>`);
-        solutionText.insertAdjacentHTML('beforeend', `Разложить на простые множители число ${n}. <br><br>`);
-        // console.log(dividedYes);
-        // console.log(dividedYes.length);
-        for (let i = 0; i < dividedYes.length; i++) {
-
-            for (let j = 0; j < dividedNo.length; j++) {
-                if (dividedNo[j] < dividedYes[i]) {
-                    solutionText.insertAdjacentHTML('beforeend', `Число ${n}  не делится на ${dividedNo[j]}. Пробуем разделить на следующее простое число ${dividedNo[j + 1]}. <br>`);
-                }
-            }
-
-            solutionText.insertAdjacentHTML('beforeend', `Число ${n} делится на <span style="color: red; font-size: 1.2rem; font-weight: 700">${dividedYes[i]}</span>.  <br> ${n} : ${dividedYes[i]} = ${n / dividedYes[i]}. <br>`);
-            n = n / dividedYes[i];
-        }
-
-        solutionText.insertAdjacentHTML('beforeend', `<br>Получили число 1, поэтому разложение закончено`);
-        solutionText.insertAdjacentHTML('beforeend', `<br><br> Разложение: ${inputValue.value} = ${simpleNumbers.join(' &middot; ')}`);
-    }
-
-    // ----------------------
-
-    // Функция показа решения, если число простое
-
-    function showSolutionSimple(n) {
-        solutionText.insertAdjacentHTML('beforeend', `<h3 style="margin-bottom: 1rem;">Разложение на простые множители</h3>`);
-        solutionText.insertAdjacentHTML('beforeend', `Число ${n} является простым, поэтому его нельзя разложить на множители. <br><br>`);
-    }
-
-    // ---------------------- 
 
     // Функция вывода сообщения об ошибке (не введены значения или одно из значений)
 
