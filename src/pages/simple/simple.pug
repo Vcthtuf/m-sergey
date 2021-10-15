@@ -7,12 +7,12 @@ html(lang="ru")
         meta(http-equiv='X-UA-Compatible' content='IE=edge')
         meta(name="description", content="Разложение чисел на простые множители онлайн. Подробное решение")
         title Разложение на простые множители
-        link(rel="stylesheet", href="css/nod.min.css")
+        link(rel="stylesheet", href="/css/nod.min.css")
     body       
-        include includes/_header.pug
+        include ../../includes/_header.pug
         .wrapper    
             .app
-                include includes/_aside.pug                   
+                include ../../includes/_aside.pug                   
                 .main
                     .data
                         .nav_tabs 
@@ -55,5 +55,5 @@ html(lang="ru")
                             p.title Разложим на простые множители число 54 :  
                             blockquote 54 не является простым. <br> 54 делится на <span class="red">2</span>, поэтому записываем: 54 : 2 = 27. <br> 27 не делится на 2. Пробуем следующее простое число — это число 3. <br> 27 делится на <span class="red">3</span>, получаем   27 : 3 = 9.  <br> 9 не делится на 2, поэтому пробуем деление на 3. <br> 9 делится на <span class="red">3</span>. Записываем 9 : 3 = 3. <br> <span class="red">3</span> — это простое число. Разложение окончено.
                             p.title Ответ:   54 = 2 · 3 · 3  · 3.               
-        include includes/_footer.pug           
-        script(src="js/simple.js")
+        include ../../includes/_footer.pug           
+        script(src="/js/simple.js")

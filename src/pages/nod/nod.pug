@@ -7,12 +7,12 @@ html(lang="ru")
         meta(http-equiv='X-UA-Compatible' content='IE=edge')
         meta(name="description", content="Наибольший общий делитель НОД онлайн с подробным решением")
         title Наибольший общий делитель
-        link(rel="stylesheet", href="css/nod.min.css")
+        link(rel="stylesheet", href="/css/nod.min.css")
     body       
-        include includes/_header.pug
+        include ../../includes/_header.pug
         .wrapper    
             .app
-                include includes/_aside.pug                    
+                include ../../includes/_aside.pug                    
                 .main
                     .data
                         .nav_tabs 
@@ -77,5 +77,5 @@ html(lang="ru")
                             p Третий этап нахождения НОД
                             p Перемножаем одинаковые делители. 2   &middot;   3   &middot;   3   =   18.
                             p Полученное число и является наибольшим общим делителем чисел 36 и 54. Поэтому записываем: <br><b> Ответ: НОД(36, 54) = 18.</b>                    
-        include includes/_footer.pug                    
-        script(src="js/nod.js")
+        include ../../includes/_footer.pug                    
+        script(src="/js/nod.js")
