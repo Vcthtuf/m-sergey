@@ -5,8 +5,8 @@ html(lang="ru")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         link(rel="icon" href="/icon/favicon.ico" type="image/x-icon")
         meta(http-equiv='X-UA-Compatible' content='IE=edge')
-        meta(name="description", content="Факториал числа онлайн.")
-        title Факториал натурального числа. Формулы, вычисление, значения факториалов | Математика онлайн
+        meta(name="description", content="Факториал числа онлайн с решением")
+        title Таблица факториалов до 100 и до 10 | Математика онлайн
         link(rel="stylesheet", href="/css/nod.min.css")
     body       
         include ../../includes/_header.pug
@@ -16,17 +16,18 @@ html(lang="ru")
                     
                 .main
                     .data
-                        //- h1.header_links Факториал <br><br>
                         .nav_tabs 
                             ul 
                                 li.tab
-                                    a(href="examples.html" target="_blank") Примеры решения факториалов
+                                    a(href="factorial.html" target="_blank") Факториал
                                 li.tab
-                                    a.header_link(href="table.html" target="_blank") Таблица факториалов
+                                    a.header_link(href="examples.html" target="_blank") Примеры решения
                                 li.tab
                                     a.header_link(href="calc.html" target="_blank") Калькулятор факториалов
+                        section.solution 
+                            h2.solution_title Таблица факториалов
                         section.theory 
-                            h1 Факториал
+                            h2 Факториал
                             h3 ЧТО ТАКОЕ ФАКТОРИАЛ ЧИСЛА
                             p  Факториал числа - это произведение всех чисел от одного до этого числа. 
                             p Факториал обозначается символом «!»
@@ -37,8 +38,9 @@ html(lang="ru")
                             h3 ФАКТОРИАЛ ОТРИЦАТЕЛЬНОГО ЧИСЛА
                             p Могут ли быть факториалы для чисел типа -1, -2 и т. д.?
                             p Нет. Факториалы отрицательных целых чисел не определены.
-                            h3 ФАКТОРИАЛ 0 и 1
+                            h3 ФАКТОРИАЛ 0
                             p Принято считать, что 0! = 1. Таким образом, факториал нуля равен единице.
+                            h3 ФАКТОРИАЛ 1
                             p По формуле, приведенной выше, получаем, что факториал 1 равен единице. Таким образом, 0! = 1! = 1.
                             h3 ПРИМЕНЕНИЕ ФАКТОРИАЛА
                             p Одна из областей, в которой факториал часто используется — это раздел математики, который называется комбинаторика, где нужно посчитать количество перестановок, размещений или сочетаний.
@@ -46,7 +48,17 @@ html(lang="ru")
                             h3 ИНТЕРЕСНЫЕ ФАКТЫ
                             blockquote Шесть недель — ровно 10! секунд (= 3 628 800)
                             blockquote  Есть 52! способа перемешать колоду карт. <br> Это  число - 8,0658175 … × 10 <sup>67</sup>.
-                            blockquote В наблюдаемой вселенной около  60! атомов. <br> 60! составляет около  8,320987 … × 10<sup>81</sup>, а текущие оценки числа атомов составляют от 10<sup>78</sup> до 10<sup>82</sup>.                                                                   
+                            blockquote В наблюдаемой вселенной около  60! атомов. <br> 60! составляет около  8,320987 … × 10<sup>81</sup>, а текущие оценки числа атомов составляют от 10<sup>78</sup> до 10<sup>82</sup>.                            
+                        section.examples 
+                            h2 Примеры решения задач с факториалом
+                            p.bold Решить пример <span> 5! + 4!</span>
+                            p Решение: 
+                                span 5! + 4! = 1 &middot; 2 &middot; 3 &middot; 4 &middot; 5 + 1 &middot; 2 &middot; 3 &middot; 4 = 120 + 24 = 144
+                            p.bold Ответ: 5! + 4! = 144   
+                            p.bold Решить пример <span> 56! / 54!</span>
+                            p Решение: 
+                                span 56! / 54! = ( 54! &middot; 55 &middot; 56 &middot; ) / (54!)  = 55 &middot; 56 = 3080
+                            p.bold Ответ: 56! / 54! = 3080                                           
         include ../../includes/_footer.pug     
         script(src="/js/factorial_common.js")
         script(src="/js/media.js")

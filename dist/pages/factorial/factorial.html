@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="icon" href="/icon/favicon.ico" type="image/x-icon"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="description" content="Факториал числа онлайн с решением"/>
-    <title>Факториал</title>
+    <meta name="description" content="Факториал числа онлайн."/>
+    <title>Факториал натурального числа. Формулы, вычисление, значения факториалов | Математика онлайн</title>
     <link rel="stylesheet" href="/css/nod.min.css"/>
   </head>
   <body>      
@@ -30,7 +30,13 @@
               <li> <a class="menu" href="/pages/simple/simple.html">Разложение на простые множители</a></li>
               <li> <a class="menu" href="/pages/notation/notation.html">Системы счисления</a></li>
               <li><a class="menu" href="/pages/complex/complex.html">Комплексные числа</a></li>
-              <li> <a class="menu" href="/pages/factorial/factorial.html">Факториал</a></li>
+              <li> <a class="menu" href="/pages/factorial/factorial.html">Факториал</a>
+                <ul class="submenu"> 
+                  <li> <a class="menu" href="/pages/factorial/examples.html">Примеры решения</a></li>
+                  <li> <a class="menu" href="/pages/factorial/table.html">Таблица факториалов</a></li>
+                  <li> <a class="menu" href="/pages/factorial/calc.html">Калькулятор факториалов</a></li>
+                </ul>
+              </li>
             </ul>
           </nav>
         </aside>
@@ -38,27 +44,13 @@
           <div class="data">
             <div class="nav_tabs"> 
               <ul> 
-                <li class="tab">Калькулятор</li>
-                <li class="tab">Теория</li>
-                <li class="tab">Примеры</li>
+                <li class="tab"><a href="examples.html" target="_blank">Примеры решения факториалов</a></li>
+                <li class="tab"><a class="header_link" href="table.html" target="_blank">Таблица факториалов</a></li>
+                <li class="tab"><a class="header_link" href="calc.html" target="_blank">Калькулятор факториалов</a></li>
               </ul>
             </div>
-            <section class="solution"> 
-              <h2 class="solution_title">Онлайн расчет факториала</h2><span class="solution_instruction">Введите ваше число:</span>
-              <div class="solution_input">
-                <input type="text" placeholder="Введите число" required="required"/>
-              </div>
-              <div class="calculate"> 
-                <button class="calc btn">Рассчитать</button>
-                <div class="message_error">Введите значения в поле выше</div>
-              </div>
-              <div class="solution_result"> <span>Факториал:</span>
-                <input type="text"/>
-              </div>
-              <div class="solution_text" style="text-align: center; margin-bottom: 1rem"></div>
-            </section>
             <section class="theory"> 
-              <h2>Факториал</h2>
+              <h1>Факториал</h1>
               <h3>ЧТО ТАКОЕ ФАКТОРИАЛ ЧИСЛА</h3>
               <p> Факториал числа - это произведение всех чисел от одного до этого числа. </p>
               <p>Факториал обозначается символом «!»</p>
@@ -69,9 +61,8 @@
               <h3>ФАКТОРИАЛ ОТРИЦАТЕЛЬНОГО ЧИСЛА</h3>
               <p>Могут ли быть факториалы для чисел типа -1, -2 и т. д.?</p>
               <p>Нет. Факториалы отрицательных целых чисел не определены.</p>
-              <h3>ФАКТОРИАЛ 0</h3>
+              <h3>ФАКТОРИАЛ 0 и 1</h3>
               <p>Принято считать, что 0! = 1. Таким образом, факториал нуля равен единице.</p>
-              <h3>ФАКТОРИАЛ 1</h3>
               <p>По формуле, приведенной выше, получаем, что факториал 1 равен единице. Таким образом, 0! = 1! = 1.</p>
               <h3>ПРИМЕНЕНИЕ ФАКТОРИАЛА</h3>
               <p>Одна из областей, в которой факториал часто используется — это раздел математики, который называется комбинаторика, где нужно посчитать количество перестановок, размещений или сочетаний.</p>
@@ -79,16 +70,7 @@
               <h3>ИНТЕРЕСНЫЕ ФАКТЫ</h3>
               <blockquote>Шесть недель — ровно 10! секунд (= 3 628 800)</blockquote>
               <blockquote> Есть 52! способа перемешать колоду карт. <br> Это  число - 8,0658175 … × 10 <sup>67</sup>.</blockquote>
-              <blockquote>В наблюдаемой вселенной около  60! атомов. <br> 60! составляет около  8,320987 … × 10<sup>81</sup>, а текущие оценки числа атомов составляют от 10<sup>78</sup> до 10<sup>82</sup>.                            </blockquote>
-            </section>
-            <section class="examples"> 
-              <h2>Примеры решения задач с факториалом</h2>
-              <p class="bold">Решить пример <span> 5! + 4!</span></p>
-              <p>Решение: <span>5! + 4! = 1 &middot; 2 &middot; 3 &middot; 4 &middot; 5 + 1 &middot; 2 &middot; 3 &middot; 4 = 120 + 24 = 144</span></p>
-              <p class="bold">Ответ: 5! + 4! = 144   </p>
-              <p class="bold">Решить пример <span> 56! / 54!</span></p>
-              <p>Решение: <span>56! / 54! = ( 54! &middot; 55 &middot; 56 &middot; ) / (54!)  = 55 &middot; 56 = 3080</span></p>
-              <p class="bold">Ответ: 56! / 54! = 3080                                           </p>
+              <blockquote>В наблюдаемой вселенной около  60! атомов. <br> 60! составляет около  8,320987 … × 10<sup>81</sup>, а текущие оценки числа атомов составляют от 10<sup>78</sup> до 10<sup>82</sup>.                                                                   </blockquote>
             </section>
           </div>
         </div>
@@ -107,7 +89,7 @@
         </ul>
       </nav><span>Copyright 2020</span>
     </footer>
-    <script src="js/media.js"></script>
-    <script src="/js/factorial.js"></script>
+    <script src="/js/factorial_common.js"></script>
+    <script src="/js/media.js"></script>
   </body>
 </html>

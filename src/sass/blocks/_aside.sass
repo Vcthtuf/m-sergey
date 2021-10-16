@@ -29,16 +29,25 @@
         padding: 0    
 
         li
-            margin-top: 4px
-            margin-bottom: 4px
+            border-bottom: 4px solid #faf8f8
+            position: relative
             @media screen and (max-width: 768px)
                 margin-top: 0
                 margin-bottom: 0
                 display: flex
                 height: 100%
                 width: 100%
-                // margin: auto 0
-            
+
+            &:hover
+                .submenu
+                    display: block
+
+            .submenu
+                display: none
+                position: absolute
+                left: 100%
+                bottom: -.5rem
+                width: 100%    
 
         .menu
             display: block

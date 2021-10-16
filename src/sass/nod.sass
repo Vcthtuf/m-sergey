@@ -38,7 +38,7 @@
             ul 
                 display: flex
                 justify-content: space-between
-                align-items: center
+                align-items: stretch
                 padding: 0
                 width: 100%
                 margin: 0 auto
@@ -47,6 +47,10 @@
                     flex-direction: column
                
                 li
+                    display: flex
+                    justify-content: center
+                    align-items: center
+                    border-right: 2px solid #faf8f8
                     width: 33.33333%
                     text-align: center
                     padding: 1rem 0
@@ -55,6 +59,9 @@
                     background-color: #CACFD2
                     &:hover 
                         background-color: #ffe4b5
+
+                    &:last-child
+                        border-right: none
 
                     &.tab_active
                         background-color: #faf8f5

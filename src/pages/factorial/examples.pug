@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="icon" href="/icon/favicon.ico" type="image/x-icon")
+        meta(http-equiv='X-UA-Compatible' content='IE=edge')
+        meta(name="description", content="Примеры решения факториалов. ")
+        title Примеры решения факториалов | Математика онлайн
+        link(rel="stylesheet", href="/css/nod.min.css")
+    body       
+        include ../../includes/_header.pug
+        .wrapper    
+            .app
+                include ../../includes/_aside.pug
+                    
+                .main
+                    .data  
+                        .nav_tabs 
+                            ul 
+                                li.tab
+                                    a(href="factorial.html" target="_blank") Факториал
+                                li.tab
+                                    a.header_link(href="table.html" target="_blank") Таблица факториалов
+                                li.tab
+                                    a.header_link(href="calc.html" target="_blank") Калькулятор факториалов                
+                        section.examples 
+                            h2 Примеры решения задач с факториалом
+                            p.bold Решить пример <span> 5! + 4!</span>
+                            p Решение: 
+                                span 5! + 4! = 1 &middot; 2 &middot; 3 &middot; 4 &middot; 5 + 1 &middot; 2 &middot; 3 &middot; 4 = 120 + 24 = 144
+                            p.bold Ответ: 5! + 4! = 144   
+                            p.bold Решить пример <span> 56! / 54!</span>
+                            p Решение: 
+                                span 56! / 54! = ( 54! &middot; 55 &middot; 56 &middot; ) / (54!)  = 55 &middot; 56 = 3080
+                            p.bold Ответ: 56! / 54! = 3080                                           
+        include ../../includes/_footer.pug     
+        script(src="/js/factorial_common.js")
+        script(src="/js/media.js")
