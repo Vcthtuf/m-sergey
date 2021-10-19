@@ -26,14 +26,19 @@ html(lang="ru")
                                     a.header_link(href="calc.html" target="_blank") Калькулятор факториалов                
                         section.examples 
                             h2 Примеры решения задач с факториалом
-                            p.bold Решить пример <span> 5! + 4!</span>
+                            p.bold Сумма факториалов 
+                            .middle Решить пример 5! + 4!
                             p Решение: 
                                 span 5! + 4! = 1 &middot; 2 &middot; 3 &middot; 4 &middot; 5 + 1 &middot; 2 &middot; 3 &middot; 4 = 120 + 24 = 144
                             p.bold Ответ: 5! + 4! = 144   
-                            p.bold Решить пример <span> 56! / 54!</span>
-                            p Решение: 
-                                span 56! / 54! = ( 54! &middot; 55 &middot; 56 &middot; ) / (54!)  = 55 &middot; 56 = 3080
-                            p.bold Ответ: 56! / 54! = 3080                                           
+                            .task.bold 
+                            p.bold Деление факториалов 
+                            .middle Решить пример:
+                                .fraction
+                            p.examples_solution Решение: 56! / 54! = (56 &middot; 55 &middot; 54!) / 54! = 56 &middot; 55 = 3080                               
+                            .bold.middle Ответ: 
+                                .fraction.bold
+                                .answer = 3080                                           
         include ../../includes/_footer.pug     
-        script(src="/js/factorial_common.js")
-        script(src="/js/media.js")
+        script(src="../../js/factorial_common.js")
+        script(src="../../js/media.js")

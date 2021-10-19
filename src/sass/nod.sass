@@ -6,6 +6,7 @@
 
 .wrapper 
     flex-grow: 1
+    line-height: 1.52
 .app
     display: flex
     justify-content: space-between   
@@ -78,13 +79,40 @@
                     font-style: italic
             .bold
                 font-weight: bold
-                text-decoration: underline 
+                 
 
             .notation
                 span
                     color: red
                     font-style: normal
-                    font-weight: bold          
+                    font-weight: bold 
+
+            .task_text
+                display: inline-block
+                margin-right: 1%
+                font-weight: normal
+                
+            .fraction
+                display: inline-block
+                position: relative
+                font-weight: normal
+                width: 1.5rem
+                height: 2rem
+                padding-left: 1rem
+                &::before
+                    content: "56!"
+                    position: absolute
+                    top: -0.25rem
+                    border-bottom: 1px solid #000
+                &::after
+                    content: "54!"
+                    position: absolute
+                    top: 1rem
+            .answer
+                display: inline-block  
+            .middle
+                display: flex
+                align-items: center  
 
         .theory
             figure
@@ -112,6 +140,18 @@
                         text-align: center
                         padding: .2rem 0
                         width: 5%
+            .how
+                display: block
+                margin: 0 auto
+                width: 100%
+                height: auto
+
+            .zero
+                display: block
+                margin: 0 auto
+                width: 30%
+                height: auto
+                
 
         .examples, .theory
             padding: 0 5%
@@ -242,5 +282,11 @@
 
 .hide 
     display: none
+
+.divide
+    width: 60%
+    height: 2px
+    margin: 0 auto
+    background-color: #000
 
 @import 'blocks/footer'

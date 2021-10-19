@@ -25,16 +25,17 @@
           <nav class="main_menu"> 
             <ul>
               <li> <a class="menu" href="/index.html">Главная</a></li>
-              <li> <a class="menu" href="/pages/nod/nod.html">Наибольший общий делитель</a></li>
-              <li> <a class="menu" href="/pages/nok/nok.html">Наименьшее общее кратное</a></li>
+              <li> <a class="menu" href="/pages/nod/nod.html">Наибольший общий делитель НОД</a></li>
+              <li> <a class="menu" href="/pages/nok/nok.html">Наименьшее общее кратное НОК</a></li>
               <li> <a class="menu" href="/pages/simple/simple.html">Разложение на простые множители</a></li>
               <li> <a class="menu" href="/pages/notation/notation.html">Системы счисления</a></li>
               <li><a class="menu" href="/pages/complex/complex.html">Комплексные числа</a></li>
-              <li> <a class="menu" href="/pages/factorial/factorial.html">Факториал</a>
-                <ul class="submenu"> 
-                  <li> <a class="menu" href="/pages/factorial/examples.html">Примеры решения</a></li>
-                  <li> <a class="menu" href="/pages/factorial/table.html">Таблица факториалов</a></li>
-                  <li> <a class="menu" href="/pages/factorial/calc.html">Калькулятор факториалов</a></li>
+              <li> <a class="menu" href="../../pages/factorial/factorial.html">Факториал</a>
+                <ul class="submenu">
+                  <li> <a class="menu" href="../../pages/factorial/factorial.html">Факториал</a></li>
+                  <li> <a class="menu" href="../../pages/factorial/examples.html">Примеры решения факториалов</a></li>
+                  <li> <a class="menu" href="../../pages/factorial/table.html">Таблицы факториалов</a></li>
+                  <li> <a class="menu" href="../../pages/factorial/calc.html">Калькулятор факториалов</a></li>
                 </ul>
               </li>
             </ul>
@@ -50,40 +51,13 @@
               </ul>
             </div>
             <section class="solution"> 
-              <h2 class="solution_title">Таблица факториалов</h2>
+              <h1 class="solution_title">Таблицы факториалов</h1>
+              <div class="divide"></div>
             </section>
             <section class="theory"> 
-              <h2>Факториал</h2>
-              <h3>ЧТО ТАКОЕ ФАКТОРИАЛ ЧИСЛА</h3>
-              <p> Факториал числа - это произведение всех чисел от одного до этого числа. </p>
-              <p>Факториал обозначается символом «!»</p>
-              <blockquote>Пример факториалов: <br> 4! = 1 · 2 · 3 · 4 = 24 <br> 5! = 1 · 2 · 3 · 4 · 5 = 120</blockquote>
-              <p>Выражение 5! = 120 читается так: «пять факториал равно 120» или «факториал пяти равен 120»</p>
-              <h3>ФОРМУЛА ФАКТОРИАЛА</h3>
-              <P>Для нахождения факториала числа нужно умножить все целые числа от 1 до этого числа: n! = 1 &middot; 2 &middot; 3 &middot; ... &middot; n.</P>
-              <h3>ФАКТОРИАЛ ОТРИЦАТЕЛЬНОГО ЧИСЛА</h3>
-              <p>Могут ли быть факториалы для чисел типа -1, -2 и т. д.?</p>
-              <p>Нет. Факториалы отрицательных целых чисел не определены.</p>
-              <h3>ФАКТОРИАЛ 0</h3>
-              <p>Принято считать, что 0! = 1. Таким образом, факториал нуля равен единице.</p>
-              <h3>ФАКТОРИАЛ 1</h3>
-              <p>По формуле, приведенной выше, получаем, что факториал 1 равен единице. Таким образом, 0! = 1! = 1.</p>
-              <h3>ПРИМЕНЕНИЕ ФАКТОРИАЛА</h3>
-              <p>Одна из областей, в которой факториал часто используется — это раздел математики, который называется комбинаторика, где нужно посчитать количество перестановок, размещений или сочетаний.</p>
-              <blockquote>Пример: <br> Сколько существует способов расположить буквы а,б,в,г без повторений. <br> Для одной буквы — один  — а (или 1!) <br> Для двух букв — два способа — аб, ба. (или 2!) <br> Для трех букв — шесть — абв, авб, бав, бва, ваб, вба (или 3! ). <br> Для четырех букв — 24 или 4! способов (комбинации попробуйте сами)</blockquote>
-              <h3>ИНТЕРЕСНЫЕ ФАКТЫ</h3>
-              <blockquote>Шесть недель — ровно 10! секунд (= 3 628 800)</blockquote>
-              <blockquote> Есть 52! способа перемешать колоду карт. <br> Это  число - 8,0658175 … × 10 <sup>67</sup>.</blockquote>
-              <blockquote>В наблюдаемой вселенной около  60! атомов. <br> 60! составляет около  8,320987 … × 10<sup>81</sup>, а текущие оценки числа атомов составляют от 10<sup>78</sup> до 10<sup>82</sup>.                            </blockquote>
-            </section>
-            <section class="examples"> 
-              <h2>Примеры решения задач с факториалом</h2>
-              <p class="bold">Решить пример <span> 5! + 4!</span></p>
-              <p>Решение: <span>5! + 4! = 1 &middot; 2 &middot; 3 &middot; 4 &middot; 5 + 1 &middot; 2 &middot; 3 &middot; 4 = 120 + 24 = 144</span></p>
-              <p class="bold">Ответ: 5! + 4! = 144   </p>
-              <p class="bold">Решить пример <span> 56! / 54!</span></p>
-              <p>Решение: <span>56! / 54! = ( 54! &middot; 55 &middot; 56 &middot; ) / (54!)  = 55 &middot; 56 = 3080</span></p>
-              <p class="bold">Ответ: 56! / 54! = 3080                                           </p>
+              <h2>ТАБЛИЦА ФАКТОРИАЛОВ ДО 20</h2><img src="../../img/jpg/factorial/factorial_table_20.png" alt="Таблица факториалов до 20"/>
+              <div class="divide"></div>
+              <h2>ТАБЛИЦА ФАКТОРИАЛОВ ДО 50</h2><img src="../../img/jpg/factorial/factorial_table_50.png" alt="Таблица факториалов до 50"/>
             </section>
           </div>
         </div>
@@ -93,8 +67,8 @@
       <nav class="footer_menu"> 
         <ul>
           <li> <a class="footer_link" href="/index.html" target="_blank">Главная</a></li>
-          <li> <a class="footer_link" href="/pages/nod/nod.html" target="_blank">Наибольший общий делитель</a></li>
-          <li> <a class="footer_link" href="/pages/nok/nok.html" target="_blank">Наименьшее общее кратное</a></li>
+          <li> <a class="footer_link" href="/pages/nod/nod.html" target="_blank">Наибольший общий делитель НОД</a></li>
+          <li> <a class="footer_link" href="/pages/nok/nok.html" target="_blank">Наименьшее общее кратное НОК</a></li>
           <li> <a class="footer_link" href="/pages/simple/simple.html" target="_blank">Разложение на простые множители</a></li>
           <li> <a class="footer_link" href="/pages/notation/notation.html" target="_blank">Системы счисления</a></li>
           <li> <a class="footer_link" href="/pages/complex/complex.html" target="_blank">Комплексные числа</a></li>
@@ -102,7 +76,7 @@
         </ul>
       </nav><span>Copyright 2020</span>
     </footer>
-    <script src="/js/factorial_common.js"></script>
-    <script src="/js/media.js"></script>
+    <script src="../../js/factorial_common.js"></script>
+    <script src="../../js/media.js"></script>
   </body>
 </html>
