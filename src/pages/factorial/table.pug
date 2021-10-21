@@ -6,7 +6,7 @@ html(lang="ru")
         link(rel="icon" href="/icon/favicon.ico" type="image/x-icon")
         meta(http-equiv='X-UA-Compatible' content='IE=edge')
         meta(name="description", content="Факториал числа онлайн с решением")
-        title Таблица факториалов до 100 и до 10 | Математика онлайн
+        title Таблица факториалов до 20 и до 50 | Математика онлайн
         link(rel="stylesheet", href="/css/nod.min.css")
     body       
         include ../../includes/_header.pug
@@ -19,18 +19,100 @@ html(lang="ru")
                         .nav_tabs 
                             ul 
                                 li.tab
-                                    a(href="factorial.html" target="_blank") Факториал
+                                    a(href="factorial.html" ) Факториал
                                 li.tab
-                                    a.header_link(href="examples.html" target="_blank") Примеры решения
+                                    a.header_link(href="examples.html" ) Примеры решения
                                 li.tab
-                                    a.header_link(href="calc.html" target="_blank") Калькулятор факториалов
+                                    a.header_link(href="calc.html" ) Калькулятор факториалов
+                                li.tab
+                                    a.header_link(href="progs.html" ) Программы расчеты факториалов
                         section.solution 
                             h1.solution_title Таблицы факториалов
-                            .divide
+                            .divide_table
                         section.theory 
                             h2 ТАБЛИЦА ФАКТОРИАЛОВ ДО 20
-                            img(src="../../img/jpg/factorial/factorial_table_20.png", alt="Таблица факториалов до 20")
-                            .divide
+                            table(style='border: 1px solid black; border-right: 0px; border-bottom: 0px' cellspacing='0')
+                                tr
+                                    td(class='tdleft')
+                                        b 1!
+                                    td(class='tdright') 1
+                                tr
+                                    td(class='tdleft')
+                                        b 2!
+                                    td(class='tdright') 2
+                                tr
+                                    td(class='tdleft')
+                                        b 3!
+                                    td(class='tdright') 3
+                                tr
+                                    td(class='tdleft')
+                                        b 4!
+                                    td(class='tdright') 24
+                                tr
+                                    td(class='tdleft')
+                                        b 5!
+                                    td(class='tdright') 120
+                                tr
+                                    td(class='tdleft')
+                                        b 6!
+                                    td(class='tdright') 720
+                                tr
+                                    td(class='tdleft')
+                                        b 7!
+                                    td(class='tdright') 5 040
+                                tr
+                                    td(class='tdleft')
+                                        b 8!
+                                    td(class='tdright') 40 320
+                                tr
+                                    td(class='tdleft')
+                                        b 9!
+                                    td(class='tdright') 362 880
+                                tr
+                                    td(class='tdleft')
+                                        b 10!
+                                    td(class='tdright') 3 628 800
+                                tr
+                                    td(class='tdleft')
+                                        b 11!
+                                    td(class='tdright') 39 916 800
+                                tr
+                                    td(class='tdleft')
+                                        b 12!
+                                    td(class='tdright') 479 001 600
+                                tr
+                                    td(class='tdleft')
+                                        b 13!
+                                    td(class='tdright') 6 227 020 800
+                                tr
+                                    td(class='tdleft')
+                                        b 14!
+                                    td(class='tdright') 87 178 291 200
+                                tr
+                                    td(class='tdleft')
+                                        b 15!
+                                    td(class='tdright') 1 307 674 368 000
+                                tr
+                                    td(class='tdleft')
+                                        b 16!
+                                    td(class='tdright') 20 922 789 888 000
+                                tr
+                                    td(class='tdleft')
+                                        b 17!
+                                    td(class='tdright') 355 687 428 096 000
+                                tr
+                                    td(class='tdleft')
+                                        b 18!
+                                    td(class='tdright') 6 402 373 705 728 000
+                                tr
+                                    td(class='tdleft')
+                                        b 19!
+                                    td(class='tdright') 121 645 100 408 832 000
+                                tr
+                                    td(class='tdleft')
+                                        b 20!
+                                    td(class='tdright') 2 432 902 008 176 640 000
+                            .divide_table
                             h2 ТАБЛИЦА ФАКТОРИАЛОВ ДО 50
                             img(src="../../img/jpg/factorial/factorial_table_50.png", alt="Таблица факториалов до 50")
                                                                     
