@@ -35,6 +35,7 @@
     .data 
         border: 2px solid #cacfd2
         border-radius: 5px
+        padding-bottom: 2rem
         .nav_tabs
             ul 
                 display: flex
@@ -91,28 +92,47 @@
                 display: inline-block
                 margin-right: 1%
                 font-weight: normal
-                
+
+            &_solution
+                display: flex
+                justify-content: start
+                align-items: center
+                margin-bottom: 2rem
+
+                @media screen and (max-width: 576px)
+                    flex-wrap: wrap 
+              
             .fraction
                 display: inline-block
                 position: relative
-                font-weight: normal
-                width: 1.5rem
-                height: 2rem
-                padding-left: 1rem
-                &::before
-                    content: "56!"
+                font-style: italic
+                height: 1px
+                background-color: #000    
+                margin: 0 .5rem
+
+                @media screen and (max-width: 576px)
+                    margin-bottom: 1rem
+
+                .up, .down
+                    display: inline-block
                     position: absolute
-                    top: -0.25rem
-                    border-bottom: 1px solid #000
-                &::after
-                    content: "54!"
-                    position: absolute
-                    top: 1rem
+                    text-align: center
+                    white-space: nowrap
+                .up
+                    top: -1.5rem
+                .down
+                    top: 0rem
+                    left: 50%
+                    transform: translateX(-80%)
+            .text
+                display: inline-block
+                white-space: nowrap
             .answer
                 display: inline-block  
             .middle
                 display: flex
-                align-items: center  
+                align-items: center 
+                margin-bottom: 2rem 
 
         .theory
             figure

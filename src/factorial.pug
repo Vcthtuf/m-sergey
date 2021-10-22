@@ -8,12 +8,12 @@ html(lang="ru")
         meta(name="description" content="Факториал числа. Расчет факториала онлайн. Без рекламы. Определение, формула и примеры решения. Простое и подробное объяснение.")
         meta(name="keywords" content="Факториал числа, калькулятор онлайн, расчет факториала")
         title Факториал числа. Формула и вычисление, значение факториала натурального числа | Математика онлайн
-        link(rel="stylesheet", href="../../css/nod.min.css")
+        link(rel="stylesheet", href="css/nod.min.css")
     body       
-        include ../../includes/_header.pug
+        include includes/_header.pug
         .wrapper    
             .app
-                include ../../includes/_aside.pug
+                include includes/_aside.pug
                     
                 .main
                     .data
@@ -21,13 +21,13 @@ html(lang="ru")
                         .nav_tabs 
                             ul 
                                 li.tab
-                                    a(href="examples.html" ) Примеры решения факториалов
+                                    a(href="/factorial/examples.html" ) Примеры решения факториалов
                                 li.tab
-                                    a.header_link(href="table.html" ) Таблица факториалов
+                                    a.header_link(href="/factorial/table.html" ) Таблица факториалов
                                 li.tab
-                                    a.header_link(href="calc.html" ) Калькулятор факториалов
+                                    a.header_link(href="/factorial/calc.html" ) Калькулятор факториалов
                                 li.tab
-                                    a.header_link(href="progs.html" ) Программы расчета факториала
+                                    a.header_link(href="/factorial/progs.html" ) Программы расчета факториала
                         section.theory 
                             h1 Факториал
                             h2 ЧТО ТАКОЕ ФАКТОРИАЛ
@@ -107,6 +107,6 @@ html(lang="ru")
                             p 70! приблизительно 1,197857 ... x 10<sup>100</sup> , что чуть больше, чем в Googol (цифра 1, за которой следует сотня нулей).
                             p 100 факториал: 100! приблизительно 9,3326215443944152681699238856 x 10<sup>157</sup>
                             p 200 факториал: 200! приблизительно 7,8865786736479050355236321393 x 10<sup>374</sup>                                                            
-        include ../../includes/_footer.pug     
-        script(src="../../js/factorial_common.js")
-        script(src="../../js/media.js")
+        include includes/_footer.pug     
+        script(src="js/factorial_common.js")
+        script(src="js/media.js")

@@ -9,17 +9,17 @@ html(lang="ru")
         title Примеры решения факториалов | Математика онлайн
         link(rel="stylesheet", href="/css/nod.min.css")
     body       
-        include ../../includes/_header.pug
+        include ../includes/_header.pug
         .wrapper    
             .app
-                include ../../includes/_aside.pug
+                include ../includes/_aside.pug
                     
                 .main
                     .data  
                         .nav_tabs 
                             ul 
                                 li.tab
-                                    a(href="factorial.html" ) Факториал
+                                    a(href="/factorial.html" ) Факториал
                                 li.tab
                                     a.header_link(href="table.html" ) Таблица факториалов
                                 li.tab
@@ -29,18 +29,31 @@ html(lang="ru")
                         section.examples 
                             h2 Примеры решения задач с факториалом
                             p.bold Сумма факториалов 
-                            .middle Решить пример 5! + 4!
+                            .middle(style="margin-bottom: 1rem") Решить пример &nbsp;<span style="font-style: italic">5! + 4!</span>
                             p Решение: 
                                 span 5! + 4! = 1 &middot; 2 &middot; 3 &middot; 4 &middot; 5 + 1 &middot; 2 &middot; 3 &middot; 4 = 120 + 24 = 144
                             p.bold Ответ: 5! + 4! = 144   
                             .task.bold 
                             p.bold Деление факториалов 
                             .middle Решить пример:
-                                .fraction
-                            p.examples_solution Решение: 56! / 54! = (56 &middot; 55 &middot; 54!) / 54! = 56 &middot; 55 = 3080                               
+                                .fraction(style="width: 2rem")
+                                    .up 56!
+                                    .down 54!
+                            .text_solution
+                                .examples_solution Решение: 
+                                    .fraction(style="width: 2rem") 
+                                        .up 56!
+                                        .down 54!
+                                    span =
+                                    .fraction(style="width: 6rem") 
+                                        .up 56 &middot; 55 &middot; 54!
+                                        .down 54! 
+                                    .text = 56 &middot; 55 = 3080                               
                             .bold.middle Ответ: 
-                                .fraction.bold
+                                .fraction.bold(style="width: 2rem")
+                                    .up 56!
+                                    .down 54!
                                 .answer = 3080                                           
-        include ../../includes/_footer.pug     
-        script(src="../../js/factorial_common.js")
-        script(src="../../js/media.js")
+        include ../includes/_footer.pug     
+        script(src="../js/factorial_common.js")
+        script(src="../js/media.js")

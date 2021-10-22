@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="icon" href="/icon/favicon.ico" type="image/x-icon"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="description" content="Расчет НОД онлайн. Калькулятор с подробным решением. Без рекламы. Простое и подробное объяснение. Примеры нахождения наибольшего общего делителя."/>
-    <meta name="keywords" content="Наибольший общий делитель, НОД онлайн, калькулятор, онлайн расчет НОД"/>
-    <title>НОД онлайн с решением. Калькулятор наибольшего общего делителя чисел | Математика онлайн</title>
-    <link rel="stylesheet" href="../../css/nod.min.css"/>
+    <meta name="description" content="Подробные решения комплексных чисел"/>
+    <title>Комплексные числа. Онлайн сложение, вычитание, умножение и деление | Математика онлайн</title>
+    <link rel="stylesheet" href="css/nod.min.css"/>
+    <link rel="stylesheet" href="css/complex.min.css"/>
   </head>
   <body>      
     <header class="header"><a class="logo_svg" href="index.html"><svg width="123" height="69" viewBox="0 0 246 138" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -26,18 +26,18 @@
           <nav class="main_menu"> 
             <ul>
               <li> <a class="menu" href="/index.html">Главная</a></li>
-              <li> <a class="menu" href="/pages/nod/nod.html">Наибольший общий делитель НОД</a></li>
-              <li> <a class="menu" href="/pages/nok/nok.html">Наименьшее общее кратное НОК</a></li>
-              <li> <a class="menu" href="/pages/simple/simple.html">Разложение на простые множители</a></li>
-              <li> <a class="menu" href="/pages/notation/notation.html">Системы счисления</a></li>
-              <li><a class="menu" href="/pages/complex/complex.html">Комплексные числа</a></li>
-              <li> <a class="menu" href="../../pages/factorial/factorial.html">Факториал</a>
+              <li> <a class="menu" href="/nod.html">Наибольший общий делитель НОД</a></li>
+              <li> <a class="menu" href="/nok.html">Наименьшее общее кратное НОК</a></li>
+              <li> <a class="menu" href="/simple.html">Разложение на простые множители</a></li>
+              <li> <a class="menu" href="/notation.html">Системы счисления</a></li>
+              <li><a class="menu" href="/complex.html">Комплексные числа</a></li>
+              <li> <a class="menu" href="/factorial.html">Факториал</a>
                 <ul class="submenu">
-                  <li> <a class="menu" href="../../pages/factorial/factorial.html">Факториал</a></li>
-                  <li> <a class="menu" href="../../pages/factorial/examples.html">Примеры решения факториалов</a></li>
-                  <li> <a class="menu" href="../../pages/factorial/table.html">Таблицы факториалов</a></li>
-                  <li> <a class="menu" href="../../pages/factorial/calc.html">Калькулятор факториалов</a></li>
-                  <li> <a class="menu" href="../../pages/factorial/progs.html">Программы расчета факториалов</a></li>
+                  <li> <a class="menu" href="/factorial.html">Факториал</a></li>
+                  <li> <a class="menu" href="/factorial/examples.html">Примеры решения факториалов</a></li>
+                  <li> <a class="menu" href="/factorial/table.html">Таблицы факториалов</a></li>
+                  <li> <a class="menu" href="/factorial/calc.html">Калькулятор факториалов</a></li>
+                  <li> <a class="menu" href="/factorial/progs.html">Программы расчета факториалов</a></li>
                 </ul>
               </li>
             </ul>
@@ -53,20 +53,32 @@
               </ul>
             </div>
             <section class="solution"> 
-              <h2 class="solution_title">Онлайн расчет наибольшего общего делителя (НОД) чисел</h2><span class="solution_instruction">Введите ваши числа:</span>
+              <h2 class="solution_title">Онлайн расчет комплексных чисел</h2><span class="solution_instruction">Введите числа и действие между ними:</span>
               <div class="solution_input">
-                <input type="text" placeholder="Введите число" required="required"/>
-                <input type="text" placeholder="Введите число" required="required"/>
+                <input class="real" type="text" placeholder="2" required="required"/><span>+</span>
+                <input class="im" type="text" placeholder="3" required="required"/><span>i</span>
+                <div class="select">
+                  <input class="select__input" type="hidden" name=""/>
+                  <div class="select__head">+</div>
+                  <ul class="select__list" style="display: none">
+                    <li class="select__item">+</li>
+                    <li class="select__item">-</li>
+                    <li class="select__item">*</li>
+                    <li class="select__item">/</li>
+                  </ul>
+                </div>
+                <input class="real" type="text" placeholder="4" required="required"/><span>+</span>
+                <input class="im" type="text" placeholder="5" required="required"/><span>i</span>
               </div>
               <div class="calculate"> 
                 <button class="calc btn">Рассчитать</button>
                 <div class="message_error">Введите значения в поля выше</div>
               </div>
-              <div class="solution_result"> <span>Наибольший общий делитель (НОД) чисел равен:</span>
+              <div class="solution_result"> 
                 <input type="text"/>
               </div>
               <button class="solution_btn btn">Решение</button>
-              <div class="solution_text"></div>
+              <div class="solution_text"> </div>
             </section>
             <section class="theory"> 
               <h3>Наибольший общий делитель (НОД)</h3>
@@ -89,7 +101,7 @@
               <p>В этом методе используется понятие простых чисел и он состоит из трех этапов.</p>
               <p class="title">Задача. Найти НОД чисел 36 и 54.</p>
               <p>Первый этап.</p>
-              <p>Находим <a href="simple.html" target="_blank">простые множители</a> обоих чисел. Сделаем это для числа 36. Посмотрим, делится ли это число на 2? Да, делится, т.е. 36 : 2 = 18, поэтому записываем:</p><img src="img/jpg/nod/nod_1.jpg" alt="НОД"/>
+              <p>Находим простые множители обоих чисел. Сделаем это для числа 36. Посмотрим, делится ли это число на 2? Да, делится, т.е. 36 : 2 = 18, поэтому записываем:</p><img src="img/jpg/nod/nod_1.jpg" alt="НОД"/>
               <p>Продолжаем то же самое с числом 9. Делится ли оно на 2? Нет. Подбираем следующее простое число — это 3. Делится ли 9 на 3? Да. Можно записать:</p><img src="img/jpg/nod/nod_2.jpg" alt="НОД"/>
               <p>И наконец, посмотрим на число 3. Оно не делится на 2, но делится на само себя, т.е. 3 и окончательно для числа 36 пишем:</p><img src="img/jpg/nod/nod_3.jpg" alt="НОД"/>
               <p>Справа от черты мы получили простые множители числа 36. Выпишем делители этого числа в порядке их возрастания: Д(36) = {2, 2, 3, 3}.</p>
@@ -113,17 +125,17 @@
     <footer class="footer">
       <nav class="footer_menu"> 
         <ul>
-          <li> <a class="footer_link" href="/index.html" target="_blank">Главная</a></li>
-          <li> <a class="footer_link" href="/pages/nod/nod.html" target="_blank">Наибольший общий делитель НОД</a></li>
-          <li> <a class="footer_link" href="/pages/nok/nok.html" target="_blank">Наименьшее общее кратное НОК</a></li>
-          <li> <a class="footer_link" href="/pages/simple/simple.html" target="_blank">Разложение на простые множители</a></li>
-          <li> <a class="footer_link" href="/pages/notation/notation.html" target="_blank">Системы счисления</a></li>
-          <li> <a class="footer_link" href="/pages/complex/complex.html" target="_blank">Комплексные числа</a></li>
-          <li> <a class="footer_link" href="/pages/factorial/factorial.html" target="_blank">Факториал</a></li>
+          <li> <a class="footer_link" href="/index.html">Главная</a></li>
+          <li> <a class="footer_link" href="/nod.html">Наибольший общий делитель НОД</a></li>
+          <li> <a class="footer_link" href="/nok.html">Наименьшее общее кратное НОК</a></li>
+          <li> <a class="footer_link" href="/simple.html">Разложение на простые множители</a></li>
+          <li> <a class="footer_link" href="/notation.html">Системы счисления</a></li>
+          <li> <a class="footer_link" href="/complex.html">Комплексные числа</a></li>
+          <li> <a class="footer_link" href="s/factorial.html">Факториал</a></li>
         </ul>
       </nav><span>Copyright 2020</span>
     </footer>
-    <script src="../../js/nod.js"></script>
-    <script src="../../js/media.js"></script>
+    <script src="js/jquery-3.4.1.min.js">                  </script>
+    <script src="js/complex.js"></script>
   </body>
 </html>

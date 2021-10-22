@@ -9,17 +9,17 @@ html(lang="ru")
         title Таблица факториалов до 20 и до 50 | Математика онлайн
         link(rel="stylesheet", href="/css/nod.min.css")
     body       
-        include ../../includes/_header.pug
+        include ../includes/_header.pug
         .wrapper    
             .app
-                include ../../includes/_aside.pug
+                include ../includes/_aside.pug
                     
                 .main
                     .data
                         .nav_tabs 
                             ul 
                                 li.tab
-                                    a(href="factorial.html" ) Факториал
+                                    a(href="/factorial.html" ) Факториал
                                 li.tab
                                     a.header_link(href="examples.html" ) Примеры решения
                                 li.tab
@@ -116,6 +116,6 @@ html(lang="ru")
                             h2 ТАБЛИЦА ФАКТОРИАЛОВ ДО 50
                             img(src="../../img/jpg/factorial/factorial_table_50.png", alt="Таблица факториалов до 50")
                                                                     
-        include ../../includes/_footer.pug     
-        script(src="../../js/factorial_common.js")
-        script(src="../../js/media.js")
+        include ../includes/_footer.pug     
+        script(src="../js/factorial_common.js")
+        script(src="../js/media.js")

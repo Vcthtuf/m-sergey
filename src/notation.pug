@@ -7,12 +7,12 @@ html(lang="ru")
         meta(http-equiv='X-UA-Compatible' content='IE=edge')
         meta(name="description" content="Перевод в другие системы счисления онлайн. Калькулятор с подробным решением. Без рекламы. Простое и подробное объяснение.")
         title Системы счисления онлайн. Калькулятор с подробным решением. | Математика онлайн
-        link(rel="stylesheet", href="../../css/nod.min.css")
+        link(rel="stylesheet", href="css/nod.min.css")
     body       
-        include ../../includes/_header.pug
+        include includes/_header.pug
         .wrapper    
             .app
-                include ../../includes/_aside.pug                 
+                include includes/_aside.pug                 
                 .main
                     .data
                         .nav_tabs 
@@ -113,6 +113,6 @@ html(lang="ru")
                             p.bold Пример. Перевести троичной число 112 в десятичную систему счисления
                             p.notation Находим сумму: 1&middot;3<sup>2</sup> + 1&middot;3<sup>1</sup> + 2&middot;3<sup>0</sup> = <span>14</span>.
                             p.bold Ответ: 112<sub>3</sub> = 14<sub>10</sub>
-        include ../../includes/_footer.pug                 
-        script(src="../../js/notation.js")
-        script(src="../../js/media.js")
+        include includes/_footer.pug                 
+        script(src="js/notation.js")
+        script(src="js/media.js")

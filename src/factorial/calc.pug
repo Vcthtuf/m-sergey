@@ -9,16 +9,16 @@ html(lang="ru")
         title Калькулятор факториалов. Решение факториалов онлайн | Математика онлайн
         link(rel="stylesheet", href="/css/nod.min.css")
     body       
-        include ../../includes/_header.pug
+        include ../includes/_header.pug
         .wrapper    
             .app
-                include ../../includes/_aside.pug            
+                include ../includes/_aside.pug            
                 .main
                     .data
                         .nav_tabs 
                             ul 
                                 li.tab
-                                    a(href="factorial.html" ) Факториал
+                                    a(href="/factorial.html" ) Факториал
                                 li.tab
                                     a.header_link(href="examples.html" ) Примеры решения факториалов
                                 li.tab
@@ -37,7 +37,7 @@ html(lang="ru")
                                 span Факториал:
                                 input(type="text")
                             .solution_text(style="text-align: center; margin-bottom: 1rem" )                                        
-        include ../../includes/_footer.pug 
-        script(src="../../js/factorial_common.js")    
-        script(src="../../js/factorial.js")
-        script(src="../../js/media.js")
+        include ../includes/_footer.pug 
+        script(src="../js/factorial_common.js")    
+        script(src="../js/factorial.js")
+        script(src="../js/media.js")
