@@ -27,33 +27,30 @@ html(lang="ru")
                                 li.tab
                                     a.header_link(href="progs.html" ) Программы расчеты факториалов              
                         section.examples 
-                            h2 Примеры решения задач с факториалом
-                            p.bold Сумма факториалов 
+                            h1 Примеры решения факториалов
+                            p Рассмотрим примеры решения примеров с факториалами. Зная что такое факториал числа иосновную формулу его нахождения, легко решить большинство примеров.
+                            h2.bold СУММА ФАКТОРИАЛОВ 
+                            p Начнем с суммы факториалов чисел. В таких примерах, просто вычисляем значения и складываем их. Значения факториалов легко найти в <a href="table.html">таблице факториалов</a> или можно воспользоваться <a href="calc.html">калькулятором факториалов</a>.
+                            p Рассмотрим следующую задачу.
                             .middle(style="margin-bottom: 1rem") Решить пример &nbsp;<span style="font-style: italic">5! + 4!</span>
                             p Решение: 
                                 span 5! + 4! = 1 &middot; 2 &middot; 3 &middot; 4 &middot; 5 + 1 &middot; 2 &middot; 3 &middot; 4 = 120 + 24 = 144
-                            p.bold Ответ: 5! + 4! = 144   
+                            p.bold Ответ: 5! + 4! = 144 
+                            p В этом примере, сначала находятся значения факториалов чисел 5 и 4, которые равны 120 и 24 соответственно. Затем они складываются. Всё просто!  
                             .task.bold 
-                            p.bold Деление факториалов 
-                            .middle Решить пример:
-                                .fraction(style="width: 2rem")
-                                    .up 56!
-                                    .down 54!
-                            .text_solution
-                                .examples_solution Решение: 
-                                    .fraction(style="width: 2rem") 
-                                        .up 56!
-                                        .down 54!
-                                    span =
-                                    .fraction(style="width: 6rem") 
-                                        .up 56 &middot; 55 &middot; 54!
-                                        .down 54! 
-                                    .text = 56 &middot; 55 = 3080                               
-                            .bold.middle Ответ: 
-                                .fraction.bold(style="width: 2rem")
-                                    .up 56!
-                                    .down 54!
-                                .answer = 3080                                           
+                            h2.bold ДЕЛЕНИЕ ФАКТОРИАЛОВ 
+                            p При решении задач на деление факториалов нужно вспомнить <a href="../factorial.html#formula">формулу факториала</a>. А именно: n! = n &middot; (n-1)!.<br> Разберем пример задачи на деление факториалов.
+                            .middle 
+                                .text Решить пример:
+                                img(src="../img/jpg/factorial/example-divided.jpg", alt="Пример деления факториалов")
+                            p Разложим факториал числителя на следующие множители: 56! = 56 &middot; 55 &middot; 54!, а далее сокращаем 54! в числителе и знаменателе. Получаем, 55 &middot; 56. 
+                            .middle 
+                                .text Решение: 
+                                img(src="../img/jpg/factorial/solution_1.jpg", alt="Решение деления факториалов") 
+                                img(src="../img/jpg/factorial/solution_2.jpg", alt="Решение деления факториалов")                        
+                            .bold.middle 
+                                .text Ответ: 
+                                img(src="../img/jpg/factorial/answer.jpg", alt="Ответ деления факториалов")                                        
         include ../includes/_footer.pug     
         script(src="../js/factorial_common.js")
         script(src="../js/media.js")

@@ -97,33 +97,9 @@
                 display: flex
                 justify-content: start
                 align-items: center
+                flex-wrap: wrap
                 margin-bottom: 2rem
-
-                @media screen and (max-width: 576px)
-                    flex-wrap: wrap 
-              
-            .fraction
-                display: inline-block
-                position: relative
-                font-style: italic
-                height: 1px
-                background-color: #000    
-                margin: 0 .5rem
-
-                @media screen and (max-width: 576px)
-                    margin-bottom: 1rem
-
-                .up, .down
-                    display: inline-block
-                    position: absolute
-                    text-align: center
-                    white-space: nowrap
-                .up
-                    top: -1.5rem
-                .down
-                    top: 0rem
-                    left: 50%
-                    transform: translateX(-80%)
+                
             .text
                 display: inline-block
                 white-space: nowrap
@@ -132,7 +108,16 @@
             .middle
                 display: flex
                 align-items: center 
-                margin-bottom: 2rem 
+                flex-wrap: wrap
+                margin-bottom: 2rem
+
+                .text
+                    display: inline-block 
+
+                img
+                    display: inline-block
+                    height: 3rem
+                    width: auto
 
         .theory
             figure

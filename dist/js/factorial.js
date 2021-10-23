@@ -2,14 +2,12 @@ window.addEventListener('DOMContentLoaded', function () {
 
     'use strict';
 
-
     // Расчет факториала
 
     let inputValue = document.querySelector('.solution_input > input'),      // входное число
         blockInput = document.querySelector('.solution_input'),
         calcBtn = document.querySelector('.calc'),
         inputResult = document.querySelector('.solution_result > input'),
-        // solutionBtn = document.querySelector('.solution_btn'),
         solutionText = document.querySelector('.solution_text'),
         simpleNumbers = [];
 
@@ -19,8 +17,6 @@ window.addEventListener('DOMContentLoaded', function () {
         let target = event.target;
         target.setAttribute('placeholder', '');
         target.value = '';
-        // dividedYes = [];
-        // dividedNo = [];
         deleteMessageError();
     });
 
