@@ -73,15 +73,13 @@ window.addEventListener('DOMContentLoaded', function () {
         let target = e.target;
         target.classList.add('button_click');
         target.style.transform = "translate(2%, 2%)";
-        if (target.name != 'left' && target.name != 'C' && target.name != '!') {
+        if (target.name != 'left' && target.name != 'C' && target.name != '!' && target.name != undefined) {
             inputValue.value = `${inputValue.value}${target.name}`;
         } else if (target.name == 'C') {
             inputValue.value = '';
             inputResult.value = '';
-        } else if (target.name == 'left') {
-            inputValue.value = inputValue.value.slice(0, -1);
-        }
-        else if (target.name == '!') {
+        } else if (target.name == '!') {
+
             if (reg.test(inputValue.value)) {
                 inputValue.value = 'Введите число';
                 inputResult.value = 'Введите число';
@@ -94,10 +92,13 @@ window.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+    let left = document.querySelector('#left');
+    left.addEventListener('click', function () {
+        inputValue.value = inputValue.value.slice(0, -1);
+    });
+
     keys.addEventListener('mouseup', function (e) {
         let target = e.target;
-
         target.style.transform = "";
-
     });
 });

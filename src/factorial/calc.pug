@@ -8,6 +8,7 @@ html(lang="ru")
         meta(name="description", content="Расчет факториала онлайн. Быстрое нахождение факториала натуральных чисел. Введите число и мгновенно получите результат.  ")
         title Калькулятор факториалов. Решение факториалов онлайн | Математика онлайн
         link(rel="stylesheet", href="/css/nod.min.css")
+        link(rel="stylesheet" href="/icon/font-awesome.css")
     body       
         include ../includes/_header.pug
         .wrapper    
@@ -49,8 +50,9 @@ html(lang="ru")
                                         button(name="7") 7
                                         button(name="8") 8
                                         button(name="9") 9
-                                    .clear 
-                                        button(name="left") left
+                                    .clear   
+                                        button#left(name="left") 
+                                            i.fa.fa-long-arrow-left(name="left" aria-hidden="true")              
                                         button(name="0") 0
                                         button(name="C") C
                                 .keys_answer 
