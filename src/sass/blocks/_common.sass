@@ -83,3 +83,53 @@ blockquote
 
 .italic
     font-style: italic
+
+.data
+
+    .descr
+        padding: 0 2%
+
+    .keys
+        display: flex
+        width: 45%
+        margin: 0 auto
+        padding-left: 5%
+
+        .numbers
+            flex-grow: 6
+
+            .up, .middle, .down, .clear
+                display: flex
+                justify-content: space-between
+                width: 100%
+
+                button
+                    width: 33%
+                    margin-bottom: 1px
+                    border: 1px solid #000
+                    border-radius: 0
+                    font-size: 1.5rem
+                    background-color: #eee
+                    
+                    &:hover
+                        color: #00f
+                        // transform: translate(2%, 2%)
+
+                    .button_click
+                        transform: translate(2%, 2%)
+                        // transition: all 1s
+                        
+        .keys_answer
+            flex-grow: 1
+            align-self: center
+            height: 6rem
+            margin-left: 1%
+            button
+                width: 100%
+                height: 100%
+                font-size: 3rem
+                border: 1px solid #000
+                border-radius: 0
+                background-color: #eee
+                &:hover
+                        color: #f00
