@@ -94,6 +94,8 @@ blockquote
         width: 45%
         margin: 0 auto
         padding-left: 5%
+        @media screen and (max-width: 576px)
+            width: 65%
 
         .numbers
             flex-grow: 6
@@ -113,11 +115,6 @@ blockquote
                     
                     &:hover
                         color: #00f
-                        // transform: translate(2%, 2%)
-
-                    .button_click
-                        transform: translate(2%, 2%)
-                        // transition: all 1s
                         
         .keys_answer
             flex-grow: 1

@@ -80,7 +80,7 @@ window.addEventListener('DOMContentLoaded', function () {
             inputResult.value = '';
         } else if (target.name == '!') {
 
-            if (reg.test(inputValue.value)) {
+            if (reg.test(inputValue.value || inputValue.value == '')) {
                 inputValue.value = 'Введите число';
                 inputResult.value = 'Введите число';
             } else if (+inputValue.value > 170) {
