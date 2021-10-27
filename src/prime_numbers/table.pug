@@ -5,8 +5,8 @@ html(lang="ru")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         link(rel="icon" href="/icon/favicon.ico" type="image/x-icon")
         meta(http-equiv='X-UA-Compatible' content='IE=edge')
-        meta(name="description", content="Факториал числа онлайн с решением")
-        title Таблица простых чисел | Математика онлайн
+        meta(name="description", content="Таблица простых чисел до 100 и 1000. С помощью таблиц можно легко определить провтое или составное данное число")
+        title Таблица простых чисел. Список простых чисел | Математика онлайн
         link(rel="stylesheet", href="/css/nod.min.css")
         link(rel="stylesheet", href="/css/prime_numbers.min.css")
     body       
@@ -20,105 +20,244 @@ html(lang="ru")
                         .nav_tabs 
                             ul 
                                 li.tab
-                                    a(href="/prime_numbers.html" ) Простые числа
+                                    a.header_link(href="/prime_numbers.html" ) Простые числа
                                 li.tab
-                                    a.header_link(href="/prime_numbers/table.html" ) Проверка числа на простоту
+                                    a.header_link(href="/prime_numbers/table.html" ) Таблица простых чисел
                                 li.tab
-                                    a.header_link(href="/prime_numbers/generator.html" ) Список простых чисел онлайн
+                                    a.header_link(href="/prime_numbers/isprime.html" ) Проверка числа на простоту
                                 li.tab
                                     a.header_link(href="/prime_numbers/examples.html" ) Простые числа, примеры и решения
                         section.solution 
                             h1.solution_title Таблицы простых чисел
                             .divide_table
                         section.theory 
-                            p С помощью таблицы  можно легко найти точное значение факториала любого числа. Ниже приведена таблица факториалов для чисел до 20. Также для нахождения факториала любого числа можно воспользоваться <a href="calc.html"> калькулятором факториалов</a>.
+                            p С помощью таблицы  можно легко узнать является ли число простом. Если его нет - то оно составное. Для очень больших чисел советую воспользоваться <a href="isprime.html"> Проверить, простое число или нет</a>.
                             h2 ТАБЛИЦА ПРОСТЫХ ЧИСЕЛ ДО 100
-                            table(style='border: 1px solid black; border-right: 0px; border-bottom: 0px' cellspacing='0')
+                            table.prime100(style='border: 1px solid black; border-right: 0px; border-bottom: 0px; width: 60%' cellspacing='0')
                                 tr
-                                    td(class='tdleft')
-                                        b 1!
-                                    td(class='tdright') 1
+                                    td(class='tdleft') 2
+                                    td(class='tdleft') 3
+                                    td(class='tdleft') 5
+                                    td(class='tdleft') 7
+                                    td(class='tdleft') 11
                                 tr
-                                    td(class='tdleft')
-                                        b 2!
-                                    td(class='tdright') 2
+                                    td(class='tdleft') 13
+                                    td(class='tdleft') 17
+                                    td(class='tdleft') 19
+                                    td(class='tdleft') 23
+                                    td(class='tdleft') 29
                                 tr
-                                    td(class='tdleft')
-                                        b 3!
-                                    td(class='tdright') 3
+                                    td(class='tdleft') 31
+                                    td(class='tdleft') 37
+                                    td(class='tdleft') 41
+                                    td(class='tdleft') 43
+                                    td(class='tdleft') 47
                                 tr
-                                    td(class='tdleft')
-                                        b 4!
-                                    td(class='tdright') 24
+                                    td(class='tdleft') 53
+                                    td(class='tdleft') 59
+                                    td(class='tdleft') 61
+                                    td(class='tdleft') 67
+                                    td(class='tdleft') 71
                                 tr
-                                    td(class='tdleft')
-                                        b 5!
-                                    td(class='tdright') 120
-                                tr
-                                    td(class='tdleft')
-                                        b 6!
-                                    td(class='tdright') 720
-                                tr
-                                    td(class='tdleft')
-                                        b 7!
-                                    td(class='tdright') 5 040
-                                tr
-                                    td(class='tdleft')
-                                        b 8!
-                                    td(class='tdright') 40 320
-                                tr
-                                    td(class='tdleft')
-                                        b 9!
-                                    td(class='tdright') 362 880
-                                tr
-                                    td(class='tdleft')
-                                        b 10!
-                                    td(class='tdright') 3 628 800
-                                tr
-                                    td(class='tdleft')
-                                        b 11!
-                                    td(class='tdright') 39 916 800
-                                tr
-                                    td(class='tdleft')
-                                        b 12!
-                                    td(class='tdright') 479 001 600
-                                tr
-                                    td(class='tdleft')
-                                        b 13!
-                                    td(class='tdright') 6 227 020 800
-                                tr
-                                    td(class='tdleft')
-                                        b 14!
-                                    td(class='tdright') 87 178 291 200
-                                tr
-                                    td(class='tdleft')
-                                        b 15!
-                                    td(class='tdright') 1 307 674 368 000
-                                tr
-                                    td(class='tdleft')
-                                        b 16!
-                                    td(class='tdright') 20 922 789 888 000
-                                tr
-                                    td(class='tdleft')
-                                        b 17!
-                                    td(class='tdright') 355 687 428 096 000
-                                tr
-                                    td(class='tdleft')
-                                        b 18!
-                                    td(class='tdright') 6 402 373 705 728 000
-                                tr
-                                    td(class='tdleft')
-                                        b 19!
-                                    td(class='tdright') 121 645 100 408 832 000
-                                tr
-                                    td(class='tdleft')
-                                        b 20!
-                                    td(class='tdright') 2 432 902 008 176 640 000
+                                    td(class='tdleft') 73
+                                    td(class='tdleft') 79
+                                    td(class='tdleft') 83
+                                    td(class='tdleft') 89
+                                    td(class='tdleft') 97
+                            p В диапазоне от 1 до 100 всего 25 простых чисел. Из них 4 однозначных и 21 - двузначных.
                             .divide_table
-                            p Если вам нужно значение факториала большого числа, то воспользуйтесь таблицей ниже, где приведены значения факториалов чисел до 50. 
-                            h2 ТАБЛИЦА ФАКТОРИАЛОВ ДО 50
-                            img(src="../../img/jpg/factorial/factorial_table_50.png", alt="Таблица факториалов до 50")
-                            p Также интересно, что факториал 100 равен следующему огромному числу:<br>100! = 93 326 215 443 944 152 681 699 238 856 266 700 490 715 968 264 381 621 468 592 963 895 217 599 993 229 915 608 941 463 976 156 518 286 253 697 920 827 223 758 251 185 210 916 864 000 000 000 000 000 000 000 000                                        
+                            p Еще одна таблица, в которой показаны все простые числа от 1 до 1000. 
+                            h2 ТАБЛИЦА ПРОСТЫХ ЧИСЕЛ ДО 1000
+                            table.prime1000(style='border: 1px solid black; border-right: 0px; border-bottom: 0px; width: 80%' cellspacing='0')
+                                tr
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                tr
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                tr
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                tr 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                tr 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                tr
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                tr
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                tr
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                tr
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                tr
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                tr
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                tr
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                tr
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                tr
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                tr
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                tr
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                tr
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+                                    td(class='tdleft') 
+
+                            p В таблице все простые числа до 1000. Из них однозначных - 4, двузначных - 21, трехзначных - 143 числа. Для больших чисел, можно воспользоваться  <a href="isprime.html">Калькулятором</a>, который проверяет, простое число или составное.                                  
         include ../includes/_footer.pug     
         script(src="../js/prime_numbers.js")
         script(src="../js/media.js")

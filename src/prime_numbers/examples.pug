@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="icon" href="/icon/favicon.ico" type="image/x-icon")
+        meta(http-equiv='X-UA-Compatible' content='IE=edge')
+        meta(name="description" content="Сумма и разность простых чисел. Прмеры решения задач. Всегда ли сумма простых чисел составное число? Всегда ли разность простых чисел составное число?")
+        meta(name="keywords" content="Сумма простых чисел, разность простых чисел")
+        title Сумма и разность простых чисел. Решение задач | Математика онлайн
+        link(rel="stylesheet", href="/css/nod.min.css")
+        link(rel="stylesheet", href="/css/prime_numbers.min.css")
+    body       
+        include ../includes/_header.pug
+        .wrapper    
+            .app
+                include ../includes/_aside.pug
+                    
+                .main
+                    .data
+                        .nav_tabs 
+                            ul 
+                                li.tab
+                                    a.header_link(href="/prime_numbers.html" ) Простые числа
+                                li.tab
+                                    a.header_link(href="/prime_numbers/table.html" ) Таблица простых чисел
+                                li.tab
+                                    a.header_link(href="/prime_numbers/isprime.html" ) Проверка числа на простоту
+                                li.tab
+                                    a.header_link(href="/prime_numbers/examples.html" ) Простые числа, примеры и решения
+                        section.theory 
+                            h1 Примеры решения задач
+                            p Рассмотрим решения нескольких задач на использование простых чисел. Задачи в основном на доказательство.
+                            h2 СУММА ПРОСТЫХ ЧИСЕЛ
+                            p.center.blue Всегда ли сумма простых чисел - это составное число?
+                            p Рассмотрим примеры, чтобы выяснить верно утверждение или нет.
+                            .blockquote
+                                .title Пример 
+                                .content Возьмем два простых числа: 3 и 5.<br> Их сумма равна 3 + 5 = 8. <br>  8 - составное число.
+                            .blockquote
+                                .title Еще пример
+                                .content Теперь выберем числа 2 и 3. <br> При сложении 2 + 3 = 5 получили простое число 5.
+                            p.center.blue Сумма простых чисел может быть как простым, так и составным числом 
+                            p Если углубиться дальше, то можно показать, что сумма большинства простых чисел - это составное число. А если сумма двух простых чисел тоже простое, то одно из слагаемых - число 2. Например:<br> 2 + 5 = 7 - простое число<br> 2 + 11 = 13 - простое число<br> 2 + 29 = 31 - тоже простое.
+                            h2 РАЗНОСТЬ ПРОСТЫХ ЧИСЕЛ
+                            p.center.blue Всегда ли разность простых чисел - это составное число?
+                            p Снова приведем примеры
+                            .blockquote
+                                .title Пример 
+                                .content Возьмем два простых числа: 17 и 5.<br> Их разность равна 17 - 5 = 12. <br>  12 - составное число.
+                            .blockquote
+                                .title Пример
+                                .content Теперь выберем числа 13 и 2. <br> При вычитании 13 - 2 = 11 получили простое число 11.
+                            p.center.blue Разность простых чисел может быть как простым, так и составным числом
+                            p Как и в случае с суммой , разность двух простых чисел - это число простое, если вычитается число 2. Например:<br> 19 - 2 = 17 - простое число<br> 43 - 2 = 41 - простое число<br> 61 - 2 = 59 - тоже простое.                                        
+        include ../includes/_footer.pug     
+        script(src="../js/prime_numbers.js")
+        script(src="../js/media.js")

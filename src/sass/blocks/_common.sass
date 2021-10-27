@@ -11,7 +11,7 @@
 
 @font-face
     font-family: arrow-left
-    src: url(../icon/font-awesome.css)
+    src: url(../fonts/arrow-left.ttf)
     font-display: swap
 
 body 
@@ -146,7 +146,6 @@ blockquote
     border-radius: .6rem
     box-shadow: 0.1rem 0.1rem 0.3rem #002c66
 
-
     &_flex
         display: flex
         justify-content: space-evenly
@@ -156,12 +155,6 @@ blockquote
 
     span
         display: block
-
-    // .center
-    //     font-size: 1.2rem
-    //     text-align: center
-    //     margin: .5rem auto
-    
 
     .inline
         display: inline
@@ -191,6 +184,9 @@ li
 table
     margin: 0 auto
 
+    td
+        width: 3rem
+
 .center
     width: 80%
     text-align: center
@@ -208,4 +204,9 @@ table
 
 img
     display: block
+
+.icon-long-arrow-left:before 
+    font-family: arrow-left
+    content: "\f177"
+
     

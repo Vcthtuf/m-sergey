@@ -8,7 +8,6 @@ html(lang="ru")
         meta(name="description", content="Расчет факториала онлайн. Быстрое нахождение факториала натуральных чисел. Введите число и мгновенно получите результат.  ")
         title Калькулятор факториалов. Решение факториалов онлайн | Математика онлайн
         link(rel="stylesheet", href="/css/nod.min.css")
-        link(rel="stylesheet" href="/icon/font-awesome.css")
     body       
         include ../includes/_header.pug
         .wrapper    
@@ -19,13 +18,13 @@ html(lang="ru")
                         .nav_tabs 
                             ul 
                                 li.tab
-                                    a(href="/factorial.html" ) Факториал
+                                    a.header_link(href="/factorial.html" ) Факториал
                                 li.tab
-                                    a.header_link(href="examples.html" ) Примеры решения факториалов
+                                    a.header_link(href="/factorial/table.html" ) Таблица факториалов
                                 li.tab
-                                    a.header_link(href="table.html" ) Таблица факториалов
+                                    a.header_link(href="/factorial/examples.html" ) Примеры решения факториалов
                                 li.tab
-                                    a.header_link(href="examples.html" ) Примеры решения факториалов
+                                    a.header_link(href="/factorial/calc.html" ) Калькулятор факториалов
                         section.solution 
                             h1.solution_title Онлайн калькулятор факториала
                             span.solution_instruction Введите ваше число:
@@ -53,8 +52,8 @@ html(lang="ru")
                                     .clear   
                                         button(name="C") C            
                                         button(name="0") 0
-                                        button#left(name="left") 
-                                            i.fa.fa-long-arrow-left(name="left" aria-hidden="true") 
+                                        button#left(name="left")
+                                            i.icon-long-arrow-left(name="left") 
                                 .keys_answer 
                                     button(name="!") !
                             .solution_text(style="text-align: center; margin-bottom: 1rem" ) 

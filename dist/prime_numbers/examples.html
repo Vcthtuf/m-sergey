@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="icon" href="/icon/favicon.ico" type="image/x-icon"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="description" content="Примеры решения факториалов. "/>
-    <title>Примеры решения факториалов | Математика онлайн</title>
+    <meta name="description" content="Сумма и разность простых чисел. Прмеры решения задач. Всегда ли сумма простых чисел составное число? Всегда ли разность простых чисел составное число?"/>
+    <meta name="keywords" content="Сумма простых чисел, разность простых чисел"/>
+    <title>Сумма и разность простых чисел. Решение задач | Математика онлайн</title>
     <link rel="stylesheet" href="/css/nod.min.css"/>
+    <link rel="stylesheet" href="/css/prime_numbers.min.css"/>
   </head>
   <body>      
     <header class="header"><a class="logo_svg" href="/index.html"><svg width="123" height="69" viewBox="0 0 246 138" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -43,38 +45,44 @@
           </nav>
         </aside>
         <div class="main">
-          <div class="data"> 
+          <div class="data">
             <div class="nav_tabs"> 
               <ul> 
-                <li class="tab"><a class="header_link" href="/factorial.html">Факториал</a></li>
-                <li class="tab"><a class="header_link" href="/factorial/table.html">Таблица факториалов</a></li>
-                <li class="tab"><a class="header_link" href="/factorial/examples.html">Примеры решения факториалов</a></li>
-                <li class="tab"><a class="header_link" href="/factorial/calc.html">Калькулятор факториалов              </a></li>
+                <li class="tab"><a class="header_link" href="/prime_numbers.html">Простые числа</a></li>
+                <li class="tab"><a class="header_link" href="/prime_numbers/table.html">Таблица простых чисел</a></li>
+                <li class="tab"><a class="header_link" href="/prime_numbers/isprime.html">Проверка числа на простоту</a></li>
+                <li class="tab"><a class="header_link" href="/prime_numbers/examples.html">Простые числа, примеры и решения</a></li>
               </ul>
             </div>
-            <section class="examples"> 
-              <h1>Примеры решения факториалов</h1>
-              <p>Рассмотрим примеры решения примеров с факториалами. Зная что такое факториал числа иосновную формулу его нахождения, легко решить большинство примеров.</p>
-              <h2 class="bold">СУММА ФАКТОРИАЛОВ </h2>
-              <p>Начнем с суммы факториалов чисел. В таких примерах, просто вычисляем значения и складываем их. Значения факториалов легко найти в <a href="table.html">таблице факториалов</a> или можно воспользоваться <a href="calc.html">калькулятором факториалов</a>.</p>
-              <p>Рассмотрим следующую задачу.</p>
-              <div class="middle" style="margin-bottom: 1rem">Решить пример &nbsp;<span style="font-style: italic">5! + 4!</span></div>
-              <p>Решение: <span>5! + 4! = 1 &middot; 2 &middot; 3 &middot; 4 &middot; 5 + 1 &middot; 2 &middot; 3 &middot; 4 = 120 + 24 = 144</span></p>
-              <p class="bold">Ответ: 5! + 4! = 144 </p>
-              <p>В этом примере, сначала находятся значения факториалов чисел 5 и 4, которые равны 120 и 24 соответственно. Затем они складываются. Всё просто!  </p>
-              <div class="task bold"> </div>
-              <h2 class="bold">ДЕЛЕНИЕ ФАКТОРИАЛОВ </h2>
-              <p>При решении задач на деление факториалов нужно вспомнить <a href="../factorial.html#formula">формулу факториала</a>. А именно: n! = n &middot; (n-1)!.<br> Разберем пример задачи на деление факториалов.</p>
-              <div class="middle"> 
-                <div class="text">Решить пример:</div><img src="../img/jpg/factorial/example-divided.jpg" alt="Пример деления факториалов"/>
+            <section class="theory"> 
+              <h1>Примеры решения задач</h1>
+              <p>Рассмотрим решения нескольких задач на использование простых чисел. Задачи в основном на доказательство.</p>
+              <h2>СУММА ПРОСТЫХ ЧИСЕЛ</h2>
+              <p class="center blue">Всегда ли сумма простых чисел - это составное число?</p>
+              <p>Рассмотрим примеры, чтобы выяснить верно утверждение или нет.</p>
+              <div class="blockquote">
+                <div class="title">Пример </div>
+                <div class="content">Возьмем два простых числа: 3 и 5.<br> Их сумма равна 3 + 5 = 8. <br>  8 - составное число.</div>
               </div>
-              <p>Разложим факториал числителя на следующие множители: 56! = 56 &middot; 55 &middot; 54!, а далее сокращаем 54! в числителе и знаменателе. Получаем, 55 &middot; 56. </p>
-              <div class="middle"> 
-                <div class="text">Решение: </div><img src="../img/jpg/factorial/solution_1.jpg" alt="Решение деления факториалов"/><img src="../img/jpg/factorial/solution_2.jpg" alt="Решение деления факториалов"/>
+              <div class="blockquote">
+                <div class="title">Еще пример</div>
+                <div class="content">Теперь выберем числа 2 и 3. <br> При сложении 2 + 3 = 5 получили простое число 5.</div>
               </div>
-              <div class="bold middle"> 
-                <div class="text">Ответ: </div><img src="../img/jpg/factorial/answer.jpg" alt="Ответ деления факториалов"/>
+              <p class="center blue">Сумма простых чисел может быть как простым, так и составным числом </p>
+              <p>Если углубиться дальше, то можно показать, что сумма большинства простых чисел - это составное число. А если сумма двух простых чисел тоже простое, то одно из слагаемых - число 2. Например:<br> 2 + 5 = 7 - простое число<br> 2 + 11 = 13 - простое число<br> 2 + 29 = 31 - тоже простое.</p>
+              <h2>РАЗНОСТЬ ПРОСТЫХ ЧИСЕЛ</h2>
+              <p class="center blue">Всегда ли разность простых чисел - это составное число?</p>
+              <p>Снова приведем примеры</p>
+              <div class="blockquote">
+                <div class="title">Пример </div>
+                <div class="content">Возьмем два простых числа: 17 и 5.<br> Их разность равна 17 - 5 = 12. <br>  12 - составное число.</div>
               </div>
+              <div class="blockquote">
+                <div class="title">Пример</div>
+                <div class="content">Теперь выберем числа 13 и 2. <br> При вычитании 13 - 2 = 11 получили простое число 11.</div>
+              </div>
+              <p class="center blue">Разность простых чисел может быть как простым, так и составным числом</p>
+              <p>Как и в случае с суммой , разность двух простых чисел - это число простое, если вычитается число 2. Например:<br> 19 - 2 = 17 - простое число<br> 43 - 2 = 41 - простое число<br> 61 - 2 = 59 - тоже простое.                                        </p>
             </section>
           </div>
         </div>
@@ -93,7 +101,7 @@
         </ul>
       </nav><span>Copyright 2020</span>
     </footer>
-    <script src="../js/factorial_common.js"></script>
+    <script src="../js/prime_numbers.js"></script>
     <script src="../js/media.js"></script>
   </body>
 </html>

@@ -13,19 +13,18 @@ html(lang="ru")
         .wrapper    
             .app
                 include ../includes/_aside.pug
-                    
                 .main
                     .data
                         .nav_tabs 
                             ul 
                                 li.tab
-                                    a(href="/factorial.html" ) Факториал
+                                    a.header_link(href="/factorial.html" ) Факториал
                                 li.tab
-                                    a.header_link(href="examples.html" ) Примеры решения
+                                    a.header_link(href="/factorial/table.html" ) Таблица факториалов
                                 li.tab
-                                    a.header_link(href="calc.html" ) Калькулятор факториалов
+                                    a.header_link(href="/factorial/examples.html" ) Примеры решения факториалов
                                 li.tab
-                                    a.header_link(href="progs.html" ) Программы расчеты факториалов
+                                    a.header_link(href="/factorial/calc.html" ) Калькулятор факториалов
                         section.solution 
                             h1.solution_title Таблицы факториалов
                             .divide_table

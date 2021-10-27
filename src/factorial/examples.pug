@@ -12,20 +12,19 @@ html(lang="ru")
         include ../includes/_header.pug
         .wrapper    
             .app
-                include ../includes/_aside.pug
-                    
+                include ../includes/_aside.pug               
                 .main
                     .data  
                         .nav_tabs 
                             ul 
                                 li.tab
-                                    a(href="/factorial.html" ) Факториал
+                                    a.header_link(href="/factorial.html" ) Факториал
                                 li.tab
-                                    a.header_link(href="table.html" ) Таблица факториалов
+                                    a.header_link(href="/factorial/table.html" ) Таблица факториалов
                                 li.tab
-                                    a.header_link(href="calc.html" ) Калькулятор факториалов  
+                                    a.header_link(href="/factorial/examples.html" ) Примеры решения факториалов
                                 li.tab
-                                    a.header_link(href="progs.html" ) Программы расчеты факториалов              
+                                    a.header_link(href="/factorial/calc.html" ) Калькулятор факториалов              
                         section.examples 
                             h1 Примеры решения факториалов
                             p Рассмотрим примеры решения примеров с факториалами. Зная что такое факториал числа иосновную формулу его нахождения, легко решить большинство примеров.

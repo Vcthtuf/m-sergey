@@ -5,7 +5,7 @@ html(lang="ru")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         link(rel="icon" href="/icon/favicon.ico" type="image/x-icon")
         meta(http-equiv='X-UA-Compatible' content='IE=edge')
-        meta(name="description" content="Таблица простых чисел. Простые числа до 100, 1000, 10000")
+        meta(name="description" content="Простые и составные числа. Ряд простых чисел, таблица простых чисел")
         meta(name="keywords" content="простые числа, prostie chisla, таблица простых чисел")
         title Простые числа, prostie chisla | Математика онлайн
         link(rel="stylesheet", href="css/nod.min.css")
@@ -18,15 +18,14 @@ html(lang="ru")
                     
                 .main
                     .data
-                        //- h1.header_links Факториал <br><br>
                         .nav_tabs 
                             ul 
                                 li.tab
-                                    a(href="/prime_numbers/table.html" ) Таблица простых чисел
+                                    a.header_link(href="/prime_numbers.html" ) Простые числа
+                                li.tab
+                                    a.header_link(href="/prime_numbers/table.html" ) Таблица простых чисел
                                 li.tab
                                     a.header_link(href="/prime_numbers/isprime.html" ) Проверка числа на простоту
-                                li.tab
-                                    a.header_link(href="/prime_numbers/generator.html" ) Список простых чисел онлайн
                                 li.tab
                                     a.header_link(href="/prime_numbers/examples.html" ) Простые числа, примеры и решения
                         section.theory 
@@ -126,6 +125,9 @@ html(lang="ru")
                             p Можете самостоятельно убедиться, что числа 11, 13, 17 и 19 - простые.
                             p Если вам необходим список больших простых чисел, то можете воспользоваться <a href="/prime_numbers/table.html">Таблицей простых чисел</a> 
                             p Для вывода списка простых чисел служат <a href="/prime_numbers/generation.html"> Генераторы простых чисел</a> 
+                            h2 САМОЕ БОЛЬШОЕ ПРОСТОЕ ЧИСЛО
+                            p Древнегреческий математик Евклид доказал теорему, согласно которой количесвто простых чисел бесконечно. Поэтому, ответить на вопрос какое простое число самое большое нельзя. 
+                            p Однако, существует самое большое известное простое число. Оно найдено в 2018 году и равно 2<sup>82 589 933</sup> − 1. Это число состоит из 24 862 048 цифр.
                             h2  ГДЕ ПРИМЕНЯЮТСЯ ПРОСТЫЕ ЧИСЛА
                             p В математике есть много головоломок, которые можно решить легче, если «разбить» составные числа на их множители простых чисел.
                             p Большая часть интернет-безопасности основана на математике, использующей простые числа в криптографии.                                                

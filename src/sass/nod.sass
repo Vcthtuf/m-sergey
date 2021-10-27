@@ -29,6 +29,8 @@
     a
         color: #103766
         font-style: italic
+        width: 100%
+        height: 100%
         &:hover
             color: #f00
 
@@ -40,25 +42,26 @@
             ul 
                 display: flex
                 justify-content: space-between
-                align-items: stretch
+                align-content: stretch
                 padding: 0
                 width: 100%
                 margin: 0 auto
+                border-bottom: 2px solid #cacfd2
 
                 @media screen and (max-width: 480px)
                     flex-direction: column
                
-                li
+                li.tab
                     display: flex
                     justify-content: center
                     align-items: center
                     border-right: 2px solid #faf8f8
                     width: 33.33333%
                     text-align: center
-                    padding: 1rem 0
                     font-size: 1rem
                     cursor: pointer
                     background-color: #CACFD2
+                    
                     &:hover 
                         background-color: #ffe4b5
 
@@ -72,7 +75,15 @@
 
                     @media screen and (max-width: 480px)
                         width: 100%
-                      
+
+                    a 
+                        display: flex
+                        justify-content: center
+                        align-items: center
+                        height: 100%
+                        width: 100%
+                        padding: 1rem 0
+                                             
         .examples 
 
             p 
