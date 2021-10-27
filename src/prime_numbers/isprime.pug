@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="icon" href="/icon/favicon.ico" type="image/x-icon")
+        meta(http-equiv='X-UA-Compatible' content='IE=edge')
+        meta(name="description", content="Проверить онлайн: простое число или нет. Введите число, нажмите кнопку Проверить и получите результат. Быстро и без рекламы")
+        title Проверка простоты числа | Математика онлайн
+        link(rel="stylesheet", href="/css/nod.min.css")
+        link(rel="stylesheet", href="/css/prime_numbers.min.css")
+        link(rel="stylesheet" href="/icon/font-awesome.css")
+    body       
+        include ../includes/_header.pug
+        .wrapper    
+            .app
+                include ../includes/_aside.pug            
+                .main
+                    .data
+                        .nav_tabs 
+                            ul 
+                                li.tab
+                                    a(href="/prime_numbers.html" ) Простые числа
+                                li.tab
+                                    a.header_link(href="/prime_numbers/table.html" ) Таблица простых чисел
+                                li.tab
+                                    a.header_link(href="/prime_numbers/generator.html" ) Список простых чисел онлайн
+                                li.tab
+                                    a.header_link(href="/prime_numbers/examples.html" ) Простые числа, примеры и решения
+                        section.solution 
+                            h1.solution_title Онлайн проверка числа
+                            span.solution_instruction Введите ваше число:
+                            .solution_input
+                                input(type="text" placeholder = "Введите число" required)
+                            .calculate 
+                                .message_error Введите значения в поле выше
+                            .solution_result 
+                                span Ответ:
+                                input(type="text")
+                            .keys#keys 
+                                .keys_answer 
+                                    button(name="Enter") Проверить
+                                .numbers 
+                                    .up 
+                                        button(name="1") 1
+                                        button(name="2") 2
+                                        button(name="3") 3
+                                    .middle 
+                                        button(name="4") 4
+                                        button(name="5") 5
+                                        button(name="6") 6
+                                    .down 
+                                        button(name="7") 7
+                                        button(name="8") 8
+                                        button(name="9") 9
+                                    .clear   
+                                        button(name="C") C            
+                                        button(name="0") 0
+                                        button#left(name="left") 
+                                            i.fa.fa-long-arrow-left(name="left" aria-hidden="true") 
+                                
+                        .solution_text(style="text-align: center; margin-bottom: 1rem" ) 
+                        .descr
+                            p Для расчета введите целое число в поле "Введите число" и нажмите кнопку "Проверить". В поле ниже получите результат расчета, т.е Простое число или составное. <br>Пользуйтесь на здоровье!        
+                            p Калькулятор проверяет простое число введено или нет. Для отрицательных и дробных чисел расчет не ведется. Примеры решения задач с простыми числами рассмотрены на странице <a href="examples.html">Примеры и решения</a>. Для нахождения простых чисел также можно воспользоваться <a href="table.html">таблицей простых чисел</a>. 
+                                                   
+        include ../includes/_footer.pug     
+        script(src="../js/prime_numbers.js")
+        script(src="../js/media.js")

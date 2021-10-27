@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="icon" href="/icon/favicon.ico" type="image/x-icon"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="description" content="Факториал числа онлайн с решением"/>
-    <title>Таблица факториалов до 20 и до 50 | Математика онлайн</title>
+    <meta name="description" content="Проверить онлайн: простое число или нет. Введите число, нажмите кнопку Проверить и получите результат. Быстро и без рекламы"/>
+    <title>Проверка простоты числа | Математика онлайн</title>
     <link rel="stylesheet" href="/css/nod.min.css"/>
+    <link rel="stylesheet" href="/css/prime_numbers.min.css"/>
+    <link rel="stylesheet" href="/icon/font-awesome.css"/>
   </head>
   <body>      
     <header class="header"><a class="logo_svg" href="/index.html"><svg width="123" height="69" viewBox="0 0 246 138" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -46,106 +48,56 @@
           <div class="data">
             <div class="nav_tabs"> 
               <ul> 
-                <li class="tab"><a href="/factorial.html">Факториал</a></li>
-                <li class="tab"><a class="header_link" href="examples.html">Примеры решения</a></li>
-                <li class="tab"><a class="header_link" href="calc.html">Калькулятор факториалов</a></li>
-                <li class="tab"><a class="header_link" href="progs.html">Программы расчеты факториалов</a></li>
+                <li class="tab"><a href="/prime_numbers.html">Простые числа</a></li>
+                <li class="tab"><a class="header_link" href="/prime_numbers/table.html">Таблица простых чисел</a></li>
+                <li class="tab"><a class="header_link" href="/prime_numbers/generator.html">Список простых чисел онлайн</a></li>
+                <li class="tab"><a class="header_link" href="/prime_numbers/examples.html">Простые числа, примеры и решения</a></li>
               </ul>
             </div>
             <section class="solution"> 
-              <h1 class="solution_title">Таблицы факториалов</h1>
-              <div class="divide_table"></div>
+              <h1 class="solution_title">Онлайн проверка числа</h1><span class="solution_instruction">Введите ваше число:</span>
+              <div class="solution_input">
+                <input type="text" placeholder="Введите число" required="required"/>
+              </div>
+              <div class="calculate"> 
+                <div class="message_error">Введите значения в поле выше</div>
+              </div>
+              <div class="solution_result"> <span>Ответ:</span>
+                <input type="text"/>
+              </div>
+              <div class="keys" id="keys"> 
+                <div class="keys_answer"> 
+                  <button name="Enter">Проверить</button>
+                </div>
+                <div class="numbers"> 
+                  <div class="up"> 
+                    <button name="1">1</button>
+                    <button name="2">2</button>
+                    <button name="3">3</button>
+                  </div>
+                  <div class="middle"> 
+                    <button name="4">4</button>
+                    <button name="5">5</button>
+                    <button name="6">6</button>
+                  </div>
+                  <div class="down"> 
+                    <button name="7">7</button>
+                    <button name="8">8</button>
+                    <button name="9">9</button>
+                  </div>
+                  <div class="clear">  
+                    <button name="C">C            </button>
+                    <button name="0">0</button>
+                    <button id="left" name="left"> <i class="fa fa-long-arrow-left" name="left" aria-hidden="true"> </i></button>
+                  </div>
+                </div>
+              </div>
             </section>
-            <section class="theory"> 
-              <p>С помощью таблицы  можно легко найти точное значение факториала любого числа. Ниже приведена таблица факториалов для чисел до 20. Также для нахождения факториала любого числа можно воспользоваться <a href="calc.html"> калькулятором факториалов</a>.</p>
-              <h2>ТАБЛИЦА ФАКТОРИАЛОВ ДО 20</h2>
-              <table style="border: 1px solid black; border-right: 0px; border-bottom: 0px" cellspacing="0">
-                <tr>
-                  <td class="tdleft"><b>1!</b></td>
-                  <td class="tdright">1</td>
-                </tr>
-                <tr>
-                  <td class="tdleft"><b>2!</b></td>
-                  <td class="tdright">2</td>
-                </tr>
-                <tr>
-                  <td class="tdleft"><b>3!</b></td>
-                  <td class="tdright">3</td>
-                </tr>
-                <tr>
-                  <td class="tdleft"><b>4!</b></td>
-                  <td class="tdright">24</td>
-                </tr>
-                <tr>
-                  <td class="tdleft"><b>5!</b></td>
-                  <td class="tdright">120</td>
-                </tr>
-                <tr>
-                  <td class="tdleft"><b>6!</b></td>
-                  <td class="tdright">720</td>
-                </tr>
-                <tr>
-                  <td class="tdleft"><b>7!</b></td>
-                  <td class="tdright">5 040</td>
-                </tr>
-                <tr>
-                  <td class="tdleft"><b>8!</b></td>
-                  <td class="tdright">40 320</td>
-                </tr>
-                <tr>
-                  <td class="tdleft"><b>9!</b></td>
-                  <td class="tdright">362 880</td>
-                </tr>
-                <tr>
-                  <td class="tdleft"><b>10!</b></td>
-                  <td class="tdright">3 628 800</td>
-                </tr>
-                <tr>
-                  <td class="tdleft"><b>11!</b></td>
-                  <td class="tdright">39 916 800</td>
-                </tr>
-                <tr>
-                  <td class="tdleft"><b>12!</b></td>
-                  <td class="tdright">479 001 600</td>
-                </tr>
-                <tr>
-                  <td class="tdleft"><b>13!</b></td>
-                  <td class="tdright">6 227 020 800</td>
-                </tr>
-                <tr>
-                  <td class="tdleft"><b>14!</b></td>
-                  <td class="tdright">87 178 291 200</td>
-                </tr>
-                <tr>
-                  <td class="tdleft"><b>15!</b></td>
-                  <td class="tdright">1 307 674 368 000</td>
-                </tr>
-                <tr>
-                  <td class="tdleft"><b>16!</b></td>
-                  <td class="tdright">20 922 789 888 000</td>
-                </tr>
-                <tr>
-                  <td class="tdleft"><b>17!</b></td>
-                  <td class="tdright">355 687 428 096 000</td>
-                </tr>
-                <tr>
-                  <td class="tdleft"><b>18!</b></td>
-                  <td class="tdright">6 402 373 705 728 000</td>
-                </tr>
-                <tr>
-                  <td class="tdleft"><b>19!</b></td>
-                  <td class="tdright">121 645 100 408 832 000</td>
-                </tr>
-                <tr>
-                  <td class="tdleft"><b>20!</b></td>
-                  <td class="tdright">2 432 902 008 176 640 000</td>
-                </tr>
-              </table>
-              <div class="divide_table"></div>
-              <p>Если вам нужно значение факториала большого числа, то воспользуйтесь таблицей ниже, где приведены значения факториалов чисел до 50. </p>
-              <h2>ТАБЛИЦА ФАКТОРИАЛОВ ДО 50</h2><img src="../../img/jpg/factorial/factorial_table_50.png" alt="Таблица факториалов до 50"/>
-              <p>Также интересно, что факториал 100 равен следующему огромному числу:<br>100! = 93 326 215 443 944 152 681 699 238 856 266 700 490 715 968 264 381 621 468 592 963 895 217 599 993 229 915 608 941 463 976 156 518 286 253 697 920 827 223 758 251 185 210 916 864 000 000 000 000 000 000 000 000                                        </p>
-            </section>
+            <div class="solution_text" style="text-align: center; margin-bottom: 1rem"> </div>
+            <div class="descr">
+              <p>Для расчета введите целое число в поле "Введите число" и нажмите кнопку "Проверить". В поле ниже получите результат расчета, т.е Простое число или составное. <br>Пользуйтесь на здоровье!        </p>
+              <p>Калькулятор проверяет простое число введено или нет. Для отрицательных и дробных чисел расчет не ведется. Примеры решения задач с простыми числами рассмотрены на странице <a href="examples.html">Примеры и решения</a>. Для нахождения простых чисел также можно воспользоваться <a href="table.html">таблицей простых чисел</a>. </p>
+            </div>
           </div>
         </div>
       </div>
@@ -163,7 +115,7 @@
         </ul>
       </nav><span>Copyright 2020</span>
     </footer>
-    <script src="../js/factorial_common.js"></script>
+    <script src="../js/prime_numbers.js"></script>
     <script src="../js/media.js"></script>
   </body>
 </html>
