@@ -6,10 +6,8 @@ window.addEventListener('DOMContentLoaded', function () {
 
     let inputValue = document.querySelector('.solution_input > input'),      // входное число
         blockInput = document.querySelector('.solution_input'),
-        calcBtn = document.querySelector('.calc'),
         inputResult = document.querySelector('.solution_result > input'),
-        solutionText = document.querySelector('.solution_text'),
-        simpleNumbers = [];
+        solutionText = document.querySelector('.solution_text');
 
     let msgError = document.querySelector('.message_error'); // сообщение об ошибке ввода данных
 
@@ -33,10 +31,10 @@ window.addEventListener('DOMContentLoaded', function () {
             factorial(+inputValue.value);
             inputResult.value = `${inputValue.value}! = ${factorial(inputValue.value)}`;
         }
-    };
+    }
 
     function factorial(n) {             // функция вычисления факториала
-        if (n == 0) { n = 1; return n }
+        if (n == 0) { n = 1; return n; }
         else { return n ? n * factorial(n - 1) : 1; }
     }
 

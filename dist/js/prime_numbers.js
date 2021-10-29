@@ -4,8 +4,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
     // Подсветка меню 
 
-    let menuItems = document.querySelectorAll('.menu'),
-        dropDown = document.querySelector('.submenu');
+    let menuItems = document.querySelectorAll('.menu');
 
     linkActive(5);                              // делаем активной седьмую ссылку
 
@@ -27,10 +26,8 @@ window.addEventListener('DOMContentLoaded', function () {
 
         let inputValue = document.querySelector('.solution_input > input'),      // входное число
             blockInput = document.querySelector('.solution_input'),
-            calcBtn = document.querySelector('.calc'),
             inputResult = document.querySelector('.solution_result > input'),
-            solutionText = document.querySelector('.solution_text'),
-            simpleNumbers = [];
+            solutionText = document.querySelector('.solution_text');
 
         let msgError = document.querySelector('.message_error'); // сообщение об ошибке ввода данных
 
@@ -45,10 +42,8 @@ window.addEventListener('DOMContentLoaded', function () {
 
             if (+inputValue.value <= 0) {
                 inputResult.value = `Введите положительное число`;
-                // solutionText.textContent = 'Введите положительное число';
             } else if (+inputValue.value == 1) {
                 inputResult.value = `${inputValue.value} - не простое и не составное число`;
-                // solutionText.textContent = '${inputValue.value} не простое и не составное число';
             }
             else {
                 solutionText.textContent = '';
@@ -58,13 +53,9 @@ window.addEventListener('DOMContentLoaded', function () {
                     inputResult.value = `${inputValue.value} - простое число`;
                 } else {
                     inputResult.value = `${inputValue.value} - составное число`;
-                };
-
+                }
             }
-        };
-
-
-
+        }
 
         // ------------------------------------------------
 
@@ -124,8 +115,7 @@ window.addEventListener('DOMContentLoaded', function () {
             let target = e.target;
             target.style.transform = "";
         });
-
-    };
+    }
 
     // Подсветка внутреннего меню
 
@@ -149,7 +139,7 @@ window.addEventListener('DOMContentLoaded', function () {
             break;
         default:
             break;
-    };
+    }
 
     // Заполнение таблицы простых чисел до 1000
 
@@ -162,7 +152,7 @@ window.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    function isPrime(n) {             // функция вычисления факториала
+    function isPrime(n) {             // функция проверки простое ли число
         for (let i = 2; i <= Math.sqrt(n); i++) {
             if (n % i === 0) {
                 return false;

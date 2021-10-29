@@ -148,7 +148,7 @@ window.addEventListener('DOMContentLoaded', function () {
     // функция нахождения НОК первым способом
     let multiply_1 = [], multiply_2 = [];
     function NOK(a, b) {
-        let i = 0, j = 0, nok_1;
+        let i = 0, j = 0;
         multiply_1[0] = a;
         multiply_2[0] = b;
         while (multiply_1[i] != multiply_2[j]) {
@@ -159,18 +159,21 @@ window.addEventListener('DOMContentLoaded', function () {
             } else {
                 multiply_1.push(a * (i + 2));
                 i++;
-
             }
         };
+
     };
 
     // функция показа решения первым способом
 
-    function showFirstMethod(a, b) {
+    function showFirstMethod() {
+        let multiply_11 = multiply_1.map(item => " " + item),
+            multiply_12 = multiply_2.map(item => " " + item);
+
         solutionText.insertAdjacentHTML('beforeend', `<h3 style="margin-bottom: 1rem;">Первый способ решения</h3>`);
         solutionText.insertAdjacentHTML('beforeend', `Найти наименьшее общее кратное чисел: ${appData.inputValue[0]} и ${appData.inputValue[1]}. <br><br>`);
-        solutionText.insertAdjacentHTML('beforeend', `Кратные первого числа: ${multiply_1}... <br>`);
-        solutionText.insertAdjacentHTML('beforeend', `Кратные второго числа: ${multiply_2}... <br>`);
+        solutionText.insertAdjacentHTML('beforeend', `Кратные первого числа: ${multiply_11}... <br>`);
+        solutionText.insertAdjacentHTML('beforeend', `Кратные второго числа: ${multiply_12}... <br>`);
         solutionText.insertAdjacentHTML('beforeend', `Находим первое совпадение среди кратных обоих чисел. Оно равно ${nok}. <br>`);
         solutionText.insertAdjacentHTML('beforeend', `Наименьшее общее кратное равно ${nok}. <br>`);
         solutionText.insertAdjacentHTML('beforeend', `Ответ: НОК(${inputValue[0]}, ${inputValue[1]}) = ${nok}. <br>`);

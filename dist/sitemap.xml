@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+		<!--	created with www.mysitemapgenerator.com	-->
+		<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+	<loc>http://math-365.ru/</loc>
+	<lastmod>2021-10-27T20:17:43+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>http://math-365.ru/index.html</loc>
+	<lastmod>2021-10-27T20:17:44+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>http://math-365.ru/nod.html</loc>
+	<lastmod>2021-10-27T20:17:45+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>http://math-365.ru/nok.html</loc>
+	<lastmod>2021-10-27T20:17:45+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>http://math-365.ru/simple.html</loc>
+	<lastmod>2021-10-27T20:17:45+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>http://math-365.ru/notation.html</loc>
+	<lastmod>2021-10-27T20:17:45+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>http://math-365.ru/prime_numbers.html</loc>
+	<lastmod>2021-10-27T20:17:45+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>http://math-365.ru/factorial.html</loc>
+	<lastmod>2021-10-27T20:17:45+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>http://math-365.ru/factorial/examples.html</loc>
+	<lastmod>2021-10-27T20:17:46+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://math-365.ru/factorial/table.html</loc>
+	<lastmod>2021-10-27T20:17:46+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://math-365.ru/factorial/calc.html</loc>
+	<lastmod>2021-10-27T20:17:46+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://math-365.ru/factorial/progs.html</loc>
+	<lastmod>2021-10-27T20:17:46+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://math-365.ru/prime_numbers/table.html</loc>
+	<lastmod>2021-10-27T20:17:46+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://math-365.ru/prime_numbers/isprime.html</loc>
+	<lastmod>2021-10-27T20:17:46+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>http://math-365.ru/prime_numbers/examples.html</loc>
+	<lastmod>2021-10-27T20:17:47+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+</urlset>
