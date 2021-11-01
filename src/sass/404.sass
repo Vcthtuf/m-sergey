@@ -1,0 +1,58 @@
+@import 'blocks/common'
+
+// sections styles
+
+@import 'blocks/header'
+
+.wrapper 
+    flex-grow: 1
+    line-height: 1.52
+.app
+    display: flex
+    justify-content: space-between   
+    width: 90%
+    margin: 0 auto
+
+    @media screen and (max-width: 768px)
+        justify-content: center
+        width: 100%
+
+    
+
+@import 'blocks/aside'
+            
+.main
+    width: 80%
+    padding: 2.3rem 5% 1rem
+
+    @media screen and (max-width: 768px)
+        width: 100%
+
+    a
+        color: #1414e8
+        font-style: italic
+        width: 100%
+        height: 100%
+        &:hover
+            color: #f00
+
+    .data 
+        border: 2px solid #cacfd2
+        border-radius: 5px
+        padding-bottom: 2rem
+        height: 90%
+
+        .title
+            text-align: center
+            font-size: 4rem
+            font-weight: bold
+            font-style: italic
+            color: #1414e8
+
+        .error_text
+            text-align: center
+
+        .error_link
+            text-align: center
+
+@import 'blocks/footer'
