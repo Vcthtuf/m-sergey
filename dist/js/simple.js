@@ -18,47 +18,6 @@ window.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Tabs
-
-    let blockMenu = document.querySelector('.nav_tabs > ul'),
-        tabs = document.querySelectorAll('.tab'),
-        tabContent = document.querySelectorAll('section');
-
-    hideTabContent(1);                              // скрытие вего контента, кроме первого таба
-    tabs[0].classList.add('tab_active');                // показ первого таба
-
-    blockMenu.addEventListener('click', function (event) {   // обработка клика выбора табов
-        let target = event.target;
-        if (target && target.classList.contains('tab')) {
-
-            for (let i = 0; i < tabs.length; i++) {
-                if (target == tabs[i]) {
-                    hideTabContent(0);
-                    showTabContent(i);
-                    break;
-                }
-            }
-        }
-    });
-
-    function hideTabContent(a) {                        // функция скрытия контента
-        for (let i = a; i < tabContent.length; i++) {
-            tabContent[i].classList.remove('show');
-            tabContent[i].classList.add('hide');
-            tabs[i].classList.remove('tab_active');
-        }
-    }
-
-    function showTabContent(b) {                        // функция показа контента
-        for (let i = 0; i < tabContent.length; i++) {
-            tabContent[b].classList.remove('hide');
-            tabContent[b].classList.add('show');
-            tabs[b].classList.add('tab_active');
-        }
-    }
-
-    // ---------------------------------------------
-
     // Разложение на простые множители
 
     let inputValue = document.querySelector('.solution_input > input'),      // входное число

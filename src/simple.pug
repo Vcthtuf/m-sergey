@@ -9,6 +9,7 @@ html(lang="ru")
         meta(name="keywords" content="Разложение на простые множители, калькулятор онлайн, онлайн разложение на множители")
         title Разложение на простые множители. Калькулятор онлайн с решением | Математика онлайн
         link(rel="stylesheet", href="css/nod.min.css")
+        link(rel="stylesheet", href="/css/prime_numbers.min.css")
     body       
         include includes/_header.pug
         .wrapper    
@@ -18,24 +19,16 @@ html(lang="ru")
                     .data
                         .nav_tabs 
                             ul 
-                                li.tab Онлайн разложение на множители
-                                li.tab Простые и составные числа
-                                li.tab Примеры разложения на простые множители
-                        section.solution 
-                            h2.solution_title Онлайн разложение на простые множители
-                            span.solution_instruction Введите ваши число:
-                            .solution_input
-                                input(type="number" placeholder = "Введите число" required)
-                            .calculate 
-                                button.calc.btn Разложить
-                                .message_error Введите значения в поле выше
-                            .solution_result 
-                                span Разложение на простые множители:
-                                input(type="text")
-                            button.solution_btn.btn Решение
-                            .solution_text
+                                li.tab
+                                    a.header_link(href="/simple.html" ) Простые множители
+                                li.tab
+                                    a.header_link(href="/simple/factorization.html" ) Разложение на множители онлайн
+                                li.tab
+                                    a.header_link(href="/simple/compire_numbers.html" ) Взаимно простые числа и другое
+                                li.tab
+                                    a.header_link(href="/simple/compire_calc.html" ) Проверка онлайн на взаимно простые числа
                         section.theory 
-                            h2 Простые и составные числа
+                            h1 Простые и составные числа
                             h3 Простые числа
                             blockquote Натуральное число называется простым, если оно делится без остатка только на себя и на единицу.
                             p Пример простого числа — это число 2. Оно делится без остатка только на себя (т.е. 2) и на единицу. Проверим: 2 : 2 = 1 (остаток 0) и 2 : 1 = 2 (остаток 0).
@@ -57,5 +50,5 @@ html(lang="ru")
                             blockquote 54 не является простым. <br> 54 делится на <span class="red">2</span>, поэтому записываем: 54 : 2 = 27. <br> 27 не делится на 2. Пробуем следующее простое число — это число 3. <br> 27 делится на <span class="red">3</span>, получаем   27 : 3 = 9.  <br> 9 не делится на 2, поэтому пробуем деление на 3. <br> 9 делится на <span class="red">3</span>. Записываем 9 : 3 = 3. <br> <span class="red">3</span> — это простое число. Разложение окончено.
                             p.title Ответ:   54 = 2 · 3 · 3  · 3.               
         include includes/_footer.pug           
-        script(src="js/simple.js")
+        script(src="js/compire.js")
         script(src="js/media.js")

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="icon" href="/icon/favicon.ico" type="image/x-icon")
+        meta(http-equiv='X-UA-Compatible' content='IE=edge')
+        meta(name="description" content="Разложение на простые множители онлайн. Калькулятор с подробным решением. Без рекламы. Простое и подробное объяснение.")
+        meta(name="keywords" content="Разложение на простые множители, калькулятор онлайн, онлайн разложение на множители")
+        title Разложение на простые множители. Калькулятор онлайн с решением | Математика онлайн
+        link(rel="stylesheet", href="/css/nod.min.css")
+        link(rel="stylesheet", href="/css/prime_numbers.min.css")
+    body       
+        include ../includes/_header.pug
+        .wrapper    
+            .app
+                include ../includes/_aside.pug                   
+                .main
+                    .data
+                        .nav_tabs 
+                            ul 
+                                li.tab
+                                    a.header_link(href="/simple.html" ) Простые множители
+                                li.tab
+                                    a.header_link(href="/simple/factorization.html" ) Разложение на множители онлайн
+                                li.tab
+                                    a.header_link(href="/simple/compire_numbers.html" ) Взаимно простые числа и другое
+                                li.tab
+                                    a.header_link(href="/simple/compire_calc.html" ) Проверка онлайн на взаимно простые числа
+                        section.theory 
+                            h1 Взаимно простые числа
+                            h2 Простые числа
+                            blockquote Натуральное число называется простым, если оно делится без остатка только на себя и на единицу.
+                            p Пример простого числа — это число 2. Оно делится без остатка только на себя (т.е. 2) и на единицу. Проверим: 2 : 2 = 1 (остаток 0) и 2 : 1 = 2 (остаток 0).
+                            p Также простыми числами являются следующие числа: 3, 5, 7, 11, 13, 17, 19, 23 , 29, 31 и т. д.
+                            p Простых чисел бесконечное множество. Один из способов получения таблицы простых чисел является метод, который носит название решето Эратосфена.
+                            h2 Взаимно простые числа
+                            
+        include ../includes/_footer.pug           
+        script(src="/js/compire.js")
+        script(src="/js/media.js")

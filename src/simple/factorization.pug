@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="icon" href="/icon/favicon.ico" type="image/x-icon")
+        meta(http-equiv='X-UA-Compatible' content='IE=edge')
+        meta(name="description" content="Разложение на простые множители онлайн. Калькулятор с подробным решением. Без рекламы. Простое и подробное объяснение.")
+        meta(name="keywords" content="Разложение на простые множители, калькулятор онлайн, онлайн разложение на множители")
+        title Разложение на простые множители. Калькулятор онлайн с решением | Математика онлайн
+        link(rel="stylesheet", href="/css/nod.min.css")
+        link(rel="stylesheet", href="/css/prime_numbers.min.css")
+    body       
+        include ../includes/_header.pug
+        .wrapper    
+            .app
+                include ../includes/_aside.pug                   
+                .main
+                    .data
+                        .nav_tabs 
+                            ul 
+                                li.tab
+                                    a.header_link(href="/simple.html" ) Простые множители
+                                li.tab
+                                    a.header_link(href="/simple/factorization.html" ) Разложение на множители онлайн
+                                li.tab
+                                    a.header_link(href="/simple/compire_numbers.html" ) Взаимно простые числа и другое
+                                li.tab
+                                    a.header_link(href="/simple/compire_calc.html" ) Проверка онлайн на взаимно простые числа
+                        section.solution 
+                            h1.solution_title Онлайн разложение на простые множители
+                            span.solution_instruction Введите ваше число:
+                            .solution_input
+                                input(type="number" placeholder = "Введите число" required)
+                            .calculate 
+                                button.calc.btn Разложить
+                                .message_error Введите значения в поле выше
+                            .solution_result 
+                                span Разложение на простые множители:
+                                input(type="text")
+                            .keys#keys 
+                                .keys_answer 
+                                    button(name="Enter") Проверить
+                                .numbers 
+                                    .up 
+                                        button(name="1") 1
+                                        button(name="2") 2
+                                        button(name="3") 3
+                                    .middle 
+                                        button(name="4") 4
+                                        button(name="5") 5
+                                        button(name="6") 6
+                                    .down 
+                                        button(name="7") 7
+                                        button(name="8") 8
+                                        button(name="9") 9
+                                    .clear   
+                                        button(name="C") C            
+                                        button(name="0") 0
+                                        button#left(name="left") 
+                                            i.icon-long-arrow-left
+                                
+                        .solution_text(style="text-align: center; margin-bottom: 1rem" )
+
+        include ../includes/_footer.pug           
+        script(src="/js/compire.js")
+        script(src="/js/simple.js")
+        script(src="/js/media.js")
