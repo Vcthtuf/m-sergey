@@ -96,8 +96,7 @@ window.addEventListener('DOMContentLoaded', function () {
                 inputValue.value = '';
                 inputResult.value = '';
             } else if (target.name == 'Enter') {
-
-                if (reg.test(inputValue.value || inputValue.value == '')) {
+                if (reg.test(inputValue.value || inputValue.value == '' || inputValue.value == ' ')) {
                     inputValue.value = 'Введите число';
                     inputResult.value = 'Введите число';
                 } else {

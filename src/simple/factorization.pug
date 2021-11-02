@@ -33,14 +33,13 @@ html(lang="ru")
                             .solution_input
                                 input(type="number" placeholder = "Введите число" required)
                             .calculate 
-                                button.calc.btn Разложить
                                 .message_error Введите значения в поле выше
                             .solution_result 
                                 span Разложение на простые множители:
                                 input(type="text")
                             .keys#keys 
                                 .keys_answer 
-                                    button(name="Enter") Проверить
+                                    button(name="Enter") Разложить
                                 .numbers 
                                     .up 
                                         button(name="1") 1
@@ -59,8 +58,10 @@ html(lang="ru")
                                         button(name="0") 0
                                         button#left(name="left") 
                                             i.icon-long-arrow-left
+                                .keys_answer 
+                                    button(name="Solution") Решение
                                 
-                        .solution_text(style="text-align: center; margin-bottom: 1rem" )
+                        .solution_text(style="margin-bottom: 1rem" )
 
         include ../includes/_footer.pug           
         script(src="/js/compire.js")

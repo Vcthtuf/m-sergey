@@ -22,9 +22,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
     let inputValue = document.querySelector('.solution_input > input'),      // входное число
         blockInput = document.querySelector('.solution_input'),
-        calcBtn = document.querySelector('.calc'),
         inputResult = document.querySelector('.solution_result > input'),
-        solutionBtn = document.querySelector('.solution_btn'),
         solutionText = document.querySelector('.solution_text'),
         simpleNumbers = [];
 
@@ -40,7 +38,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
     });
 
-    calcBtn.addEventListener('click', function () {  // обработка клика по кнопке "Разложить", вывода результата и очистка решения
+    function answer() {  // обработка клика по кнопке "Разложить", вывода результата и очистка решения
 
         if (+inputValue.value === 0) {
 
@@ -48,16 +46,15 @@ window.addEventListener('DOMContentLoaded', function () {
         } else if (isPrime(+inputValue.value)) {
             inputResult.value = `${inputValue.value} - простое число`;
             solutionText.textContent = '';
-
         }
         else {
             msgError.classList.remove('message_error_active');
             inputValue.classList.remove('input_error');
             getSimpleFactors(inputValue.value);
-            inputResult.value = `${inputValue.value} = ${simpleNumbers.join(' * ')}`;
+            inputResult.value = `${inputValue.value} = ${simpleNumbers.join(' ∙ ')}`;
             solutionText.textContent = '';
         }
-    });
+    }
 
     function isPrime(n) {             // функция проверки на простое число
 
@@ -102,9 +99,9 @@ window.addEventListener('DOMContentLoaded', function () {
 
     // ----------------------------------------------------- 
 
-    // Вывод решения
+    // Функция вывода решения
 
-    solutionBtn.addEventListener('click', function () {
+    function solution() {
 
         if (isPrime(+inputValue.value)) {
             showSolutionSimple(+inputValue.value);
@@ -119,15 +116,17 @@ window.addEventListener('DOMContentLoaded', function () {
             solutionText.textContent = '';
             showSolution(inputValue.value);
         }
-    });
+    };
 
     // функция показа решения, если число составное
 
     function showSolution(n) {
-        solutionText.insertAdjacentHTML('beforeend', `<h3 style="margin-bottom: 1rem;">Разложение на простые множители</h3>`);
+        // solutionText.textContent = '';
+        solutionText.insertAdjacentHTML('beforeend', `<h3 style="margin-bottom: 1rem; font-size: 1.2rem; text-align: center">Решение</h3>`);
         solutionText.insertAdjacentHTML('beforeend', `Разложить на простые множители число ${n}. <br><br>`);
 
         for (let i = 0; i < dividedYes.length; i++) {
+
 
             for (let j = 0; j < dividedNo.length; j++) {
                 if (dividedNo[j] < dividedYes[i]) {
@@ -141,6 +140,8 @@ window.addEventListener('DOMContentLoaded', function () {
 
         solutionText.insertAdjacentHTML('beforeend', `<br>Получили число 1, поэтому разложение закончено`);
         solutionText.insertAdjacentHTML('beforeend', `<br><br> Разложение: ${inputValue.value} = ${simpleNumbers.join(' &middot; ')}`);
+
+
     }
 
     // ----------------------
@@ -148,7 +149,7 @@ window.addEventListener('DOMContentLoaded', function () {
     // Функция показа решения, если число простое
 
     function showSolutionSimple(n) {
-        solutionText.insertAdjacentHTML('beforeend', `<h3 style="margin-bottom: 1rem;">Разложение на простые множители</h3>`);
+        solutionText.insertAdjacentHTML('beforeend', `<h3 style="margin-bottom: 1rem; text-align: center">Решение</h3>`);
         solutionText.insertAdjacentHTML('beforeend', `Число ${n} является простым, поэтому его нельзя разложить на множители. <br><br>`);
     }
 
@@ -174,5 +175,70 @@ window.addEventListener('DOMContentLoaded', function () {
     }
 
     // -------------------------------------------------
+
+    // Ввод значений с клавиатуры на экране
+
+    let keys = document.querySelector('.keys');
+
+    let reg = /\D/;
+
+    keys.addEventListener('mousedown', function (e) {
+        let target = e.target;
+        target.classList.add('button_click');
+        target.style.transform = "translate(2%, 2%)";
+        if (target.name != 'left' && target.name != 'C' && target.name != 'Enter' && target.name != undefined) {
+            inputValue.value = `${inputValue.value}${target.name}`;
+        } else if (target.name == 'C') {
+            inputValue.value = '';
+            inputResult.value = '';
+            solutionText.textContent = '';
+            dividedNo = [];
+            dividedYes = [];
+        } else if (target.name == 'Enter') {
+
+            if (reg.test(inputValue.value || inputValue.value == '')) {
+                inputValue.value = 'Введите число';
+                inputResult.value = 'Введите число';
+            } else {
+                answer();
+                solution();
+            }
+        }
+    });
+
+    let left = document.querySelector('#left');
+    left.addEventListener('click', function () {
+        inputValue.value = inputValue.value.slice(0, -1);
+    });
+
+    keys.addEventListener('mouseup', function (e) {
+        let target = e.target;
+        target.style.transform = "";
+    });
+
+
+    // Подсветка внутреннего меню
+
+    let mainTitle = document.querySelector('h1'),
+        li = document.querySelectorAll('.tab');
+
+    switch (mainTitle.textContent) {
+        case 'Простые и составные числа':
+
+            li[0].classList.add('tab_active');
+            break;
+        case 'Онлайн разложение на простые множители':
+            li[1].classList.add('tab_active');
+            break;
+        case 'Взаимно простые числа':
+            li[2].classList.add('tab_active');
+            calc();
+            break;
+        case 'Онлайн проверка взаимно простых чисел':
+            li[3].classList.add('tab_active');
+            break;
+        default:
+            break;
+    }
 
 });
