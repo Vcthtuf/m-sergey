@@ -6,7 +6,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
     let menuItems = document.querySelectorAll('.menu');
 
-    linkActive(6);                              // делаем активной седьмую ссылку
+    linkActive(10);                              // делаем активной седьмую ссылку
 
     function linkActive(b) {                        // функция делает активной одну ссылку
         for (let i = 0; i < menuItems.length; i++) {
@@ -24,14 +24,13 @@ window.addEventListener('DOMContentLoaded', function () {
 
     let mainTitle = document.querySelector('h1'),
         li = document.querySelectorAll('.tab');
-    console.log(mainTitle.textContent);
 
 
     switch (mainTitle.textContent) {
         case 'Факториал':
             li[0].classList.add('tab_active');
             break;
-        case 'Таблицы факториалов':
+        case 'Таблицы факториалов до 20 и 50':
             li[1].classList.add('tab_active');
             break;
         case 'Примеры решения факториалов':

@@ -1,6 +1,7 @@
 .aside 
     width: 22%
     margin: 3rem 0 0 0
+    
 
     @media screen and (max-width: 768px)
         align-self: flex-start
@@ -25,13 +26,15 @@
         display: flex
         flex-direction: column
         justify-content: space-evenly  
-        margin: 0 0 0 auto
-        padding: 0    
+        margin: 0 0 0 5%
+        padding: 0  
+        
 
         li
-            list-style-type: none
-            border-bottom: 4px solid #faf8f8
+            list-style-type: none           
+            border-bottom: 1px solid transparent
             position: relative
+            background: url('/img/jpg/phone.jpg') left top repeat
             @media screen and (max-width: 768px)
                 margin-top: 0
                 margin-bottom: 0
@@ -42,16 +45,22 @@
             &:hover
                 .submenu
                     display: block
-                    width: 70%
+                    width: 100%
+                    
                     li
-                        background-color: rgba(0,0,0,0.8)
+                        // background-color: #1e90ff
 
             .submenu
                 display: none
                 position: absolute
-                left: 100%
-                bottom: -.5rem
+                left: 97%
+                bottom: 0
                 width: 100% 
+                background-color: #343e47
+                li 
+                    a 
+                        background-color: #343e47
+                        color: #fff 
 
                 
 
@@ -60,10 +69,9 @@
             width: 80%
             height: 100%
             padding: .5rem 10%
-            background-color: #1e90ff
-            border: 2px solid #1e90ff
-            color: #ffe4b5
-            border-radius: 5px
+            border: 2px solid transparent
+            color: #343e47
+            // border-radius: 5px
             font-size: 1rem
             line-height: 1rem
             font-style: italic
@@ -79,12 +87,16 @@
                 padding: 0 10%
 
             &:hover 
-                color: #1e90ff
-                background-color: #ffe4b5
+                outline: 1px solid #000
+                // color: #1e90ff
+                // background-color: #ffe4b5
 
         .menu_active
-            color: #1e90ff
-            background-color: #ffe4b5
+            outline: 1px solid #000
+            background-color: #343e47
+            color: #fff
+            // color: #1e90ff
+            // background-color: #ffe4b5
 
 .aside_active 
     left: 0

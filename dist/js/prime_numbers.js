@@ -127,7 +127,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
             li[0].classList.add('tab_active');
             break;
-        case 'Таблицы простых чисел':
+        case 'Таблицы простых чисел до 100 и 1000':
             li[1].classList.add('tab_active');
             break;
         case 'Онлайн проверка числа':
