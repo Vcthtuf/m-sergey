@@ -15,6 +15,7 @@
         transition: 0.7s left
 
     .main_menu
+       
         @media screen and (max-width: 768px)
             height: 100%
             // display: flex
@@ -53,21 +54,27 @@
             .submenu
                 display: none
                 position: absolute
-                left: 97%
+                left: 100%
                 bottom: 0
                 width: 100% 
+                margin: 0
                 background-color: #343e47
+                z-index: 5
                 li 
                     a 
                         background-color: #343e47
                         color: #fff 
+                        margin: 0
+                        &:hover
+                            color: #1e90ff
 
                 
 
         .menu
             display: block
-            width: 80%
+            width: 75%
             height: 100%
+            margin-left: 6%
             padding: .5rem 10%
             border: 2px solid transparent
             color: #343e47

@@ -257,7 +257,15 @@ html(lang="ru")
                                     td(class='tdleft') 
                                     td(class='tdleft') 
 
-                            p В таблице все простые числа до 1000. Из них однозначных - 4, двузначных - 21, трехзначных - 143 числа. Для больших чисел, можно воспользоваться  <a href="isprime.html">Калькулятором</a>, который проверяет, простое число или составное.                                  
+                            p В таблице все простые числа до 1000. Из них однозначных - 4, двузначных - 21, трехзначных - 143 числа. Для больших чисел, можно воспользоваться  <a href="isprime.html">Калькулятором</a>, который проверяет, простое число или составное.  
+                            h3.interest Полезные материалы по теме            
+                            ul.interesting
+                                li.tab
+                                    a.header_link(href="/prime_numbers.html" ) Простые числа
+                                li.tab
+                                    a.header_link(href="/prime_numbers/isprime.html" ) Проверка, простое ли число
+                                li.tab
+                                    a.header_link(href="/prime_numbers/examples.html" ) Простые числа. Примеры решения задач                             
         include ../includes/_footer.pug     
         script(src="../js/prime_numbers.js")
         script(src="../js/media.js")
