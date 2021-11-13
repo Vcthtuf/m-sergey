@@ -8,6 +8,9 @@
     <meta name="description" content="Расчет факториала онлайн. Быстрое нахождение факториала натуральных чисел. Введите число и мгновенно получите результат.  "/>
     <title>Калькулятор факториалов. Решение факториалов онлайн | Математика онлайн</title>
     <link rel="stylesheet" href="/css/nod.min.css"/>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin="crossorigin"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin="crossorigin"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   </head>
   <body>      
     <header class="header"><a class="logo_svg" href="/index.html" rel="nofollow"><svg width="123" height="69" viewBox="0 0 246 138" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -27,7 +30,7 @@
               <li> <a class="menu" href="/index.html">Математика онлайн</a></li>
               <li> <a class="menu" href="/nod.html">Наибольший общий делитель НОД</a></li>
               <li> <a class="menu" href="/nok.html">Наименьшее общее кратное НОК</a></li>
-              <li> <a class="menu" href="/simple.html">Разложение на простые множители</a></li>
+              <li> <a class="menu" href="/simple.html">Разложение на множители</a></li>
               <li> <a class="menu" href="/notation.html">Системы счисления</a></li>
               <li><a class="menu" href="/prime_numbers.html">Простые числа</a>
                 <ul class="submenu">
@@ -62,13 +65,13 @@
             <section class="solution"> 
               <h1 class="solution_title">Онлайн калькулятор факториала</h1><span class="solution_instruction">Введите ваше число:</span>
               <div class="solution_input">
-                <input type="text" placeholder="Введите число" required="required"/>
+                <input id="input" type="text" placeholder="Введите число" required="required"/>
               </div>
               <div class="calculate"> 
                 <div class="message_error">Введите значения в поле выше</div>
               </div>
               <div class="solution_result"> <span>Факториал равен:</span>
-                <input type="text"/>
+                <input id="output" type="text"/>
               </div>
               <div class="keys"> 
                 <div class="numbers"> 
@@ -111,7 +114,7 @@
           <li> <a class="footer_link" href="/index.html" rel="nofollow">Математика онлайн</a></li>
           <li> <a class="footer_link" href="/nod.html" rel="nofollow">Наибольший общий делитель НОД</a></li>
           <li> <a class="footer_link" href="/nok.html" rel="nofollow">Наименьшее общее кратное НОК</a></li>
-          <li> <a class="footer_link" href="/simple.html" rel="nofollow">Разложение на простые множители</a></li>
+          <li> <a class="footer_link" href="/simple.html" rel="nofollow">Разложение на множители</a></li>
           <li> <a class="footer_link" href="/notation.html" rel="nofollow">Системы счисления</a></li>
           <li> <a class="footer_link" href="/prime_numbers.html" rel="nofollow">Простые числа</a></li>
           <li> <a class="footer_link" href="/factorial.html" rel="nofollow">Факториал</a></li>
@@ -120,6 +123,7 @@
     </footer>
     <script src="../js/factorial_common.js">   </script>
     <script src="../js/factorial.js"></script>
+    <script src="calc.js"></script>
     <script src="../js/media.js"></script>
   </body>
 </html>

@@ -8,6 +8,9 @@ html(lang="ru")
         meta(name="description", content="Расчет факториала онлайн. Быстрое нахождение факториала натуральных чисел. Введите число и мгновенно получите результат.  ")
         title Калькулятор факториалов. Решение факториалов онлайн | Математика онлайн
         link(rel="stylesheet", href="/css/nod.min.css")
+        script(src="https://unpkg.com/react@17/umd/react.development.js" crossorigin)
+        script(src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin)
+        script(src="https://unpkg.com/@babel/standalone/babel.min.js")
     body       
         include ../includes/_header.pug
         .wrapper    
@@ -29,12 +32,12 @@ html(lang="ru")
                             h1.solution_title Онлайн калькулятор факториала
                             span.solution_instruction Введите ваше число:
                             .solution_input
-                                input(type="text" placeholder = "Введите число" required)
+                                input#input(type="text" placeholder = "Введите число" required)
                             .calculate 
                                 .message_error Введите значения в поле выше
                             .solution_result 
                                 span Факториал равен:
-                                input(type="text")
+                                input#output(type="text")
                             .keys 
                                 .numbers 
                                     button(name="1") 1
@@ -67,4 +70,5 @@ html(lang="ru")
         include ../includes/_footer.pug 
         script(src="../js/factorial_common.js")    
         script(src="../js/factorial.js")
+        script(src="calc.js")
         script(src="../js/media.js")

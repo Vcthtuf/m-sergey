@@ -24,7 +24,7 @@ html(lang="ru")
                                 li.tab
                                     a.header_link(href="/simple/factorization.html" ) Разложение на множители онлайн
                                 li.tab
-                                    a.header_link(href="/simple/compire_numbers.html" ) Взаимно простые числа и другое
+                                    a.header_link(href="/simple/compire_numbers.html" ) Взаимно простые числа
                                 li.tab
                                     a.header_link(href="/simple/compire_calc.html" ) Проверка онлайн на взаимно простые числа
                         section.solution 
@@ -41,29 +41,23 @@ html(lang="ru")
                                 .keys_answer 
                                     button(name="Enter") Разложить
                                 .numbers 
-                                    .up 
-                                        button(name="1") 1
-                                        button(name="2") 2
-                                        button(name="3") 3
-                                    .middle 
-                                        button(name="4") 4
-                                        button(name="5") 5
-                                        button(name="6") 6
-                                    .down 
-                                        button(name="7") 7
-                                        button(name="8") 8
-                                        button(name="9") 9
-                                    .clear   
-                                        button(name="C") C            
-                                        button(name="0") 0
-                                        button#left(name="left") 
-                                            i.icon-long-arrow-left
-                                .keys_answer 
-                                    button(name="Solution") Решение
+                                    button(name="1") 1
+                                    button(name="2") 2
+                                    button(name="3") 3
+                                    button(name="4") 4
+                                    button(name="5") 5
+                                    button(name="6") 6 
+                                    button(name="7") 7
+                                    button(name="8") 8
+                                    button(name="9") 9  
+                                    button(name="C") C            
+                                    button(name="0") 0
+                                    button#left(name="left") 
+                                        i.icon-long-arrow-left
+                                
                                 
                         .solution_text(style="margin-bottom: 1rem" )
 
         include ../includes/_footer.pug           
-        script(src="/js/compire.js")
         script(src="/js/simple.js")
         script(src="/js/media.js")

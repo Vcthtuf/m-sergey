@@ -21,22 +21,11 @@ window.addEventListener('DOMContentLoaded', function () {
     // Разложение на простые множители
 
     let inputValue = document.querySelector('.solution_input > input'),      // входное число
-        blockInput = document.querySelector('.solution_input'),
         inputResult = document.querySelector('.solution_result > input'),
         solutionText = document.querySelector('.solution_text'),
         simpleNumbers = [];
 
     let msgError = document.querySelector('.message_error'); // сообщение об ошибке ввода данных
-
-    blockInput.addEventListener('click', function (event) {  // скрытие значений input и очистка данных при клике 
-        let target = event.target;
-        target.setAttribute('placeholder', '');
-        target.value = '';
-        dividedYes = [];
-        dividedNo = [];
-        deleteMessageError();
-
-    });
 
     function answer() {  // обработка клика по кнопке "Разложить", вывода результата и очистка решения
 
@@ -46,6 +35,7 @@ window.addEventListener('DOMContentLoaded', function () {
         } else if (isPrime(+inputValue.value)) {
             inputResult.value = `${inputValue.value} - простое число`;
             solutionText.textContent = '';
+            inputValue.value = "";
         }
         else {
             msgError.classList.remove('message_error_active');
@@ -53,6 +43,8 @@ window.addEventListener('DOMContentLoaded', function () {
             getSimpleFactors(inputValue.value);
             inputResult.value = `${inputValue.value} = ${simpleNumbers.join(' ∙ ')}`;
             solutionText.textContent = '';
+            solution();
+            inputValue.value = "";
         }
     }
 
@@ -184,26 +176,21 @@ window.addEventListener('DOMContentLoaded', function () {
 
     keys.addEventListener('mousedown', function (e) {
         let target = e.target;
-        target.classList.add('button_click');
         target.style.transform = "translate(2%, 2%)";
         if (target.name != 'left' && target.name != 'C' && target.name != 'Enter' && target.name != undefined) {
             inputValue.value = `${inputValue.value}${target.name}`;
         } else if (target.name == 'C') {
             inputValue.value = '';
             inputResult.value = '';
-            solutionText.textContent = '';
-            dividedNo = [];
-            dividedYes = [];
         } else if (target.name == 'Enter') {
-
-            if (reg.test(inputValue.value || inputValue.value == '')) {
+            if (reg.test(inputValue.value || inputValue.value == '' || inputValue.value == ' ')) {
                 inputValue.value = 'Введите число';
                 inputResult.value = 'Введите число';
             } else {
                 answer();
-                solution();
             }
         }
+
     });
 
     let left = document.querySelector('#left');
@@ -213,7 +200,8 @@ window.addEventListener('DOMContentLoaded', function () {
 
     keys.addEventListener('mouseup', function (e) {
         let target = e.target;
-        target.style.transform = "";
+        target.style.transform = "translate(0%, 0%)";
+
     });
 
 
