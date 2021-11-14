@@ -3,77 +3,107 @@
 		<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 	<loc>https://math-365.ru/</loc>
-	<lastmod>2021-11-01T20:44:13+01:00</lastmod>
+	<lastmod>2021-11-14T21:34:42+01:00</lastmod>
 	<priority>1.0</priority>
 </url>
 <url>
 	<loc>https://math-365.ru/index.html</loc>
-	<lastmod>2021-11-01T20:44:13+01:00</lastmod>
+	<lastmod>2021-11-14T21:34:43+01:00</lastmod>
 	<priority>1.0</priority>
 </url>
 <url>
 	<loc>https://math-365.ru/nod.html</loc>
-	<lastmod>2021-11-01T20:44:31+01:00</lastmod>
+	<lastmod>2021-11-14T21:34:46+01:00</lastmod>
 	<priority>1.0</priority>
 </url>
 <url>
 	<loc>https://math-365.ru/nok.html</loc>
-	<lastmod>2021-11-01T20:44:17+01:00</lastmod>
+	<lastmod>2021-11-14T21:34:46+01:00</lastmod>
 	<priority>1.0</priority>
 </url>
 <url>
 	<loc>https://math-365.ru/simple.html</loc>
-	<lastmod>2021-11-01T20:44:20+01:00</lastmod>
+	<lastmod>2021-11-14T21:34:46+01:00</lastmod>
 	<priority>1.0</priority>
 </url>
 <url>
 	<loc>https://math-365.ru/notation.html</loc>
-	<lastmod>2021-11-01T20:44:20+01:00</lastmod>
+	<lastmod>2021-11-14T21:34:46+01:00</lastmod>
 	<priority>1.0</priority>
 </url>
 <url>
 	<loc>https://math-365.ru/prime_numbers.html</loc>
-	<lastmod>2021-11-01T20:44:20+01:00</lastmod>
+	<lastmod>2021-11-14T21:34:46+01:00</lastmod>
 	<priority>1.0</priority>
 </url>
 <url>
 	<loc>https://math-365.ru/prime_numbers/table.html</loc>
-	<lastmod>2021-11-01T20:44:20+01:00</lastmod>
+	<lastmod>2021-11-14T21:34:47+01:00</lastmod>
 	<priority>0.8</priority>
 </url>
 <url>
 	<loc>https://math-365.ru/prime_numbers/isprime.html</loc>
-	<lastmod>2021-11-01T20:44:20+01:00</lastmod>
+	<lastmod>2021-11-14T21:34:47+01:00</lastmod>
 	<priority>0.8</priority>
 </url>
 <url>
 	<loc>https://math-365.ru/prime_numbers/examples.html</loc>
-	<lastmod>2021-11-01T20:44:20+01:00</lastmod>
+	<lastmod>2021-11-14T21:34:47+01:00</lastmod>
 	<priority>0.8</priority>
 </url>
 <url>
 	<loc>https://math-365.ru/factorial.html</loc>
-	<lastmod>2021-11-01T20:44:21+01:00</lastmod>
+	<lastmod>2021-11-14T21:34:47+01:00</lastmod>
 	<priority>1.0</priority>
 </url>
 <url>
 	<loc>https://math-365.ru/factorial/examples.html</loc>
-	<lastmod>2021-11-01T20:44:39+01:00</lastmod>
+	<lastmod>2021-11-14T21:34:47+01:00</lastmod>
 	<priority>0.8</priority>
 </url>
 <url>
 	<loc>https://math-365.ru/factorial/table.html</loc>
-	<lastmod>2021-11-01T20:44:21+01:00</lastmod>
+	<lastmod>2021-11-14T21:34:48+01:00</lastmod>
 	<priority>0.8</priority>
 </url>
 <url>
 	<loc>https://math-365.ru/factorial/calc.html</loc>
-	<lastmod>2021-11-01T20:44:21+01:00</lastmod>
+	<lastmod>2021-11-14T21:34:48+01:00</lastmod>
 	<priority>0.8</priority>
 </url>
 <url>
 	<loc>https://math-365.ru/factorial/progs.html</loc>
-	<lastmod>2021-11-01T20:44:21+01:00</lastmod>
+	<lastmod>2021-11-14T21:35:06+01:00</lastmod>
 	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://math-365.ru/simple/factorization.html</loc>
+	<lastmod>2021-11-14T21:34:48+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://math-365.ru/simple/compire_numbers.html</loc>
+	<lastmod>2021-11-14T21:34:48+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://math-365.ru/simple/compire_calc.html</loc>
+	<lastmod>2021-11-14T21:34:48+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://www.math-365.ru/404.html</loc>
+	<lastmod>2021-11-14T21:35:06+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>http://math-365.ru/404.html</loc>
+	<lastmod>2021-11-14T21:34:53+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://math-365.ru/404.html</loc>
+	<lastmod>2021-11-14T21:34:53+01:00</lastmod>
+	<priority>1.0</priority>
 </url>
 </urlset>

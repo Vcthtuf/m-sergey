@@ -20,44 +20,58 @@ window.addEventListener('DOMContentLoaded', function () {
 
     // -------------------------------------------------
 
-    let inputValue = document.querySelector('.solution_input > input'),      // входное число
+    let inputValue = document.querySelectorAll('.solution_input > input'),      // входные инпуты
+        input = [],                                                                  // входные числа
         blockInput = document.querySelector('.solution_input'),
         inputResult = document.querySelector('.solution_result > input'),
         solutionText = document.querySelector('.solution_text');
+
+
+
+    blockInput.addEventListener('click', function (event) {  // скрытие значений input и очистка данных при клике 
+        let target = event.target;
+        target.setAttribute('placeholder', '');
+        target.value = '';
+
+        if (target === inputValue[0]) {
+            inputValue[0].setAttribute('autofocus', 'autofocus');
+            inputValue[1].removeAttribute('autofocus');
+        }
+
+        if (target === inputValue[1]) {
+
+            inputValue[1].setAttribute('autofocus', 'autofocus');
+            inputValue[0].removeAttribute('autofocus');
+        }
+
+    });
 
     let msgError = document.querySelector('.message_error'); // сообщение об ошибке ввода данных
 
     // Расчет 
 
-    function calc() {
-
-        blockInput.addEventListener('click', function (event) {  // скрытие значений input и очистка данных при клике 
-            let target = event.target;
-            target.setAttribute('placeholder', '');
-            target.value = '';
-            deleteMessageError();
-        });
-
-        function answer() {  // обработка клика по кнопке "Разложить", вывода результата и очистка решения
-
-            if (+inputValue.value <= 0) {
-                inputResult.value = `Введите положительное число`;
-            } else if (+inputValue.value == 1) {
-                inputResult.value = `${inputValue.value} - не простое и не составное число`;
-            }
-            else {
-                solutionText.textContent = '';
-                msgError.classList.remove('message_error_active');
-                inputValue.classList.remove('input_error');
-                if (isPrime(+inputValue.value)) {
-                    inputResult.value = `${inputValue.value} - простое число`;
-                } else {
-                    inputResult.value = `${inputValue.value} - составное число`;
-                }
-            }
+    function nod(a, b) {    // функция быстрого вычисления НОД для вывода ответа
+        if (!b) {
+            return a;
         }
+        return nod(b, a % b);
+    }
 
-        // ------------------------------------------------
+    function answer(n) {  // обработка клика по кнопке "Проверить", вывода результата и очистка решения
+
+        if (nod(n[0], n[1]) == 1) {
+            inputResult.value = `Числа ${n[0]} и ${n[1]} взаимно простые`;
+            solutionText.insertAdjacentHTML('beforeend', `Числа ${n[0]} и ${n[1]} имеют один общий множитель и он равен 1.<br> Поэтому эти числа взаимно просты <br>`);
+
+
+        } else {
+            inputResult.value = `Числа ${n[0]} и ${n[1]} НЕ взаимно простые`;
+
+            solutionText.insertAdjacentHTML('beforeend', `Числа ${n[0]} и ${n[1]} имеют общий множитель, равный ${nod(n[0], n[1])}.<br> Поэтому эти числа <span style="color: red">НЕ</span> взаимно просты <br>`);
+        }
+    }
+
+    function calc() {
 
         // Функция вывода сообщения об ошибке (не введены значения или одно из значений)
 
@@ -80,17 +94,6 @@ window.addEventListener('DOMContentLoaded', function () {
 
         // -------------------------------------------------
 
-
-
-        let left = document.querySelector('#left');
-        left.addEventListener('click', function () {
-            inputValue.value = inputValue.value.slice(0, -1);
-        });
-
-        keys.addEventListener('mouseup', function (e) {
-            let target = e.target;
-            target.style.transform = "";
-        });
     }
 
     // Ввод значений с клавиатуры на экране
@@ -100,23 +103,59 @@ window.addEventListener('DOMContentLoaded', function () {
     let reg = /\D/;
 
     keys.addEventListener('mousedown', function (e) {
-        console.log(target);
+        let left = document.querySelector('.icon-long-arrow-left');
         let target = e.target;
         target.classList.add('button_click');
         target.style.transform = "translate(2%, 2%)";
-        if (target.name != 'left' && target.name != 'C' && target.name != 'Enter' && target.name != undefined) {
-            inputValue.value = `${inputValue.value}${target.name}`;
-        } else if (target.name == 'C') {
-            inputValue.value = '';
-            inputResult.value = '';
-        } else if (target.name == 'Enter') {
-            if (reg.test(inputValue.value || inputValue.value == '' || inputValue.value == ' ')) {
-                inputValue.value = 'Введите число';
-                inputResult.value = 'Введите число';
-            } else {
-                answer();
+        if (inputValue[0].hasAttribute('autofocus', 'autofocus')) {
+            if (target.name != 'left' && target.name != 'C' && target.name != 'Enter' && target.name != undefined) {
+                inputValue[0].value = `${inputValue[0].value}${target.name}`;
+            } else if (target.name == 'C') {
+                inputValue[0].value = '';
+                inputValue[1].value = '';
+                inputResult.value = '';
+            } else if (target === left) {
+                inputValue[0].value = inputValue[0].value.slice(0, -1);
+            } else if (target.name == 'Enter') {
+                if (reg.test(inputValue[0].value || inputValue[0].value == '' || inputValue[0].value == ' ')) {
+                    inputValue[0].value = 'Введите число';
+                    inputResult.value = 'Введите число';
+                } else {
+                    input[0] = +inputValue[0].value;
+                    input[1] = +inputValue[1].value;
+                    solutionText.textContent = "";
+                    answer(input);
+                }
             }
         }
+
+        if (inputValue[1].hasAttribute('autofocus', 'autofocus')) {
+            if (target.name != 'left' && target.name != 'C' && target.name != 'Enter' && target.name != undefined) {
+                inputValue[1].value = `${inputValue[1].value}${target.name}`;
+            } else if (target.name == 'C') {
+                inputValue[1].value = '';
+                inputValue[0].value = '';
+                inputResult.value = '';
+            } else if (target === left) {
+                inputValue[1].value = inputValue[1].value.slice(0, -1);
+            } else if (target.name == 'Enter') {
+                if (reg.test(inputValue[1].value || inputValue[1].value == '' || inputValue[1].value == ' ')) {
+                    inputValue[1].value = 'Введите число';
+                    inputResult.value = 'Введите число';
+                } else {
+                    input[0] = +inputValue[0].value;
+                    input[1] = +inputValue[1].value;
+                    solutionText.textContent = "";
+                    answer(input);
+                }
+            }
+        }
+
+    });
+
+    keys.addEventListener('mouseup', function (e) {
+        let target = e.target;
+        target.style.transform = "";
     });
 
     // Подсветка внутреннего меню
@@ -140,15 +179,6 @@ window.addEventListener('DOMContentLoaded', function () {
             break;
         default:
             break;
-    }
-
-    function isPrime(n) {             // функция проверки простое ли число
-        for (let i = 2; i <= Math.sqrt(n); i++) {
-            if (n % i === 0) {
-                return false;
-            }
-        }
-        return true;
     }
 
 });

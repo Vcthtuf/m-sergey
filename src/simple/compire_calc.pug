@@ -30,7 +30,7 @@ html(lang="ru")
                             h1.solution_title Онлайн проверка взаимно простых чисел
                             span.solution_instruction Введите ваши числа:
                             .solution_input
-                                input(type="text" placeholder = "Введите число" required)
+                                input(type="text" placeholder = "Введите число" required autofocus)
                                 input(type="text" placeholder = "Введите число" required)
                             .calculate 
                                 .message_error Введите значения в поле выше
@@ -55,7 +55,7 @@ html(lang="ru")
                                     button#left(name="left") 
                                         i.icon-long-arrow-left
                                 
-                        .solution_text(style="text-align: center; margin-bottom: 1rem" ) 
+                        .solution_text(style="text-align: center; margin-bottom: 3rem; margin-top: 1rem; border: 1px solid grey" ) Решение<br>
                         .descr
                             p Для расчета введите целое числа в поле "Введите число" и нажмите кнопку "Проверить". В поле ниже получите результат расчета, т.е введенные числа взаимно простые или нет. <br>Пользуйтесь на здоровье!        
                             p Калькулятор проверяет явдяются ли два введенных числа взаимно простыми. Что такое взаимно простые числа и как они находятся показано на странице <a href="compire_numbers.html">Взаимно простые числа</a>.
